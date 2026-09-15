@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Operación, modernización LED e infraestructura integral de alumbrado público y proyectos monumentales en Colombia bajo normativa RETILAP.">
+  <title>Alumbrado Público | Electroingeniería S.A.S.</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header Universal -->
+  <header class="header-transparent">
+    <div class="header-inner">
+      <a href="index.html" class="logo-main">
+        <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S.">
+      </a>
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="alumbrado-publico.html" class="nav-link active" style="color: var(--color-accent);">Alumbrado Público</a></li>
+          <li><a href="suministros.html" class="nav-link">Suministros Eléctricos</a></li>
+          <li><a href="obras.html" class="nav-link">Proyectos de Ingeniería</a></li>
+          <li class="has-dropdown">
+            <a href="javascript:void(0)" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Acerca de &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="nosotros.html">Nosotros</a></li>
+              <li><a href="contacto.html">Contacto Comercial</a></li>
+              <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+            </ul>
+          </li>
+          <li><a href="contacto.html" class="btn-quote-header">Cotizar</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón Menú Hamburguesa Móvil -->
+      <button class="nav-toggle" aria-label="Abrir Menú" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay y Cajón de Navegación Móvil -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" aria-label="Menú de Navegación Móvil">
+    <div class="drawer-header">
+      <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S." class="drawer-logo">
+      <button class="drawer-close" aria-label="Cerrar Menú">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <span class="drawer-section-title">Líneas de Negocio</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="alumbrado-publico.html" class="drawer-nav-link active">
+          <i class="fa-solid fa-lightbulb"></i> Alumbrado Público
+        </a>
+      </li>
+      <li>
+        <a href="suministros.html" class="drawer-nav-link">
+          <i class="fa-solid fa-boxes-stacked"></i> Suministros Eléctricos
+        </a>
+      </li>
+      <li>
+        <a href="obras.html" class="drawer-nav-link">
+          <i class="fa-solid fa-tower-broadcast"></i> Proyectos de Ingeniería
+        </a>
+      </li>
+    </ul>
+
+    <span class="drawer-section-title">Acerca de</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="nosotros.html" class="drawer-nav-link">
+          <i class="fa-solid fa-users"></i> Nosotros
+        </a>
+      </li>
+      <li>
+        <a href="contacto.html" class="drawer-nav-link">
+          <i class="fa-solid fa-address-book"></i> Contacto Comercial
+        </a>
+      </li>
+      <li>
+        <a href="nosotros.html#trabaja-con-nosotros" class="drawer-nav-link">
+          <i class="fa-solid fa-user-plus"></i> Trabaja con Nosotros
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="contacto.html" class="drawer-btn-quote">
+        <i class="fa-solid fa-paper-plane"></i> Cotizar Servicios
+      </a>
+      <div class="drawer-social-row">
+        <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S."><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S."><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S."><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="WhatsApp" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Banner Editorial -->
+  <section class="inner-hero-banner hero-insignia alumbrado-hero-section" style="background-image: url('assets/alumbrado/Gemini_Generated_Image_c6goduc6goduc6go.jpg');">
+    <div class="slide-overlay"></div>
+    <div class="container inner-hero-content hero-insignia-content alumbrado-hero-content">
+      <div class="inner-editorial-box banner-text-block">
+        <h1 class="hero-insignia-title banner-heading">Concesión & Operación de Alumbrado Público</h1>
+        <p class="hero-insignia-lead banner-subtext">Modernización masiva a tecnología LED y cobertura operativa en múltiples municipios y concesiones viales de Colombia bajo estricta normativa RETILAP.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo Insignia: Transformación Lumínica e Infraestructura Urbana -->
+  <section class="transformation-showcase-section" id="transformacion">
+    <div class="container">
+      <div class="transformation-grid-layout">
+        
+        <!-- Columna Izquierda: Editorial y Cuadrícula de Capacidades -->
+        <div class="transformation-editorial">
+          <h2 class="transformation-main-title">
+            Modernización Integral, Telegestión y <span class="text-accent-amber">Eficiencia Energética</span>
+          </h2>
+
+          <p class="transformation-lead-paragraph">
+            Como unidad insignia de <strong>Electroingeniería S.A.S.</strong>, asumimos la transformación completa del alumbrado público mediante esquemas de concesión e inversión de capital. Integramos luminarias LED de última generación certificadas bajo <strong>RETILAP</strong>, conectadas a plataformas de monitoreo inteligente y respaldadas por centros logísticos propios con capacidad de respuesta inmediata las 24 horas del día.
+          </p>
+
+          <!-- Grilla 2x2 de Capacidades Técnicas Clave -->
+          <div class="capabilities-matrix-grid">
+            
+            <div class="cap-card">
+              <div class="cap-icon"><i class="fa-solid fa-microchip"></i></div>
+              <div class="cap-info">
+                <h4>Telegestión Punto a Punto</h4>
+                <p>Monitoreo remoto de consumo, alertas de falla en tiempo real y atenuación inteligente programada.</p>
+              </div>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon"><i class="fa-solid fa-leaf"></i></div>
+              <div class="cap-info">
+                <h4>Ahorro Energético &gt;45%</h4>
+                <p>Sustitución masiva de tecnología de sodio obsoleta por luminarias LED de alta eficacia lumínica (lm/W).</p>
+              </div>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="cap-info">
+                <h4>Cumplimiento RETILAP</h4>
+                <p>Estudios fotométricos DIALux garantizando uniformidad lumínica y cero deslumbramiento en vías públicas.</p>
+              </div>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div class="cap-info">
+                <h4>Cuadrillas de Reacción Rápida</h4>
+                <p>Flota propia de canastas aisladas operando 24/7 para atención correctiva y mantenimiento de luminarias.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Botón de Acción y Métricas Rápidas -->
+          <div class="transformation-footer-row">
+            <a href="#sedes-atencion" class="btn-slider-action">Ver Red de Sedes Operativas <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="quick-assurance-badges">
+              <span><i class="fa-solid fa-circle-check"></i> Norma RETILAP</span>
+              <span><i class="fa-solid fa-circle-check"></i> Disponibilidad >99%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Showcase Visual / Mini Slider de Proyectos Reales -->
+        <div class="transformation-slider-wrapper">
+          <div class="slider-viewport-card">
+            
+            <div class="slider-top-indicator">
+              <span class="pulse-dot"></span> Operación en Tiempo Real
+            </div>
+
+            <div class="alumbrado-slider-viewport">
+              <div class="alumbrado-slide active" style="background-image: url('assets/alumbrado/Gemini_Generated_Image_c6goduc6goduc6go.jpg');">
+                <span class="slide-caption-tag"><i class="fa-solid fa-location-dot"></i> Vías Rápidas & Concesiones 4G</span>
+              </div>
+
+              <div class="alumbrado-slide" style="background-image: url('assets/proyectos/9.jpg');">
+                <span class="slide-caption-tag"><i class="fa-solid fa-location-dot"></i> Avenidas Principales & Bulevares</span>
+              </div>
+
+              <div class="alumbrado-slide" style="background-image: url('assets/proyectos/1.jpg');">
+                <span class="slide-caption-tag"><i class="fa-solid fa-location-dot"></i> Parques, Plazas & Senderos Cívicos</span>
+              </div>
+
+              <div class="alumbrado-slide" style="background-image: url('assets/suministros/pasillo2.jpg');">
+                <span class="slide-caption-tag"><i class="fa-solid fa-location-dot"></i> Zonas Francas & Parques Industriales</span>
+              </div>
+            </div>
+
+            <!-- Controles Minimalistas -->
+            <button class="slider-btn-mini prev" aria-label="Anterior">&#10094;</button>
+            <button class="slider-btn-mini next" aria-label="Siguiente">&#10095;</button>
+
+            <!-- Paginadores -->
+            <div class="slider-dots-mini">
+              <span class="s-dot active" data-slide="0"></span>
+              <span class="s-dot" data-slide="1"></span>
+              <span class="s-dot" data-slide="2"></span>
+              <span class="s-dot" data-slide="3"></span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo Insignia: Nuestros Alumbrados Públicos & Ciudades Principales -->
+  <section class="emblematic-lighting-section" id="nuestros-alumbrados">
+    <div class="container">
+      
+      <!-- Encabezado Estilizado -->
+      <div class="emblematic-header">
+        <h2 class="emblematic-title">
+          Nuestros <span class="text-accent-amber">Alumbrados Públicos</span>
+        </h2>
+        <p class="emblematic-subtitle">
+          Proyectamos y sostenemos la infraestructura lumínica en los centros urbanos y corredores viales más estratégicos de Colombia, brindando seguridad ciudadana, confiabilidad técnica y estética nocturna.
+        </p>
+
+        <!-- Chips de Ciudades Principales en Concesión -->
+        <div class="main-cities-pills">
+          <a href="#sede-tulua" class="city-pill" title="Ver sede y contacto en Tuluá"><i class="fa-solid fa-location-dot"></i> Tuluá</a>
+          <a href="#sede-palmira" class="city-pill" title="Ver sede y contacto en Palmira"><i class="fa-solid fa-location-dot"></i> Palmira</a>
+          <a href="#sede-calima" class="city-pill" title="Ver sede y contacto en Calima El Darién"><i class="fa-solid fa-location-dot"></i> Calima El Darién</a>
+          <a href="#sede-san-pedro" class="city-pill" title="Ver sede y contacto en San Pedro"><i class="fa-solid fa-location-dot"></i> San Pedro</a>
+          <a href="#sede-andalucia" class="city-pill" title="Ver sede y contacto en Andalucía"><i class="fa-solid fa-location-dot"></i> Andalucía</a>
+          <a href="#sede-el-rosal" class="city-pill" title="Ver sede y contacto en El Rosal"><i class="fa-solid fa-location-dot"></i> El Rosal (Cundinamarca)</a>
+          <a href="#sede-guatavita" class="city-pill" title="Ver sede y contacto en Guatavita"><i class="fa-solid fa-location-dot"></i> Guatavita (Cundinamarca)</a>
+          <a href="#sede-la-jagua" class="city-pill" title="Ver sede y contacto en La Jagua de Ibirico"><i class="fa-solid fa-location-dot"></i> La Jagua de Ibirico (Cesar)</a>
+          <a href="#sede-planeta-rica" class="city-pill" title="Ver sede y contacto en Planeta Rica"><i class="fa-solid fa-location-dot"></i> Planeta Rica (Córdoba)</a>
+        </div>
+      </div>
+
+      <!-- Mosaico de Alumbrados Impresionantes -->
+      <div class="emblematic-showcase-grid">
+
+        <!-- Tarjeta 1: Tuluá (Formato Grande Izquierda) -->
+        <article class="emblematic-card card-large city-slider-card" data-city="tulua">
+          <div class="city-slides-wrapper">
+            <div class="city-slide active" style="background-image: url('assets/alumbrado/footer.webp');"></div>
+            <div class="city-slide" style="background-image: url('assets/proyectos/9.jpg');"></div>
+            <div class="city-slide" style="background-image: url('assets/proyectos/1.jpg');"></div>
+          </div>
+          <div class="emblematic-card-overlay"></div>
+          <button class="city-nav-btn prev" type="button" aria-label="Anterior">&#10094;</button>
+          <button class="city-nav-btn next" type="button" aria-label="Siguiente">&#10095;</button>
+          <div class="emblematic-minimal-bar">
+            <h3><i class="fa-solid fa-location-dot text-accent-amber"></i> Tuluá, Valle del Cauca</h3>
+            <span class="minimal-pill">RETILAP M1/M2</span>
+          </div>
+        </article>
+
+        <!-- Tarjeta 2: Palmira (Superior Derecha) -->
+        <article class="emblematic-card city-slider-card" data-city="palmira">
+          <div class="city-slides-wrapper">
+            <div class="city-slide active" style="background-image: url('assets/proyectos/9.jpg');"></div>
+            <div class="city-slide" style="background-image: url('assets/alumbrado/footer.webp');"></div>
+          </div>
+          <div class="emblematic-card-overlay"></div>
+          <button class="city-nav-btn prev" type="button" aria-label="Anterior">&#10094;</button>
+          <button class="city-nav-btn next" type="button" aria-label="Siguiente">&#10095;</button>
+          <div class="emblematic-minimal-bar">
+            <h3><i class="fa-solid fa-location-dot text-accent-amber"></i> Palmira, Valle del Cauca</h3>
+            <span class="minimal-pill">Smart City</span>
+          </div>
+        </article>
+
+        <!-- Tarjeta 3: Calima El Darién (Inferior Derecha) -->
+        <article class="emblematic-card city-slider-card" data-city="calima">
+          <div class="city-slides-wrapper">
+            <div class="city-slide active" style="background-image: url('assets/proyectos/1.jpg');"></div>
+            <div class="city-slide" style="background-image: url('assets/suministros/pasillo2.jpg');"></div>
+          </div>
+          <div class="emblematic-card-overlay"></div>
+          <button class="city-nav-btn prev" type="button" aria-label="Anterior">&#10094;</button>
+          <button class="city-nav-btn next" type="button" aria-label="Siguiente">&#10095;</button>
+          <div class="emblematic-minimal-bar">
+            <h3><i class="fa-solid fa-location-dot text-accent-amber"></i> Calima El Darién, Valle del Cauca</h3>
+            <span class="minimal-pill">Arquitectónico</span>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 1. Métricas de Impacto y Sostenibilidad -->
+  <section class="alumbrado-stats-strip" id="metricas">
+    <div class="container">
+      <div class="stats-grid-four">
+        <div class="stat-box">
+          <span class="stat-number" data-target="130000">+0</span>
+          <span class="stat-caption">Luminarias LED Operadas y Censadas</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" data-target="45">&gt;0%</span>
+          <span class="stat-caption">Ahorro Promedio en Consumo Eléctrico</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" data-target="24">&lt;0h</span>
+          <span class="stat-caption">Tiempo Promedio de Atención a Reportes</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" data-target="100">0%</span>
+          <span class="stat-caption">Conformidad con Norma RETILAP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Comparador Interactivo: Sodio vs. Modernización LED -->
+  <section class="before-after-section" id="antes-despues">
+    <div class="container">
+      <div class="unidades-header">
+        <h2 class="unidades-title">
+          Transformación Tecnológica: <span class="text-accent-amber">Antes vs. Después</span>
+        </h2>
+        <p class="unidades-subtitle">
+          Desplaza la barra interactiva para comparar el parque lumínico convencional de sodio frente a la tecnología LED de alta reproducción cromática.
+        </p>
+      </div>
+
+      <div class="split-slider-container">
+        <!-- Imagen Después (LED - Base Superior) -->
+        <div class="split-image img-after" style="background-image: url('assets/alumbrado/Gemini_Generated_Image_c6goduc6goduc6go.jpg');">
+          <span class="split-badge badge-after"><i class="fa-solid fa-bolt"></i> MODERNIZACIÓN LED &bull; 5000K BLANCO PURO</span>
+        </div>
+        
+        <!-- Imagen Antes (Sodio - Recortada con Clip-Path) -->
+        <div class="split-image img-before" style="background-image: url('assets/proyectos/9.jpg');">
+          <span class="split-badge badge-before"><i class="fa-solid fa-fire"></i> SISTEMA CONVENCIONAL DE SODIO &bull; 2700K</span>
+        </div>
+
+        <!-- Manija de Control Deslizable -->
+        <input type="range" min="0" max="100" value="50" class="split-range-input" aria-label="Comparar antes y después">
+        <div class="split-handle-line">
+          <div class="split-handle-circle">
+            <i class="fa-solid fa-arrows-left-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo Especializado: Alumbrado Navideño y Monumental -->
+  <section class="christmas-lighting-section" id="alumbrado-navideno">
+    <div class="container">
+      <div class="christmas-wrapper">
+        
+        <!-- Contenido Editorial -->
+        <div class="christmas-content">
+          <h2 class="christmas-title">
+            Alumbrado Navideño y <span class="text-accent-amber">Proyectos Monumentales</span>
+          </h2>
+          <p class="christmas-description">
+            Transformamos los espacios públicos, parques principales y corredores cívicos en escenarios turísticos mágicos. Desarrollamos espectáculos lumínicos sostenibles con tecnología LED interactiva, combinando arte monumental, tradición y seguridad técnica.
+          </p>
+
+          <!-- Cuadrícula de Capacidades -->
+          <div class="christmas-features-grid">
+            <div class="c-feature-item">
+              <div class="c-icon"><i class="fa-solid fa-palette"></i></div>
+              <div>
+                <h4>Diseño y Conceptualización</h4>
+                <p>Temáticas creativas a medida para cada identidad municipal y patrimonio cultural.</p>
+              </div>
+            </div>
+
+            <div class="c-feature-item">
+              <div class="c-icon"><i class="fa-solid fa-shapes"></i></div>
+              <div>
+                <h4>Fabricación Artesanal & Soldadura</h4>
+                <p>Estructuras metálicas monumentales elaboradas con mano de obra local calificada.</p>
+              </div>
+            </div>
+
+            <div class="c-feature-item">
+              <div class="c-icon"><i class="fa-solid fa-leaf"></i></div>
+              <div>
+                <h4>Micro-LED de Ultra Bajo Consumo</h4>
+                <p>Redes lumínicas eficientes con cero impacto sobre la matriz energética ordinaria.</p>
+              </div>
+            </div>
+
+            <div class="c-feature-item">
+              <div class="c-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <h4>Montaje Certificado RETIE</h4>
+                <p>Sistemas protegidos contra intemperie (IP65+), tableros herméticos y polo a tierra.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="christmas-action">
+            <a href="#contacto" class="btn-christmas-quote">Cotizar Proyecto Navideño Municipal &rsaquo;</a>
+          </div>
+        </div>
+
+        <!-- Mosaico Visual / Showcase Navideño -->
+        <div class="christmas-gallery">
+          <div class="c-photo-primary">
+            <img src="assets/alumbrado-navideno/1.jpg" alt="Alumbrado Navideño Monumental en Parques Principales y Espacios Cívicos" loading="lazy" decoding="async">
+            <span class="c-tag-floating">Parques Principales & Bulevares</span>
+          </div>
+          <div class="c-photo-secondary">
+            <img src="assets/alumbrado-navideno/2.jpg" alt="Montaje e Instalación de Túneles Navideños con Efectos Lumínicos LED" loading="lazy" decoding="async">
+            <span class="c-tag-floating">Túneles e Hilos Dinámicos</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Acordeón FAQ y Trámites Ciudadanos -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="unidades-header">
+        <h2 class="unidades-title">
+          Preguntas Frecuentes y <span class="text-accent-amber">Soporte Técnico</span>
+        </h2>
+        <p class="unidades-subtitle">
+          Información clave para comunidades, administraciones municipales y usuarios del servicio.
+        </p>
+      </div>
+
+      <div class="faq-accordion-box">
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>¿Cómo reportar una luminaria apagada o con fallas en mi sector?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Puedes comunicarte directamente con la sede operativa de tu municipio a través de las líneas telefónicas o el botón de WhatsApp listados en esta página, o ingresando tu radicado mediante el portal web de Electroingeniería con la dirección exacta o el número de poste.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>¿Cuál es el tiempo de resolución tras un reporte de falla?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>De acuerdo con los estándares de servicio y la regulación nacional, las fallas puntuales en sectores urbanos son atendidas y solucionadas en un lapso habitual inferior a 24 a 48 horas hábiles por nuestras cuadrillas permanentes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>¿Qué normatividad técnica respalda las instalaciones y luminarias?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>El 100% de los elementos instalados cumplen con el Reglamento Técnico de Iluminación y Alumbrado Público (RETILAP) y el Reglamento Técnico de Instalaciones Eléctricas (RETIE), garantizando niveles óptimos de luxes, eficiencia y seguridad humana.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>¿Cómo se solicita una expansión de cobertura de alumbrado público?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Las solicitudes de expansión o nuevos puntos de luz son evaluadas en coordinación con las secretarías de infraestructura municipal correspondientes mediante un estudio de viabilidad técnica y fotométrica en terreno.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Directorio Nacional de Sedes y Atención Municipal -->
+  <section class="branches-section" id="sedes-atencion">
+    <div class="container">
+      <div class="unidades-header">
+        <h2 class="unidades-title">
+          Sedes Operativas y <span class="text-accent-amber">Atención de Alumbrado</span>
+        </h2>
+        <p class="unidades-subtitle">
+          Canales directos de atención ciudadana, reporte de daños y gestión técnica en cada uno de nuestros municipios en concesión.
+        </p>
+      </div>
+
+      <!-- Filtro Departamental Rápido -->
+      <div class="dept-filter-wrapper">
+        <span class="filter-label"><i class="fa-solid fa-filter"></i> Filtrar por Territorio:</span>
+        <div class="dept-filter-bar">
+          <button type="button" class="dept-filter-btn active" data-dept="all">Todas las Sedes</button>
+          <button type="button" class="dept-filter-btn" data-dept="valle">Valle del Cauca</button>
+          <button type="button" class="dept-filter-btn" data-dept="cundinamarca">Cundinamarca</button>
+          <button type="button" class="dept-filter-btn" data-dept="cordoba">Córdoba</button>
+          <button type="button" class="dept-filter-btn" data-dept="cesar">Cesar</button>
+        </div>
+      </div>
+
+      <!-- Agrupación por Departamentos -->
+      <div class="departments-grid">
+
+        <!-- ================= VALLE DEL CAUCA ================= -->
+        <div class="department-block" data-dept="valle">
+          <div class="dept-header-tag">
+            <i class="fa-solid fa-map-location-dot"></i> Valle del Cauca
+          </div>
+          <div class="branch-cards-list">
+
+            <!-- Tuluá -->
+            <article class="branch-card-pro" id="sede-tulua">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/tulua.png" alt="Escudo Tuluá">
+                </div>
+                <div>
+                  <h4>Sede Operativa Tuluá</h4>
+                  <span class="branch-dept-badge">Valle del Cauca</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Carrera 24 N° 29 - 34, B/ Sajonia</p>
+              <div class="branch-info-lines">
+                <a href="tel:6022244000" class="branch-phone-link"><i class="fa-solid fa-phone"></i> (602) 224 40 00</a>
+                <a href="mailto:alumbrado.tulua@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.tulua@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573153944996?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20Tulu%C3%A1%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 315 394 4996)
+              </a>
+            </article>
+
+            <!-- Palmira -->
+            <article class="branch-card-pro" id="sede-palmira">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/palmira.png" alt="Escudo Palmira">
+                </div>
+                <div>
+                  <h4>Sede Palmira</h4>
+                  <span class="branch-dept-badge">Valle del Cauca</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Carrera 33A N° 31 - 44, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="tel:6022856446" class="branch-phone-link"><i class="fa-solid fa-phone"></i> (602) 285 64 46</a>
+                <a href="mailto:alumbrado.palmira@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.palmira@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573167401133?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20Palmira%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 316 740 1133)
+              </a>
+            </article>
+
+            <!-- San Pedro -->
+            <article class="branch-card-pro" id="sede-san-pedro">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/san-pedro.png" alt="Escudo San Pedro">
+                </div>
+                <div>
+                  <h4>Sede San Pedro</h4>
+                  <span class="branch-dept-badge">Valle del Cauca</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Calle 5 N° 3 - 84, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.sanpedro@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.sanpedro@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573185169542?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20San%20Pedro%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 318 516 9542)
+              </a>
+            </article>
+
+            <!-- Calima El Darién -->
+            <article class="branch-card-pro" id="sede-calima">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/calima.png" alt="Escudo Calima El Darién">
+                </div>
+                <div>
+                  <h4>Sede Calima El Darién</h4>
+                  <span class="branch-dept-badge">Valle del Cauca</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Calle 12 N° 6 - 65, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.calima@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.calima@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573187968098?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20Calima%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 318 796 8098)
+              </a>
+            </article>
+
+            <!-- Andalucía -->
+            <article class="branch-card-pro" id="sede-andalucia">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/andalucia.png" alt="Escudo Andalucía">
+                </div>
+                <div>
+                  <h4>Sede Andalucía</h4>
+                  <span class="branch-dept-badge">Valle del Cauca</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Carrera 4 N° 14 – 50, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.andalucia@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.andalucia@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573175610369?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20Andaluc%C3%ADa%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 317 561 0369)
+              </a>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ================= CUNDINAMARCA ================= -->
+        <div class="department-block" data-dept="cundinamarca">
+          <div class="dept-header-tag">
+            <i class="fa-solid fa-map-location-dot"></i> Cundinamarca
+          </div>
+          <div class="branch-cards-list">
+
+            <!-- El Rosal -->
+            <article class="branch-card-pro" id="sede-el-rosal">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/el-rosal.png" alt="Escudo El Rosal">
+                </div>
+                <div>
+                  <h4>Sede El Rosal</h4>
+                  <span class="branch-dept-badge">Cundinamarca</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Calle 7 N° 6 - 08, B/ Lleras</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.elrosal@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.elrosal@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573168135019?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20El%20Rosal%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 316 813 5019)
+              </a>
+            </article>
+
+            <!-- Guatavita -->
+            <article class="branch-card-pro" id="sede-guatavita">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/guatavita.png" alt="Escudo Guatavita">
+                </div>
+                <div>
+                  <h4>Sede Guatavita</h4>
+                  <span class="branch-dept-badge">Cundinamarca</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Carrera 1 N° 6 - 84, Vía Principal</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.guatavita@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.guatavita@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573112026004?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20Guatavita%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 311 202 6004)
+              </a>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ================= CÓRDOBA (SIN CHINÚ) ================= -->
+        <div class="department-block" data-dept="cordoba">
+          <div class="dept-header-tag">
+            <i class="fa-solid fa-map-location-dot"></i> Córdoba
+          </div>
+          <div class="branch-cards-list">
+
+            <!-- San Andrés de Sotavento -->
+            <article class="branch-card-pro" id="sede-san-andres">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/san-andres.png" alt="Escudo San Andrés de Sotavento">
+                </div>
+                <div>
+                  <h4>Sede San Andrés de Sotavento</h4>
+                  <span class="branch-dept-badge">Córdoba</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Diagonal 7 N° 5A - 10, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.sanandres@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.sanandres@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573183409775?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20San%20Andr%C3%A9s%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 318 340 9775)
+              </a>
+            </article>
+
+            <!-- Planeta Rica -->
+            <article class="branch-card-pro" id="sede-planeta-rica">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/planeta-rica.png" alt="Escudo Planeta Rica">
+                </div>
+                <div>
+                  <h4>Sede Planeta Rica</h4>
+                  <span class="branch-dept-badge">Córdoba</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Calle 19 N° 9 - 56, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.planeta@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.planeta@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573164813103?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20Planeta%20Rica%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 316 481 3103)
+              </a>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ================= CESAR ================= -->
+        <div class="department-block" data-dept="cesar">
+          <div class="dept-header-tag">
+            <i class="fa-solid fa-map-location-dot"></i> Cesar
+          </div>
+          <div class="branch-cards-list">
+
+            <!-- La Jagua de Ibirico -->
+            <article class="branch-card-pro" id="sede-la-jagua">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/la-jagua.png" alt="Escudo La Jagua de Ibirico">
+                </div>
+                <div>
+                  <h4>Sede La Jagua de Ibirico</h4>
+                  <span class="branch-dept-badge">Cesar</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Calle 5 N° 2 - 112, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.lajagua@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.lajagua@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573164731917?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20La%20Jagua%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 316 473 1917)
+              </a>
+            </article>
+
+            <!-- Tamalameque -->
+            <article class="branch-card-pro" id="sede-tamalameque">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/tamalameque.png" alt="Escudo Tamalameque">
+                </div>
+                <div>
+                  <h4>Sede Tamalameque</h4>
+                  <span class="branch-dept-badge">Cesar</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Calle 5 N° 2 - 55, B/ Centro</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.tamalameque@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.tamalameque@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573164731971?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20Tamalameque%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 316 473 1971)
+              </a>
+            </article>
+
+            <!-- San Diego -->
+            <article class="branch-card-pro">
+              <div class="branch-card-header">
+                <div class="branch-shield">
+                  <img loading="lazy" decoding="async" src="assets/escudos/san-diego.png" alt="Escudo San Diego">
+                </div>
+                <div>
+                  <h4>Sede San Diego</h4>
+                  <span class="branch-dept-badge">Cesar</span>
+                </div>
+              </div>
+              <p class="branch-address"><i class="fa-solid fa-location-dot"></i> Carrera 8 N° 2C - 31, B/ Las Flores</p>
+              <div class="branch-info-lines">
+                <a href="mailto:alumbrado.sandiego@ei.com.co" class="branch-mail-link"><i class="fa-solid fa-envelope"></i> alumbrado.sandiego@ei.com.co</a>
+              </div>
+              <a href="https://wa.me/573164800638?text=Hola%2C%20me%20comunico%20con%20la%20Sede%20San%20Diego%20de%20Alumbrado%20P%C3%BAblico" target="_blank" rel="noopener noreferrer" class="btn-branch-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp (+57 316 480 0638)
+              </a>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo Pre-Footer: Instagram -->
+  <div class="pre-footer-social-wrapper">
+    <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="btn-social-pill" aria-label="Instagram de Electroingeniería S.A.S.">
+      <span>Síguenos en Instagram</span>
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+
+  <!-- Footer Universal Continuo -->
+  <footer class="footer-continuous" id="contacto">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-brand-info">
+          <img src="assets/logos/Simbolo ei marca registrada-01.png" alt="ei" loading="lazy" decoding="async">
+          <p>Más de 40 años transformando el desarrollo eléctrico e iluminación de Colombia con calidad y respaldo técnico bajo normativas RETIE y RETILAP.</p>
+        </div>
+        <div class="footer-col" id="empresa">
+          <h4>Empresa</h4>
+          <ul class="footer-links-list">
+            <li><a href="nosotros.html">Nosotros / Quiénes Somos</a></li>
+            <li><a href="contacto.html">Contacto Comercial</a></li>
+            <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+            <li><a href="nosotros.html#certificaciones">Certificaciones y Calidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Líneas de Negocio</h4>
+          <ul class="footer-links-list">
+            <li><a href="alumbrado-publico.html">Alumbrado Público</a></li>
+            <li><a href="suministros.html">Suministros Eléctricos</a></li>
+            <li><a href="obras.html">Proyectos de Ingeniería</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col-contact">
+          <h4>Sede Principal</h4>
+          <div class="footer-contact-details">
+            <p><strong>Ubicación:</strong> Parque Industrial, Tuluá, Valle del Cauca, Colombia</p>
+            <p><strong>Líneas:</strong> <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp text-accent-amber" style="margin-right: 4px;"></i>+57 311 719 4015</a> / PBX: (602) 224 2626</p>
+            <p><strong>Correo:</strong> info@ei.com.co</p>
+          </div>
+          <div class="footer-social-group">
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="WhatsApp" aria-label="WhatsApp Oficial">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-unified">
+        <p>&copy; 2026 Electroingeniería S.A.S. Todos los derechos reservados.</p>
+        <p>Desarrollado por <strong>Luis Grisales - Alkalu Innova</strong></p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Privacidad</a>
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Tratamiento de Datos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

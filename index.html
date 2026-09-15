@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electroingeniería S.A.S. | Concesiones, Suministros Eléctricos e Ingeniería</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Transición de Entrada Institucional (Fondo Azul Ultra Rápido) -->
+  <div id="epicWelcomeSplash" class="epic-welcome-overlay" aria-hidden="true"></div>
+
+
+  <!-- Header Transparente con Dropdown "Acerca de" -->
+  <header class="header-transparent">
+    <div class="header-inner">
+      <a href="index.html" class="logo-main">
+        <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S.">
+      </a>
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="alumbrado-publico.html" class="nav-link">Alumbrado Público</a></li>
+          <li><a href="suministros.html" class="nav-link">Suministros Eléctricos</a></li>
+          <li><a href="obras.html" class="nav-link">Proyectos de Ingeniería</a></li>
+          
+          <!-- Menú Desplegable Acerca de -->
+          <li class="has-dropdown">
+            <a href="javascript:void(0)" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Acerca de &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="nosotros.html">Nosotros</a></li>
+              <li><a href="contacto.html">Contacto Comercial</a></li>
+              <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+            </ul>
+          </li>
+
+          <li><a href="contacto.html" class="btn-quote-header">Cotizar</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón Menú Hamburguesa Móvil -->
+      <button class="nav-toggle" aria-label="Abrir Menú" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay y Cajón de Navegación Móvil -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" aria-label="Menú de Navegación Móvil">
+    <div class="drawer-header">
+      <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S." class="drawer-logo">
+      <button class="drawer-close" aria-label="Cerrar Menú">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <span class="drawer-section-title">Líneas de Negocio</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="alumbrado-publico.html" class="drawer-nav-link">
+          <i class="fa-solid fa-lightbulb"></i> Alumbrado Público
+        </a>
+      </li>
+      <li>
+        <a href="suministros.html" class="drawer-nav-link">
+          <i class="fa-solid fa-boxes-stacked"></i> Suministros Eléctricos
+        </a>
+      </li>
+      <li>
+        <a href="obras.html" class="drawer-nav-link">
+          <i class="fa-solid fa-tower-broadcast"></i> Proyectos de Ingeniería
+        </a>
+      </li>
+    </ul>
+
+    <span class="drawer-section-title">Acerca de</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="nosotros.html" class="drawer-nav-link">
+          <i class="fa-solid fa-users"></i> Nosotros
+        </a>
+      </li>
+      <li>
+        <a href="contacto.html" class="drawer-nav-link">
+          <i class="fa-solid fa-address-book"></i> Contacto Comercial
+        </a>
+      </li>
+      <li>
+        <a href="nosotros.html#trabaja-con-nosotros" class="drawer-nav-link">
+          <i class="fa-solid fa-user-plus"></i> Trabaja con Nosotros
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="contacto.html" class="drawer-btn-quote">
+        <i class="fa-solid fa-paper-plane"></i> Cotizar Servicios
+      </a>
+      <div class="drawer-social-row">
+        <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S."><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S."><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S."><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="WhatsApp" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Hero Slider con Zoom Cinematográfico (Ken Burns) -->
+  <section class="hero-slider-section hero-home hero-insignia">
+    
+    <!-- Slide 1: Alumbrado Público -->
+    <div class="slide active">
+      <div class="slide-bg" style="background-image: url('assets/alumbrado/footer.webp');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content-wrapper">
+        <div class="container">
+          <div class="slide-content">
+            <h1 class="hero-title hero-insignia-title">Alumbrado Público</h1>
+            <p class="hero-lead hero-insignia-lead">Operación, modernización masiva a tecnología LED y mantenimiento de sistemas lumínicos con presencia activa en más de 13 municipios y concesiones viales.</p>
+            <a href="alumbrado-publico.html" class="btn-slider-action hero-insignia-actions">Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Suministros Eléctricos -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('assets/suministros/pasillo2.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content-wrapper">
+        <div class="container">
+          <div class="slide-content">
+            <h1 class="hero-title hero-insignia-title">Suministros Eléctricos</h1>
+            <p class="hero-lead hero-insignia-lead">Abastecimiento estratégico directo para concesionarios, alcaldías y contratistas. Conductores de aluminio/cobre, transformadores y equipos certificados.</p>
+            <a href="suministros.html" class="btn-slider-action hero-insignia-actions">Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Proyectos de Ingeniería -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('assets/proyectos/1.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content-wrapper">
+        <div class="container">
+          <div class="slide-content">
+            <h1 class="hero-title hero-insignia-title">Proyectos de Ingeniería</h1>
+            <p class="hero-lead hero-insignia-lead">Diseño e interventoría de redes eléctricas de media/baja tensión, subestaciones, montajes industriales y rigurosa certificación RETIE.</p>
+            <a href="obras.html" class="btn-slider-action hero-insignia-actions">Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flechas Navegación -->
+    <button class="slider-arrow prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="slider-arrow next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+
+    <!-- Indicadores -->
+    <div class="slider-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </section>
+
+  <!-- Carrusel 3D (Cover Flow) en Unidades de Negocio -->
+  <section class="units-coverflow-section">
+    <div class="container">
+      <!-- Encabezado Editorial: Nuestras Soluciones -->
+      <div class="unidades-header">
+        <h2 class="unidades-title">
+          Nuestras Soluciones e <span class="text-accent-amber">Infraestructura</span>
+        </h2>
+        <p class="unidades-subtitle">
+          Infraestructura eléctrica de vanguardia: desde la gestión inteligente de alumbrado público y suministros masivos hasta obras de alta precisión técnica bajo normas RETIE y RETILAP.
+        </p>
+      </div>
+
+      <div class="coverflow-viewport">
+
+        <!-- Tarjeta 1: Alumbrado Público -->
+        <article class="coverflow-card pos-center" data-index="0">
+          <div class="coverflow-img-wrapper">
+            <img src="assets/alumbrado/footer.webp" alt="Alumbrado Público" loading="lazy" decoding="async">
+          </div>
+          <div class="card-accent-bar bar-amber"></div>
+          <div class="coverflow-body">
+            <img src="assets/logos/alumbrado-publico-i.png" alt="Alumbrado Público" class="coverflow-unit-logo">
+            <p>Operación, modernización y gestión integral de sistemas de alumbrado público con presencia activa en más de 13 municipios y concesiones viales.</p>
+            <a href="alumbrado-publico.html" class="btn-unit-view">Ver más &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Tarjeta 2: Suministros Eléctricos -->
+        <article class="coverflow-card pos-right" data-index="1">
+          <div class="coverflow-img-wrapper">
+            <img src="assets/suministros/pasillo2.jpg" alt="Suministros Eléctricos" loading="lazy" decoding="async">
+          </div>
+          <div class="card-accent-bar bar-blue"></div>
+          <div class="coverflow-body">
+            <img src="assets/logos/suministros-electricos-i.png" alt="Suministros Eléctricos" class="coverflow-unit-logo">
+            <p>Abastecimiento estratégico directo para concesionarios, alcaldías y contratistas. Conductores de aluminio/cobre, transformadores y equipos certificados.</p>
+            <a href="suministros.html" class="btn-unit-view">Ver más &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Tarjeta 3: Ingeniería Eléctrica -->
+        <article class="coverflow-card pos-left" data-index="2">
+          <div class="coverflow-img-wrapper">
+            <img src="assets/proyectos/1.jpg" alt="Ingeniería de Proyectos" loading="lazy" decoding="async">
+          </div>
+          <div class="card-accent-bar bar-green"></div>
+          <div class="coverflow-body">
+            <img src="assets/logos/ingenieria-electrica-i.png" alt="Ingeniería Eléctrica" class="coverflow-unit-logo">
+            <p>Diseño e interventoría de redes eléctricas de media/baja tensión, subestaciones, montajes industriales y rigurosa certificación RETIE.</p>
+            <a href="obras.html" class="btn-unit-view">Ver más &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Acordeón Expandible de 11 Aplicaciones de Iluminación -->
+  <section class="lighting-solutions-accordion">
+    <div class="container-fluid" style="padding: 0 2rem;">
+      
+      <div class="unidades-header" style="margin-bottom: 2.2rem;">
+        <h2 class="unidades-title">
+          Soluciones de Iluminación Inteligente para <span class="text-accent-amber">Diversas Necesidades</span>
+        </h2>
+        <p class="unidades-subtitle">
+          Diseño fotométrico y tecnología LED de alta eficiencia adaptada a todo tipo de infraestructura y espacio público.
+        </p>
+      </div>
+
+      <!-- Contenedor Acordeón de 11 Paneles -->
+      <div class="accordion-strip">
+
+        <!-- 1. Autopistas y Vías Rápidas -->
+        <article class="accordion-panel active" style="background-image: url('assets/alumbrado/footer.webp');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Vial</span>
+            <h3 class="panel-title">Carreteras y Autopistas</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=carreteras-autopistas" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 2. Alumbrado Urbano y Bulevares -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/9.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Urbano</span>
+            <h3 class="panel-title">Avenidas y Bulevares</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=avenidas-bulevares" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 3. Parques y Plazas Públicas -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/1.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Cívico</span>
+            <h3 class="panel-title">Parques y Plazas</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=parques-plazas" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 4. Escenarios Deportivos y Estadios -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/2.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Deportivo</span>
+            <h3 class="panel-title">Escenarios Deportivos</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=escenarios-deportivos" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 5. Túneles y Pasos a Desnivel -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/3.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Infraestructura</span>
+            <h3 class="panel-title">Túneles y Pasos Deprimidos</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=tuneles-deprimidos" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 6. Puertos y Plataformas Logísticas -->
+        <article class="accordion-panel" style="background-image: url('assets/suministros/pasillo2.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Industrial</span>
+            <h3 class="panel-title">Puertos y Logística Masiva</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=logistica-suministros" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 7. Aeropuertos y Hangares -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/4.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Transporte</span>
+            <h3 class="panel-title">Aeródromos y Terminales</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=aerodromos-terminales" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 8. Zonas Residenciales y Senderos -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/5.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Comunitario</span>
+            <h3 class="panel-title">Zonas Peatonales</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=zonas-peatonales" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 9. Vías Rurales e Intermunicipales -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/6.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Intermunicipal</span>
+            <h3 class="panel-title">Corredores Rurales</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=corredores-rurales" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 10. Fachadas y Monumentos Históricos -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/7.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Patrimonial</span>
+            <h3 class="panel-title">Iluminación Arquitectónica</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=iluminacion-arquitectonica" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+        <!-- 11. Estacionamientos y Complejos Comerciales -->
+        <article class="accordion-panel" style="background-image: url('assets/proyectos/8.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-info">
+            <span class="panel-category">Comercial</span>
+            <h3 class="panel-title">Parqueaderos y Plazas Comerciales</h3>
+          </div>
+          <a href="proyecto-detalle.html?id=parqueaderos-comerciales" class="panel-btn-action accordion-action-btn" title="Ver detalles"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo de Respaldo Industrial y Autoridad Corporativa -->
+  <section class="why-choose-section" id="empresa">
+    <span id="por-que-elegirnos" style="position: absolute; scroll-margin-top: 85px;"></span>
+    <span id="certificaciones" style="position: absolute; scroll-margin-top: 85px;"></span>
+    <div class="container">
+      
+      <!-- Encabezado Editorial -->
+      <div class="why-choose-header text-center">
+        <h2 class="why-choose-title">
+          ¿Por qué Elegir a <span class="text-accent-amber">Electroingeniería</span>?
+        </h2>
+      </div>
+
+      <!-- Fotografía Panorámica -->
+      <div class="why-choose-media">
+        <img src="assets/alumbrado/P1013191.JPG" alt="Instalaciones y Centro Logístico Electroingeniería" class="why-media-img" loading="lazy" decoding="async">
+      </div>
+
+      <!-- Párrafo Institucional de Alta Ingeniería -->
+      <div class="why-choose-text-block">
+        <p>
+          Con más de cuatro décadas de trayectoria continua en Colombia, Electroingeniería S.A.S. centraliza sus operaciones técnicas y logísticas desde el Valle del Cauca, respaldando la ejecución de concesiones de alumbrado público, suministros eléctricos y obras de alta ingeniería. Nuestro modelo de gestión integra centros de control inteligente, procesos de ensamble certificados, cuadrillas especializadas y una cadena de distribución directa que garantiza competitividad, continuidad y estricto cumplimiento normativo nacional.
+        </p>
+      </div>
+
+      <!-- Franja de Sellos y Homologaciones Técnicas -->
+      <div class="certifications-pills-row">
+        <div class="cert-pill" title="Reglamento Técnico de Iluminación y Alumbrado Público">
+          <i class="fa-solid fa-certificate"></i>
+          <span>RETILAP</span>
+        </div>
+        <div class="cert-pill" title="Reglamento Técnico de Instalaciones Eléctricas">
+          <i class="fa-solid fa-bolt"></i>
+          <span>RETIE</span>
+        </div>
+        <div class="cert-pill" title="Gestión de Calidad Certificada">
+          <i class="fa-solid fa-square-check"></i>
+          <span>ISO 9001</span>
+        </div>
+        <div class="cert-pill" title="Centro de Investigación y Desarrollo Eléctrico">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>CIDET</span>
+        </div>
+        <div class="cert-pill" title="Premio Excelencia en Gestión y Seguridad Laboral">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>ARL SURA</span>
+        </div>
+        <div class="cert-pill" title="Premios Ingenio Colombia">
+          <i class="fa-solid fa-microchip"></i>
+          <span>FEDESOFT</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Cintillo Continuo de Municipios y Concesiones -->
+  <section class="municipalities-carousel-section">
+    <div class="container">
+      <div class="municipalities-header">
+        <h3 class="muni-title">
+          Ciudades que iluminan su Futuro <span class="text-accent-amber">Con EI</span>
+        </h3>
+        <p class="muni-subtitle">
+          Operación continua, modernización LED y respaldo técnico en más de 13 municipios y concesiones viales de Colombia.
+        </p>
+      </div>
+    </div>
+
+    <!-- Marquesina Infinita con doble pista para bucle continuo -->
+    <div class="ticker-wrapper">
+      <div class="ticker-track">
+        
+        <!-- Pista 1 -->
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/tulua.png" alt="Tuluá"></div>
+          <span class="muni-name">Tuluá <em>(Sede Principal)</em></span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/palmira.png" alt="Palmira"></div>
+          <span class="muni-name">Palmira</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/san-pedro.png" alt="San Pedro"></div>
+          <span class="muni-name">San Pedro</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/calima.png" alt="Calima El Darién"></div>
+          <span class="muni-name">Calima El Darién</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/andalucia.png" alt="Andalucía"></div>
+          <span class="muni-name">Andalucía</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/riofrio.png" alt="Riofrío"></div>
+          <span class="muni-name">Riofrío</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/san-andres.png" alt="San Andrés de Sotavento"></div>
+          <span class="muni-name">San Andrés de Sotavento</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/planeta-rica.png" alt="Planeta Rica"></div>
+          <span class="muni-name">Planeta Rica</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/la-jagua.png" alt="La Jagua de Ibirico"></div>
+          <span class="muni-name">La Jagua de Ibirico</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/san-diego.png" alt="San Diego"></div>
+          <span class="muni-name">San Diego</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/tamalameque.png" alt="Tamalameque"></div>
+          <span class="muni-name">Tamalameque</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/el-rosal.png" alt="El Rosal"></div>
+          <span class="muni-name">El Rosal</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/guatavita.png" alt="Guatavita"></div>
+          <span class="muni-name">Guatavita</span>
+        </div>
+      
+
+        <!-- Pista 2 (Duplicado idéntico sin Chinú para bucle infinito) -->
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/tulua.png" alt="Tuluá"></div>
+          <span class="muni-name">Tuluá <em>(Sede Principal)</em></span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/palmira.png" alt="Palmira"></div>
+          <span class="muni-name">Palmira</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/san-pedro.png" alt="San Pedro"></div>
+          <span class="muni-name">San Pedro</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/calima.png" alt="Calima El Darién"></div>
+          <span class="muni-name">Calima El Darién</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/andalucia.png" alt="Andalucía"></div>
+          <span class="muni-name">Andalucía</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/riofrio.png" alt="Riofrío"></div>
+          <span class="muni-name">Riofrío</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/san-andres.png" alt="San Andrés de Sotavento"></div>
+          <span class="muni-name">San Andrés de Sotavento</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/planeta-rica.png" alt="Planeta Rica"></div>
+          <span class="muni-name">Planeta Rica</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/la-jagua.png" alt="La Jagua de Ibirico"></div>
+          <span class="muni-name">La Jagua de Ibirico</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/san-diego.png" alt="San Diego"></div>
+          <span class="muni-name">San Diego</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/tamalameque.png" alt="Tamalameque"></div>
+          <span class="muni-name">Tamalameque</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/el-rosal.png" alt="El Rosal"></div>
+          <span class="muni-name">El Rosal</span>
+        </div>
+        <div class="ticker-item">
+          <div class="shield-box"><img loading="lazy" decoding="async" src="assets/escudos/guatavita.png" alt="Guatavita"></div>
+          <span class="muni-name">Guatavita</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo Pre-Footer: Botón Solitario de Instagram -->
+  <div class="pre-footer-social-wrapper">
+    <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="btn-social-pill" aria-label="Instagram de Electroingeniería S.A.S.">
+      <span>Síguenos en Instagram</span>
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+
+  <!-- Footer Universal Continuo -->
+  <footer class="footer-continuous" id="contacto">
+    <div class="container">
+      <div class="footer-main-grid">
+        
+        <div class="footer-brand-info">
+          <img src="assets/logos/Simbolo ei marca registrada-01.png" alt="ei" loading="lazy" decoding="async">
+          <p>Más de 40 años transformando el desarrollo eléctrico e iluminación de Colombia con calidad y respaldo técnico bajo normativas RETIE y RETILAP.</p>
+        </div>
+
+        <div class="footer-col" id="empresa">
+          <h4>Empresa</h4>
+          <ul class="footer-links-list">
+            <li><a href="nosotros.html">Nosotros / Quiénes Somos</a></li>
+            <li><a href="contacto.html">Contacto Comercial</a></li>
+            <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+            <li><a href="nosotros.html#certificaciones">Certificaciones y Calidad</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Líneas de Negocio</h4>
+          <ul class="footer-links-list">
+            <li><a href="alumbrado-publico.html">Alumbrado Público</a></li>
+            <li><a href="suministros.html">Suministros Eléctricos</a></li>
+            <li><a href="obras.html">Proyectos de Ingeniería</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-contact">
+          <h4>Sede Principal</h4>
+          <div class="footer-contact-details">
+            <p><strong>Ubicación:</strong> Parque Industrial, Tuluá, Valle del Cauca, Colombia</p>
+            <p><strong>Líneas:</strong> <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp text-accent-amber" style="margin-right: 4px;"></i>+57 311 719 4015</a> / PBX: (602) 224 2626</p>
+            <p><strong>Correo:</strong> info@ei.com.co</p>
+          </div>
+
+          <!-- Grupo de Redes Sociales Circulares -->
+          <div class="footer-social-group">
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="WhatsApp" aria-label="WhatsApp Oficial">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra de Créditos Unificada -->
+      <div class="footer-bottom-unified">
+        <p>&copy; 2026 Electroingeniería S.A.S. Todos los derechos reservados.</p>
+        <p>Desarrollado por <strong>Luis Grisales - Alkalu Innova</strong></p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Privacidad</a>
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Tratamiento de Datos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

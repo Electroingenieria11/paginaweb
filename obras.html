@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Diseño, montaje y mantenimiento de subestaciones, líneas de media/baja tensión y obras de infraestructura eléctrica masiva en Colombia bajo norma RETIE.">
+  <title>Obras e Infraestructura | Electroingeniería S.A.S.</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header Universal -->
+  <header class="header-transparent">
+    <div class="header-inner">
+      <a href="index.html" class="logo-main">
+        <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S.">
+      </a>
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="alumbrado-publico.html" class="nav-link">Alumbrado Público</a></li>
+          <li><a href="suministros.html" class="nav-link">Suministros Eléctricos</a></li>
+          <li><a href="obras.html" class="nav-link active" style="color: var(--color-accent);">Proyectos de Ingeniería</a></li>
+          <li class="has-dropdown">
+            <a href="javascript:void(0)" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Acerca de &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="nosotros.html">Nosotros</a></li>
+              <li><a href="contacto.html">Contacto Comercial</a></li>
+              <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+            </ul>
+          </li>
+          <li><a href="contacto.html" class="btn-quote-header">Cotizar</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón Menú Hamburguesa Móvil -->
+      <button class="nav-toggle" aria-label="Abrir Menú" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay y Cajón de Navegación Móvil -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" aria-label="Menú de Navegación Móvil">
+    <div class="drawer-header">
+      <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S." class="drawer-logo">
+      <button class="drawer-close" aria-label="Cerrar Menú">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <span class="drawer-section-title">Líneas de Negocio</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="alumbrado-publico.html" class="drawer-nav-link">
+          <i class="fa-solid fa-lightbulb"></i> Alumbrado Público
+        </a>
+      </li>
+      <li>
+        <a href="suministros.html" class="drawer-nav-link">
+          <i class="fa-solid fa-boxes-stacked"></i> Suministros Eléctricos
+        </a>
+      </li>
+      <li>
+        <a href="obras.html" class="drawer-nav-link active">
+          <i class="fa-solid fa-tower-broadcast"></i> Proyectos de Ingeniería
+        </a>
+      </li>
+    </ul>
+
+    <span class="drawer-section-title">Acerca de</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="nosotros.html" class="drawer-nav-link">
+          <i class="fa-solid fa-users"></i> Nosotros
+        </a>
+      </li>
+      <li>
+        <a href="contacto.html" class="drawer-nav-link">
+          <i class="fa-solid fa-address-book"></i> Contacto Comercial
+        </a>
+      </li>
+      <li>
+        <a href="nosotros.html#trabaja-con-nosotros" class="drawer-nav-link">
+          <i class="fa-solid fa-user-plus"></i> Trabaja con Nosotros
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="contacto.html" class="drawer-btn-quote">
+        <i class="fa-solid fa-paper-plane"></i> Cotizar Servicios
+      </a>
+      <div class="drawer-social-row">
+        <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S."><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S."><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S."><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="WhatsApp" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 1. HERO BANNER OBRAS (Editorial & Anchors) -->
+  <section class="inner-hero-banner hero-insignia hero-obras" style="background-image: url('assets/proyectos/obra.jpg');">
+    <div class="slide-overlay"></div>
+    <div class="container inner-hero-content hero-insignia-content">
+      <div class="inner-editorial-box banner-text-block">
+        <h1 class="hero-insignia-title banner-heading">Obras e Infraestructura Eléctrica</h1>
+        <p class="hero-insignia-lead banner-subtext">Diseño, montaje electromecánico y mantenimiento de subestaciones y redes de distribución con más de 40 años de solvencia técnica y estricto cumplimiento RETIE.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COMPARADOR INTERACTIVO ANTES / DESPUÉS -->
+  <section class="site-section" id="comparador-impacto" style="background: #F8FAFC;">
+    <div class="site-container">
+      <div class="section-title-wrapper text-center">
+        <h2 class="section-main-title">Impacto Técnico: Antes y Después</h2>
+        <p class="section-desc-center">Arrastra el deslizador central para visualizar la modernización de redes eléctricas convencionales a infraestructura subterránea blindada y certificada RETIE.</p>
+      </div>
+
+      <div class="before-after-wrapper">
+        <div class="before-after-card" id="beforeAfterSlider">
+          <div class="ba-image-layer ba-layer-before"></div>
+          <div class="ba-image-layer ba-layer-after" id="baAfterLayer"></div>
+          <span class="ba-tag before-tag"><i class="fa-solid fa-triangle-exclamation" style="color: #F87171;"></i> Antes: Red Aérea en Riesgo</span>
+          <span class="ba-tag after-tag"><i class="fa-solid fa-circle-check" style="color: #4ADE80;"></i> Después: Obra Certificada RETIE</span>
+          <div class="ba-slider-handle" id="baHandle">
+            <i class="fa-solid fa-arrows-left-right"></i>
+          </div>
+          <input type="range" min="0" max="100" value="50" class="ba-range-input" id="baRangeInput" aria-label="Deslizador comparador antes y después">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4. PORTAFOLIO TÉCNICO FILTRABLE -->
+  <section class="site-section" id="portafolio-obras" style="background: #F8FAFC;">
+    <div class="site-container">
+      <div class="section-title-wrapper text-center">
+        <h2 class="section-main-title">Obras y Proyectos Ejecutados</h2>
+        <p class="section-desc-center">Explora nuestras soluciones implementadas con respaldo normativo RETIE y más de 40 años de trayectoria.</p>
+      </div>
+
+      <!-- Filtros de Obras -->
+      <div class="catalog-pills-row" id="projectFilters" style="margin-bottom: 30px;">
+        <button type="button" class="catalog-pill active" data-filter="all">
+          <i class="fa-solid fa-border-all"></i> Todos los Proyectos
+        </button>
+        <button type="button" class="catalog-pill" data-filter="subestaciones">
+          <i class="fa-solid fa-bolt"></i> Subestaciones MT
+        </button>
+        <button type="button" class="catalog-pill" data-filter="redes">
+          <i class="fa-solid fa-network-wired"></i> Redes MT / BT
+        </button>
+        <button type="button" class="catalog-pill" data-filter="industria">
+          <i class="fa-solid fa-industry"></i> Montajes Industriales
+        </button>
+        <button type="button" class="catalog-pill" data-filter="vias">
+          <i class="fa-solid fa-road"></i> Alumbrado Vial
+        </button>
+      </div>
+
+      <!-- Cuadrícula de Proyectos -->
+      <div class="catalog-grid" id="projectsGrid">
+        
+        <!-- Proyecto 1: Subestación -->
+        <article class="project-card" data-category="subestaciones">
+          <div class="project-img-box">
+            <img src="assets/proyectos/1.jpg" alt="Subestación Eléctrica 34.5 kV" loading="lazy">
+            <div class="product-badges-stack">
+              <span class="prod-badge badge-gold">34.5 / 13.2 kV</span>
+              <span class="prod-badge badge-blue">RETIE Aprobado</span>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-meta-sub">Subestaciones de Potencia</span>
+            <h3 class="product-title">Subestación Principal Parque Industrial</h3>
+            <p class="product-short-desc">Montaje electromecánico de celdas blindadas en media tensión, banco de transformadores 10 MVA y sistema de puesta a tierra equipotencial.</p>
+            <div class="product-specs-chips">
+              <span class="spec-chip"><i class="fa-solid fa-bolt"></i> 10 MVA</span>
+              <span class="spec-chip"><i class="fa-solid fa-location-dot"></i> Valle del Cauca</span>
+              <span class="spec-chip"><i class="fa-solid fa-certificate"></i> Ensayos CREG</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 2: Redes Subterráneas -->
+        <article class="project-card" data-category="redes">
+          <div class="project-img-box">
+            <img src="assets/proyectos/4.jpg" alt="Canalización y Red Subterránea" loading="lazy">
+            <div class="product-badges-stack">
+              <span class="prod-badge badge-gold">Subterránea</span>
+              <span class="prod-badge badge-green">100% Confiabilidad</span>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-meta-sub">Distribución Urbana</span>
+            <h3 class="product-title">Canalización & Red Subterránea 13.2 kV</h3>
+            <p class="product-short-desc">Transición de redes aéreas a subterráneas en corredores metropolitanos, cámaras de inspección normalizadas y conductores XLPE apantallados.</p>
+            <div class="product-specs-chips">
+              <span class="spec-chip"><i class="fa-solid fa-road"></i> 14 km Red</span>
+              <span class="spec-chip"><i class="fa-solid fa-shield"></i> Cero Fallas</span>
+              <span class="spec-chip"><i class="fa-solid fa-city"></i> Sector Comercial</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 3: Industria -->
+        <article class="project-card" data-category="industria">
+          <div class="project-img-box">
+            <img src="assets/proyectos/9.jpg" alt="Montaje Industrial Especial" loading="lazy">
+            <div class="product-badges-stack">
+              <span class="prod-badge badge-blue">Sector Agroindustrial</span>
+              <span class="prod-badge badge-gold">Centro de Control</span>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-meta-sub">Montajes Especiales</span>
+            <h3 class="product-title">Electrificación de Complejo Agroindustrial</h3>
+            <p class="product-short-desc">Alimentación de motores de alta potencia, tableros de distribución automática, banco de condensadores para corrección de factor de potencia.</p>
+            <div class="product-specs-chips">
+              <span class="spec-chip"><i class="fa-solid fa-gears"></i> CCM Inteligente</span>
+              <span class="spec-chip"><i class="fa-solid fa-chart-line"></i> FP 0.98</span>
+              <span class="spec-chip"><i class="fa-solid fa-bolt"></i> 480V / 220V</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 4: Alumbrado Vial -->
+        <article class="project-card" data-category="vias">
+          <div class="project-img-box">
+            <img src="assets/proyectos/obra.jpg" alt="Alumbrado Corredor Vial" loading="lazy">
+            <div class="product-badges-stack">
+              <span class="prod-badge badge-gold">RETILAP Certificado</span>
+              <span class="prod-badge badge-blue">Concesión Vial</span>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-meta-sub">Infraestructura Vial</span>
+            <h3 class="product-title">Modernización Alumbrado Vial y Glorietas</h3>
+            <p class="product-short-desc">Instalación de postería reforzada, luminarias LED de 180W y sistema de telegestión remota en accesos municipales de alto flujo vehicular.</p>
+            <div class="product-specs-chips">
+              <span class="spec-chip"><i class="fa-solid fa-lightbulb"></i> 1,200 Puntos LED</span>
+              <span class="spec-chip"><i class="fa-solid fa-route"></i> 22 km Vía</span>
+              <span class="spec-chip"><i class="fa-solid fa-tower-broadcast"></i> Telemedición</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 5: Subestaciones Repotenciación -->
+        <article class="project-card" data-category="subestaciones">
+          <div class="project-img-box">
+            <img src="assets/proyectos/2.jpg" alt="Repotenciación de Subestación" loading="lazy">
+            <div class="product-badges-stack">
+              <span class="prod-badge badge-gold">Repotenciación</span>
+              <span class="prod-badge badge-blue">13.2 kV</span>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-meta-sub">Subestaciones</span>
+            <h3 class="product-title">Repotenciación & Reubicación de Celdas MT</h3>
+            <p class="product-short-desc">Actualización de sistemas de protección con relés numéricos, reconectadores automáticos y sincronismo con la red del operador regional.</p>
+            <div class="product-specs-chips">
+              <span class="spec-chip"><i class="fa-solid fa-microchip"></i> Relés Digitales</span>
+              <span class="spec-chip"><i class="fa-solid fa-shield-halved"></i> CERO Accidentes</span>
+              <span class="spec-chip"><i class="fa-solid fa-clock"></i> 72h Montaje</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 6: Redes MT/BT -->
+        <article class="project-card" data-category="redes">
+          <div class="project-img-box">
+            <img src="assets/proyectos/5.jpg" alt="Red Aérea Ecológica" loading="lazy">
+            <div class="product-badges-stack">
+              <span class="prod-badge badge-green">Red Semiaislada</span>
+              <span class="prod-badge badge-blue">RETIE</span>
+            </div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-meta-sub">Distribución Ecológica</span>
+            <h3 class="product-title">Tendido de Red Semiaislada Ecológica MT</h3>
+            <p class="product-short-desc">Construcción de líneas con cable semiaislado en zonas arborizadas para mitigar disparos por contacto de fauna o ramas, protegiendo el ecosistema.</p>
+            <div class="product-specs-chips">
+              <span class="spec-chip"><i class="fa-solid fa-leaf"></i> Red Ecológica</span>
+              <span class="spec-chip"><i class="fa-solid fa-bolt"></i> 13.2 kV</span>
+              <span class="spec-chip"><i class="fa-solid fa-tree"></i> Protección Fauna</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Módulo Pre-Footer: Instagram -->
+  <div class="pre-footer-social-wrapper">
+    <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="btn-social-pill" aria-label="Instagram de Electroingeniería S.A.S.">
+      <span>Síguenos en Instagram</span>
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+
+  <!-- Footer Universal Continuo -->
+  <footer class="footer-continuous" id="contacto">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-brand-info">
+          <img src="assets/logos/Simbolo ei marca registrada-01.png" alt="ei" loading="lazy" decoding="async">
+          <p>Más de 40 años transformando el desarrollo eléctrico e iluminación de Colombia con calidad y respaldo técnico bajo normativas RETIE y RETILAP.</p>
+        </div>
+        <div class="footer-col" id="empresa">
+          <h4>Empresa</h4>
+          <ul class="footer-links-list">
+            <li><a href="nosotros.html">Nosotros / Quiénes Somos</a></li>
+            <li><a href="contacto.html">Contacto Comercial</a></li>
+            <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+            <li><a href="nosotros.html#certificaciones">Certificaciones y Calidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Líneas de Negocio</h4>
+          <ul class="footer-links-list">
+            <li><a href="alumbrado-publico.html">Alumbrado Público</a></li>
+            <li><a href="suministros.html">Suministros Eléctricos</a></li>
+            <li><a href="obras.html">Proyectos de Ingeniería</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col-contact">
+          <h4>Sede Principal</h4>
+          <div class="footer-contact-details">
+            <p><strong>Ubicación:</strong> Parque Industrial, Tuluá, Valle del Cauca, Colombia</p>
+            <p><strong>Líneas:</strong> <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp text-accent-amber" style="margin-right: 4px;"></i>+57 311 719 4015</a> / PBX: (602) 224 2626</p>
+            <p><strong>Correo:</strong> info@ei.com.co</p>
+          </div>
+          <div class="footer-social-group">
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="WhatsApp" aria-label="WhatsApp Oficial">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-unified">
+        <p>&copy; 2026 Electroingeniería S.A.S. Todos los derechos reservados.</p>
+        <p>Desarrollado por <strong>Luis Grisales - Alkalu Innova</strong></p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Privacidad</a>
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Tratamiento de Datos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+

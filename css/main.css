@@ -1,0 +1,539 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-corp);
+  background-color: var(--color-bg-light); /* #f8fafc unificado */
+  color: var(--color-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-brand);
+  color: var(--color-primary); /* Azul Oficial del Logo #003690 */
+}
+
+/* Preservar blanco en títulos sobre fondos oscuros o banners de hero */
+.hero-slider-section h1,
+.hero-slider-section .hero-title,
+.hero-slider-section .hero-insignia-title,
+.inner-hero-banner h1,
+.inner-hero-banner .hero-insignia-title,
+.footer-panoramic h3,
+.footer-panoramic h4,
+.footer-col h4,
+.hq-branch-card h3,
+.detail-hero-title {
+  color: #FFFFFF !important;
+}
+
+.container {
+  width: 92%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Ajuste de Presencia del Header y Logo Principal
+   ========================================================================== */
+.header-transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(7, 22, 44, 0.88) 0%, rgba(7, 22, 44, 0) 100%);
+  padding: 0 !important;
+  min-height: 80px !important;
+  transition: var(--transition);
+}
+
+.header-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 12px 2rem !important;
+  min-height: 80px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Selector optimizado para agrandar el logo */
+.logo-main {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 4px 0;
+}
+
+.logo-main img {
+  width: 260px !important;            /* Controla el tamaño por ancho real */
+  max-width: 280px !important;
+  height: auto !important;
+  max-height: 95px !important;        /* Permite que el lienzo se expanda */
+  margin-top: -18px !important;       /* Compensa para que no empuje el header */
+  margin-bottom: -18px !important;
+  object-fit: contain !important;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.65)) !important;
+  transition: transform 0.25s ease;
+  display: block;
+}
+
+.logo-main img:hover {
+  transform: scale(1.04);
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-desktop > li {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: #FFFFFF;
+}
+
+/* Dropdown Acerca de */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(7, 22, 44, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  min-width: 250px;
+  list-style: none;
+  padding: 0.8rem 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-desktop > li.has-dropdown > .nav-link {
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-desktop > li.has-dropdown:hover .dropdown-menu,
+.nav-desktop > li.has-dropdown.is-open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.7rem 1.4rem;
+  color: #E2E8F0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(246, 208, 0, 0.12);
+  color: var(--color-accent);
+  padding-left: 1.7rem;
+}
+
+.btn-quote-header {
+  background-color: var(--color-accent);
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  padding: 0.65rem 1.6rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-quote-header:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(246, 208, 0, 0.3);
+}
+
+/* ==========================================================================
+   Hero Slider: Editorial, Ken Burns & Gradiente Atenuado
+   ========================================================================== */
+.hero-slider-section {
+  position: relative;
+  min-height: 92vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #07162C;
+  display: flex;
+  align-items: center;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* Fondo con efecto Ken Burns */
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 7s ease-out;
+}
+
+.slide.active .slide-bg {
+  transform: scale(1.12);
+}
+
+/* Capa de degradado lateral atenuada (preserva fotos sin perder lectura) */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 22, 44, 0.84) 0%,
+    rgba(7, 22, 44, 0.52) 42%,
+    rgba(7, 22, 44, 0.16) 70%,
+    rgba(7, 22, 44, 0.03) 90%,
+    rgba(7, 22, 44, 0) 100%
+  );
+  z-index: 1;
+}
+
+.slide-content-wrapper {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding-top: 4rem;
+}
+
+.slide-content {
+  max-width: 600px;
+  padding-left: 0;
+  border-left: none;
+  color: #FFFFFF;
+}
+
+.slide-content h1 {
+  font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.4px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+}
+
+.slide-content p {
+  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
+  color: #F1F5F9;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.btn-slider-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #F6D000 0%, #EDB800 100%);
+  color: #07162C;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.2px;
+  padding: 0.55rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(246, 208, 0, 0.32), 0 1px 3px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-slider-action i {
+  font-size: 0.76rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-slider-action:hover {
+  background: linear-gradient(135deg, #FFDD1A 0%, #F6D000 100%);
+  color: #07162C;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(246, 208, 0, 0.48), 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.btn-slider-action:hover i {
+  transform: translateX(3px);
+}
+
+/* Controles del Slider Hero */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(7, 22, 44, 0.55);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 1.05rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slider-arrow:hover {
+  background: var(--color-primary);
+  border-color: var(--color-accent);
+  color: #FFFFFF;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 22px rgba(0, 54, 144, 0.55);
+}
+
+.slider-arrow.prev {
+  left: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+.slider-arrow.next {
+  right: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+@media (max-width: 768px) {
+  .slider-arrow {
+    top: auto;
+    bottom: 1.75rem;
+    transform: none;
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+    background: rgba(7, 22, 44, 0.75);
+  }
+  .slider-arrow:hover {
+    transform: scale(1.08);
+  }
+  .slider-arrow.prev {
+    left: 1rem;
+  }
+  .slider-arrow.next {
+    right: 1rem;
+  }
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.dot {
+  width: 16px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  width: 38px;
+  background: var(--color-accent);
+}
+
+@media (max-width: 992px) {
+  .nav-desktop {
+    display: none;
+  }
+  .header-inner {
+    padding: 0 1rem;
+  }
+}
+
+/* ==========================================================================
+   Banner Estandarizado para Páginas Interiores
+   ========================================================================== */
+.inner-hero-banner {
+  position: relative;
+  min-height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  background-color: #07162C;
+}
+
+.inner-hero-banner .slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 22, 44, 0.84) 0%,
+    rgba(7, 22, 44, 0.52) 42%,
+    rgba(7, 22, 44, 0.16) 70%,
+    rgba(7, 22, 44, 0.03) 90%,
+    rgba(7, 22, 44, 0) 100%
+  );
+  z-index: 1;
+}
+
+.inner-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 4.5rem;
+}
+
+.inner-logo-badge {
+  height: 52px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.inner-editorial-box {
+  max-width: 580px;
+  padding-left: 0;
+  border-left: none;
+  color: #FFFFFF;
+}
+
+.inner-editorial-box h1 {
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.3px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.inner-editorial-box p {
+  font-size: clamp(0.92rem, 1.05vw, 1.02rem);
+  color: #E2E8F0;
+  line-height: 1.55;
+  max-width: 520px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Cuerpo de Contenido Interior */
+.inner-page-body {
+  background-color: var(--color-bg-light); /* #f8fafc */
+  padding: 5rem 0;
+}
+
+.inner-grid-two-cols {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.inner-text-block h2 {
+  color: var(--color-primary);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+.inner-text-block p {
+  color: var(--color-gray-dark);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.feature-check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.feature-check-list li {
+  font-size: 0.98rem;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-check-list li::before {
+  content: '✓';
+  color: var(--color-accent);
+  font-weight: 900;
+  background: rgba(0, 54, 144, 0.08);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.inner-image-showcase {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 54, 144, 0.12);
+  border: 1px solid var(--color-gray-border);
+}
+
+.inner-image-showcase img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .inner-grid-two-cols {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

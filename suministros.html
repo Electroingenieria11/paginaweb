@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Distribución mayorista e institucional de insumos, materiales y equipos eléctricos certificados bajo norma RETIE y RETILAP para concesiones de alumbrado público y proyectos de ingeniería eléctrica en Colombia.">
+  <title>Suministros Eléctricos | Electroingeniería S.A.S.</title>
+  <link rel="icon" type="image/png" href="assets/logos/Simbolo ei marca registrada-01.png">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER GLOBAL UNIVERSAL -->
+  <header class="header-transparent">
+    <div class="header-inner">
+      <a href="index.html" class="logo-main">
+        <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S.">
+      </a>
+      <nav>
+        <ul class="nav-desktop">
+          <li><a href="alumbrado-publico.html" class="nav-link">Alumbrado Público</a></li>
+          <li><a href="suministros.html" class="nav-link active" style="color: var(--color-accent);">Suministros Eléctricos</a></li>
+          <li><a href="obras.html" class="nav-link">Proyectos de Ingeniería</a></li>
+          <li class="has-dropdown">
+            <a href="javascript:void(0)" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Acerca de &#9662;</a>
+            <ul class="dropdown-menu">
+              <li><a href="nosotros.html">Nosotros</a></li>
+              <li><a href="contacto.html">Contacto Comercial</a></li>
+              <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+            </ul>
+          </li>
+          <li><a href="contacto.html" class="btn-quote-header">Cotizar</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón Menú Hamburguesa Móvil -->
+      <button class="nav-toggle" aria-label="Abrir Menú" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay y Cajón de Navegación Móvil -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" aria-label="Menú de Navegación Móvil">
+    <div class="drawer-header">
+      <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S." class="drawer-logo">
+      <button class="drawer-close" aria-label="Cerrar Menú">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <span class="drawer-section-title">Líneas de Negocio</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="alumbrado-publico.html" class="drawer-nav-link">
+          <i class="fa-solid fa-lightbulb"></i> Alumbrado Público
+        </a>
+      </li>
+      <li>
+        <a href="suministros.html" class="drawer-nav-link active">
+          <i class="fa-solid fa-boxes-stacked"></i> Suministros Eléctricos
+        </a>
+      </li>
+      <li>
+        <a href="obras.html" class="drawer-nav-link">
+          <i class="fa-solid fa-tower-broadcast"></i> Proyectos de Ingeniería
+        </a>
+      </li>
+    </ul>
+
+    <span class="drawer-section-title">Acerca de</span>
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="nosotros.html" class="drawer-nav-link">
+          <i class="fa-solid fa-users"></i> Nosotros
+        </a>
+      </li>
+      <li>
+        <a href="contacto.html" class="drawer-nav-link">
+          <i class="fa-solid fa-address-book"></i> Contacto Comercial
+        </a>
+      </li>
+      <li>
+        <a href="nosotros.html#trabaja-con-nosotros" class="drawer-nav-link">
+          <i class="fa-solid fa-user-plus"></i> Trabaja con Nosotros
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="contacto.html" class="drawer-btn-quote">
+        <i class="fa-solid fa-paper-plane"></i> Cotizar Servicios
+      </a>
+      <div class="drawer-social-row">
+        <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S."><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S."><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S."><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="drawer-social-link" title="WhatsApp" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- HERO BANNER SUMINISTROS -->
+  <section class="inner-hero-banner hero-suministros" style="background-image: url('assets/suministros/bg.jpg'); height: 460px;">
+    <div class="hero-overlay"></div>
+    <div class="site-container hero-inner-content">
+      <div class="inner-editorial-box banner-text-block">
+        <span class="hero-badge-minimal">CATÁLOGO CORPORATIVO</span>
+        <h1 class="hero-heading hero-title">Suministros y Soluciones Integrales</h1>
+        <p class="hero-lead">Distribución especializada para concesiones de alumbrado público y proyectos de ingeniería eléctrica a nivel nacional.</p>
+        
+        <!-- Botones de Acción -->
+        <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="#soluciones" class="btn-primary-action" style="text-decoration: none;">
+            <i class="fa-solid fa-boxes-stacked"></i> Ver Soluciones Integrales
+          </a>
+          <a href="contacto.html" class="btn-secondary-action" style="text-decoration: none; border-color: rgba(255, 255, 255, 0.4); color: #FFFFFF;">
+            <i class="fa-solid fa-envelope"></i> Cotizar con Asesor
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. VITRINA TÉCNICA DE PRODUCTOS -->
+  <section class="site-section bg-light-gray section-showroom">
+    <div class="site-container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-subtitle-tag">PORTAFOLIO DE DISTRIBUCIÓN</span>
+        <h2 class="section-main-title">Conductores e Iluminación Pública</h2>
+        <p class="section-desc-center">
+          Suministramos materiales homologados (RETILAP/RETIE) para concesionarios, contratistas y proyectos de infraestructura eléctrica a nivel nacional.
+        </p>
+      </div>
+
+      <div class="products-bento-grid">
+        
+        <!-- Categoría 1: Cables -->
+        <article class="product-showcase-card">
+          <div class="product-image-box" style="background-image: url('assets/suministros/cable-cobre.jpg');"></div>
+          <div class="product-info-box">
+            <h3>Cables de Cobre y Aluminio</h3>
+            <p>Conductores de alta especificación para redes aéreas y subterráneas de media y baja tensión. Máxima conductividad y seguridad.</p>
+            <div class="product-actions">
+              <span class="minimal-pill">RETIE</span>
+              <a href="contacto.html" class="btn-outline-action">Solicitar Ficha Técnica</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Categoría 2: Alambres -->
+        <article class="product-showcase-card">
+          <div class="product-image-box" style="background-image: url('assets/suministros/alambre.jpg');"></div>
+          <div class="product-info-box">
+            <h3>Alambres Eléctricos THHN/THWN-2</h3>
+            <p>Alambres desnudos y aislados para instalaciones industriales, tableros de control y distribución interna de energía.</p>
+            <div class="product-actions">
+              <span class="minimal-pill">Cobre 100%</span>
+              <a href="contacto.html" class="btn-outline-action">Cotizar por Volumen</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Categoría 3: Luminarias -->
+        <article class="product-showcase-card">
+          <div class="product-image-box" style="background-image: url('assets/suministros/luminaria-led.jpg');"></div>
+          <div class="product-info-box">
+            <h3>Luminarias LED y Fotocontroles</h3>
+            <p>Sistemas de alumbrado público masivo, reflectores industriales y tecnología de telegestión para ciudades inteligentes.</p>
+            <div class="product-actions">
+              <span class="minimal-pill">RETILAP</span>
+              <a href="contacto.html" class="btn-outline-action">Ver Catálogo LED</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SOLUCIONES BENTO GRID (SOLUCIONES POR UNIDAD DE NEGOCIO) -->
+  <section class="site-section bg-white" id="soluciones">
+    <div class="site-container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-subtitle-tag">NUESTRAS LÍNEAS DE DISTRIBUCIÓN</span>
+        <h2 class="section-main-title">Soluciones por Unidad de Negocio</h2>
+        <p class="section-desc-center">Abastecimiento corporativo para concesiones, infraestructura de media y baja tensión y obras de ingeniería de gran envergadura.</p>
+      </div>
+
+      <div class="emblematic-showcase-grid" style="grid-template-rows: 280px 280px; margin-top: 40px;">
+        <!-- Solución 1: Alumbrado Público -->
+        <article class="emblematic-card">
+          <div class="city-slide active" style="background-image: url('assets/suministros/led.jpg');"></div>
+          <div class="emblematic-card-overlay"></div>
+          <div class="emblematic-minimal-bar">
+            <h3><i class="fa-solid fa-lightbulb text-accent-amber"></i> Solución de Iluminación Pública</h3>
+            <span class="minimal-pill">Luminarias, Brazos, Fotocontroles</span>
+          </div>
+        </article>
+        
+        <!-- Solución 2: Media y Baja Tensión -->
+        <article class="emblematic-card">
+          <div class="city-slide active" style="background-image: url('assets/suministros/trafo.jpg');"></div>
+          <div class="emblematic-card-overlay"></div>
+          <div class="emblematic-minimal-bar">
+            <h3><i class="fa-solid fa-bolt text-accent-amber"></i> Solución de Media y Baja Tensión</h3>
+            <span class="minimal-pill">Transformadores, Cables, Herrajes</span>
+          </div>
+        </article>
+
+        <!-- Solución 3: Proyectos de Redes e Infraestructura -->
+        <article class="emblematic-card">
+          <div class="city-slide active" style="background-image: url('assets/suministros/conductores.jpg');"></div>
+          <div class="emblematic-card-overlay"></div>
+          <div class="emblematic-minimal-bar">
+            <h3><i class="fa-solid fa-tower-broadcast text-accent-amber"></i> Solución de Redes e Infraestructura</h3>
+            <span class="minimal-pill">Conductores ACSR, Postería, Aisladores</span>
+          </div>
+        </article>
+
+        <!-- Solución 4: Subestaciones y Equipamiento de Maniobra -->
+        <article class="emblematic-card">
+          <div class="city-slide active" style="background-image: url('assets/suministros/aparamenta.jpg');"></div>
+          <div class="emblematic-card-overlay"></div>
+          <div class="emblematic-minimal-bar">
+            <h3><i class="fa-solid fa-server text-accent-amber"></i> Solución de Subestaciones & Celdas</h3>
+            <span class="minimal-pill">Celdas, Seccionadores, Tableros</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PILARES DE VALOR CORPORATIVO -->
+  <section class="site-section bg-light">
+    <div class="site-container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-subtitle-tag">RESPALDO CONTRACTUAL Y LOGÍSTICA</span>
+        <h2 class="section-main-title">Garantía Corporativa en Cada Despacho</h2>
+        <p class="section-desc-center">Operamos como aliado estratégico para contratistas e instituciones públicas que exigen continuidad, legalidad y cumplimiento en obra.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 36px;">
+        
+        <!-- Pilar 1 -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 28px 22px; box-shadow: 0 4px 16px rgba(0, 30, 80, 0.04); transition: all 0.3s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(0, 54, 144, 0.1); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px;">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 10px;">Certificación RETIE / RETILAP</h3>
+          <p style="font-size: 0.92rem; color: #64748B; line-height: 1.55; margin: 0;">
+            Materiales con dictámenes de conformidad de producto vigentes avalados por CIDET y laboratorios acreditados ante el ONAC.
+          </p>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 28px 22px; box-shadow: 0 4px 16px rgba(0, 30, 80, 0.04); transition: all 0.3s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(0, 54, 144, 0.1); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px;">
+            <i class="fa-solid fa-truck-ramp-box"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 10px;">Entrega Directa a Pie de Obra</h3>
+          <p style="font-size: 0.92rem; color: #64748B; line-height: 1.55; margin: 0;">
+            Flota de transporte y vehículos de carga propios para despachar directamente a campamentos, frentes de obra e interconexiones rurales.
+          </p>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 28px 22px; box-shadow: 0 4px 16px rgba(0, 30, 80, 0.04); transition: all 0.3s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(0, 54, 144, 0.1); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px;">
+            <i class="fa-solid fa-warehouse"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 10px;">Capacidad de Acopio & Stock</h3>
+          <p style="font-size: 0.92rem; color: #64748B; line-height: 1.55; margin: 0;">
+            Bodegas centrales y centros de distribución con disponibilidad inmediata de insumos críticos para evitar sobrecostos por parálisis.
+          </p>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 28px 22px; box-shadow: 0 4px 16px rgba(0, 30, 80, 0.04); transition: all 0.3s ease;">
+          <div style="width: 52px; height: 52px; border-radius: 12px; background: rgba(0, 54, 144, 0.1); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px;">
+            <i class="fa-solid fa-handshake-angle"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 10px;">Condiciones Comerciales Corporativas</h3>
+          <p style="font-size: 0.92rem; color: #64748B; line-height: 1.55; margin: 0;">
+            Facturación institucional, líneas de crédito para contratistas de infraestructura y acompañamiento en estructuración técnica de APU.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LLAMADO A COTIZACIÓN Y ASESORÍA DIRECTA -->
+  <section class="site-section" style="background: linear-gradient(135deg, #07162C 0%, #003690 100%); color: #FFFFFF;">
+    <div class="site-container">
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 720px; margin: 0 auto;">
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 5px 16px; background: rgba(246, 208, 0, 0.15); border: 1px solid rgba(246, 208, 0, 0.45); border-radius: 999px; color: var(--color-accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px;">
+          <i class="fa-solid fa-users-gear"></i> ATENCIÓN PERSONALIZADA POR ZONA
+        </span>
+        <h2 style="font-size: clamp(26px, 3.2vw, 36px); font-weight: 800; margin: 0 0 14px 0; color: #FFFFFF;">
+          ¿Requiere Fichas Técnicas o Cotización Oficial para su Proyecto?
+        </h2>
+        <p style="font-size: 1.05rem; color: #CBD5E1; line-height: 1.6; margin: 0 0 28px 0;">
+          Comuníquese directamente con nuestros ejecutivos comerciales asignados para Antioquia, Eje Cafetero y Región Caribe, o formalice su requerimiento institucional.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+          <a href="contacto.html" class="btn-primary-action" style="text-decoration: none;">
+            <i class="fa-solid fa-address-book"></i> Ver Directorio de Asesores
+          </a>
+          <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20solicito%20cotizaci%C3%B3n%20de%20suministros%20el%C3%A9ctricos" target="_blank" rel="noopener noreferrer" class="btn-secondary-action" style="text-decoration: none; border-color: rgba(255, 255, 255, 0.4); color: #FFFFFF;">
+            <i class="fa-brands fa-whatsapp text-accent-amber"></i> WhatsApp Inmediato
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo Pre-Footer: Instagram -->
+  <div class="pre-footer-social-wrapper">
+    <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="btn-social-pill" aria-label="Instagram de Electroingeniería S.A.S.">
+      <span>Síguenos en Instagram</span>
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+
+  <!-- Footer Universal Continuo -->
+  <footer class="footer-continuous" id="contacto">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-brand-info">
+          <img src="assets/logos/Simbolo ei marca registrada-01.png" alt="ei" loading="lazy" decoding="async">
+          <p>Más de 40 años transformando el desarrollo eléctrico e iluminación de Colombia con calidad y respaldo técnico bajo normativas RETIE y RETILAP.</p>
+        </div>
+        <div class="footer-col" id="empresa">
+          <h4>Empresa</h4>
+          <ul class="footer-links-list">
+            <li><a href="nosotros.html">Nosotros / Quiénes Somos</a></li>
+            <li><a href="contacto.html">Contacto Comercial</a></li>
+            <li><a href="nosotros.html#trabaja-con-nosotros">Trabaja con Nosotros</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Líneas de Negocio</h4>
+          <ul class="footer-links-list">
+            <li><a href="alumbrado-publico.html">Alumbrado Público</a></li>
+            <li><a href="suministros.html">Suministros Eléctricos</a></li>
+            <li><a href="obras.html">Proyectos de Ingeniería</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-col-contact">
+          <h4>Sede Principal</h4>
+          <div class="footer-contact-details">
+            <p><strong>Ubicación:</strong> Parque Industrial, Tuluá, Valle del Cauca, Colombia</p>
+            <p><strong>Líneas:</strong> <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" aria-label="WhatsApp Oficial"><i class="fa-brands fa-whatsapp text-accent-amber" style="margin-right: 4px;"></i>+57 311 719 4015</a> / PBX: (602) 224 2626</p>
+            <p><strong>Correo:</strong> info@ei.com.co</p>
+          </div>
+          <div class="footer-social-group">
+            <div class="footer-social-icons">
+              <a href="https://www.linkedin.com/company/electroingenieria-sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="LinkedIn" aria-label="LinkedIn de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://www.instagram.com/electroingenieria_sas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Instagram" aria-label="Instagram de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/electroingenieriasas/" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="Facebook" aria-label="Facebook de Electroingeniería S.A.S.">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="social-circle-link" title="WhatsApp" aria-label="WhatsApp Oficial">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-unified">
+        <p>&copy; 2026 Electroingeniería S.A.S. Todos los derechos reservados.</p>
+        <p>Desarrollado por <strong>Luis Grisales - Alkalu Innova</strong></p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Privacidad</a>
+          <a href="#" style="color: #94A3B8; text-decoration: none;">Tratamiento de Datos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
