@@ -218,7 +218,7 @@
 }
 
 .unidades-title .text-accent-amber {
-    color: #f59e0b !important; /* Ámbar de Electroingeniería */
+    color: var(--color-accent, #F6D000) !important;
     position: relative;
 }
 
@@ -471,7 +471,7 @@ footer.footer,
             rgba(0, 10, 32, 0.74) 100%    /* 74% abajo para proteger enlaces y créditos */
         ),
         url('../assets/proyectos/9.jpg') center center / cover no-repeat !important;
-    border-top: 3px solid #f59e0b !important;
+    border-top: 3px solid var(--color-accent, #F6D000) !important;
     color: #ffffff !important;
     padding-top: 55px !important;
     overflow: hidden;
@@ -500,7 +500,7 @@ footer.footer,
 
 .footer-credits .credit-brand,
 .footer-bottom-unified strong {
-    color: #f59e0b !important;
+    color: var(--color-accent, #F6D000) !important;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
@@ -764,7 +764,7 @@ footer.footer,
 .muni-name em {
   font-size: 0.75rem;
   font-style: normal;
-  color: #d97706;
+  color: var(--color-accent, #F6D000);
   font-weight: 600;
   margin-top: 3px;
 }
@@ -832,7 +832,7 @@ footer.footer,
 }
 
 .about-title .text-accent-amber {
-  color: #d97706;
+  color: var(--color-accent, #F6D000) !important;
 }
 
 /* Párrafo Destacado */
@@ -1187,7 +1187,7 @@ footer.footer,
 }
 
 .award-entity-tag {
-  color: #d97706; /* Ámbar tostado */
+  color: var(--color-accent, #F6D000);
   font-size: 11.5px;
   font-weight: 800;
   text-transform: uppercase;
@@ -2227,9 +2227,9 @@ footer.footer,
 }
 
 .telemetry-pill.live-amber {
-  background: #fffbeb;
-  color: #d97706;
-  border: 1px solid #fde68a;
+  background: #fefce8;
+  color: #ca8a04;
+  border: 1px solid #fef08a;
 }
 
 .t-dot {
@@ -2249,8 +2249,8 @@ footer.footer,
 }
 
 .live-amber .t-dot {
-  background: #f59e0b;
-  box-shadow: 0 0 6px #f59e0b;
+  background: var(--color-accent, #F6D000);
+  box-shadow: 0 0 6px var(--color-accent, #F6D000);
 }
 
 .smart-card h3 {
@@ -2381,9 +2381,9 @@ footer.footer,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(217, 119, 6, 0.1);
-  color: #D97706;
-  border: 1px solid rgba(217, 119, 6, 0.25);
+  background: rgba(246, 208, 0, 0.15);
+  color: var(--color-accent, #F6D000);
+  border: 1px solid rgba(246, 208, 0, 0.35);
   padding: 5px 14px;
   border-radius: 9999px;
   font-size: 11px;
@@ -3718,7 +3718,7 @@ body.nav-open {
 }
 
 .city-pill i {
-  color: #D97706; /* Ámbar corporativo */
+  color: var(--color-accent, #F6D000);
   font-size: 12px;
   transition: transform 0.2s ease;
 }
@@ -5382,7 +5382,7 @@ body.nav-open {
 }
 
 .text-accent-gold {
-  color: #D97706;
+  color: var(--color-accent, #F6D000);
 }
 
 /* Cuerpo de la Ficha */
