@@ -1,3 +1,14 @@
+/* ==========================================================================
+   TIPOGRAFÍA EDITORIAL CORPORATIVA (ESTILO REFERENCIA)
+   ========================================================================== */
+
+/* 1. Importar Inter si no está presente para máxima fidelidad */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,30 +16,657 @@
 }
 
 body {
-  font-family: var(--font-family-corp);
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg-light); /* #f8fafc unificado */
   color: var(--color-text-main);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-brand);
-  color: var(--color-primary); /* Azul Oficial del Logo #003690 */
+/* ==========================================================================
+   UNIFICACIÓN DE TÍTULOS EN AZUL CORPORATIVO (ZERO AMARILLO EN HEADINGS)
+   ========================================================================== */
+
+/* Color base para todos los títulos sobre fondos claros */
+h1, h2, h3, h4, h5, h6,
+.section-main-title,
+.section-title,
+.module-heading,
+.unidades-title,
+.about-title {
+  font-family: var(--font-primary);
+  color: #003690 !important; /* Azul corporativo institucional */
+  letter-spacing: -0.03em;
+  line-height: 1.2;
 }
 
-/* Preservar blanco en títulos sobre fondos oscuros o banners de hero */
+/* Anular cualquier span o clase de acento amarillo dentro de los títulos */
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span,
+.section-main-title span,
+.section-title span,
+.module-heading span,
+.unidades-title span,
+.about-title span,
+h1 .text-accent,
+h2 .text-accent,
+h3 .text-accent,
+h4 .text-accent,
+h1 .text-accent-amber,
+h2 .text-accent-amber,
+h3 .text-accent-amber,
+h4 .text-accent-amber,
+h1 .text-accent-gold,
+h2 .text-accent-gold,
+h3 .text-accent-gold,
+h4 .text-accent-gold,
+h1 .text-yellow,
+h2 .text-yellow,
+h3 .text-yellow,
+h4 .text-yellow,
+h1 [class*="highlight"],
+h2 [class*="highlight"],
+h3 [class*="highlight"],
+h4 [class*="highlight"],
+h1 [class*="accent"],
+h2 [class*="accent"],
+h3 [class*="accent"],
+h4 [class*="accent"] {
+  color: inherit !important; /* Hereda el azul corporativo del título */
+}
+
+/* 2. Títulos en Containers, Tarjetas y Módulos */
+.site-container h1,
+.site-container h2,
+.site-container h3,
+.container h1,
+.container h2,
+.container h3,
+.section-main-title,
+.section-title,
+.slide-text-content h3,
+.slide-content h2,
+.slide-content h3,
+.hero-heading,
+.hero-title,
+.hero-insignia-title,
+.banner-heading,
+.module-heading,
+.detail-hero-title {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important; /* Cierra el espaciado para ese look compacto */
+  line-height: 1.2 !important;        /* Junta las líneas de forma elegante */
+}
+
+/* 3. Textos blancos sobre fondos fotográficos o módulos oscuros */
+.slide-text-content h3,
+.slide-content h2,
+.hero-heading,
+.hero-title,
+.hero-insignia-title,
+.banner-heading,
+.detail-hero-title,
+.overlay-text-bold {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.18 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Clase de utilidad reutilizable para aplicar en cualquier texto */
+.text-editorial-bold {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.2 !important;
+}
+
+/* Preservar blanco en títulos y spans sobre fondos oscuros o banners de hero */
+.inner-hero-banner h1,
+.inner-hero-banner h2,
+.inner-hero-banner h3,
+.hero-section h1,
 .hero-slider-section h1,
+.hero-slider-section h2,
+.hero-slider-section h3,
 .hero-slider-section .hero-title,
 .hero-slider-section .hero-insignia-title,
-.inner-hero-banner h1,
-.inner-hero-banner .hero-insignia-title,
+.hero-slider-section .hero-lead,
+.hero-slider-section .hero-insignia-lead,
+.hero-slider-section .slide-content p,
+.hero-title,
+.hero-insignia-title,
+.banner-heading,
+.inner-hero-banner .hero-lead,
+.inner-hero-banner .hero-insignia-lead,
+.inner-hero-banner p,
 .footer-panoramic h3,
 .footer-panoramic h4,
 .footer-col h4,
 .hq-branch-card h3,
-.detail-hero-title {
+.detail-hero-title,
+.detail-hero-subtitle,
+.bg-dark-blue h2,
+.bg-dark-blue h3,
+.kpi-premium-strip h2 {
   color: #FFFFFF !important;
+}
+
+.inner-hero-banner h1 span,
+.inner-hero-banner h2 span,
+.inner-hero-banner h3 span,
+.hero-section h1 span,
+.hero-slider-section h1 span,
+.hero-slider-section h2 span,
+.hero-slider-section h3 span,
+.hero-slider-section .hero-title span,
+.hero-slider-section .hero-insignia-title span,
+.hero-title span,
+.hero-insignia-title span,
+.banner-heading span,
+.detail-hero-title span,
+.bg-dark-blue h2 span,
+.bg-dark-blue h3 span,
+.kpi-premium-strip h2 span,
+.footer-panoramic h3 span,
+.footer-panoramic h4 span {
+  color: #FFFFFF !important;
+}
+
+/* Letras de párrafos y subtítulos en hero: tamaño equilibrado y negrita nítida (estilo referencia) */
+.hero-slider-section .hero-lead,
+.hero-slider-section .hero-insignia-lead,
+.hero-slider-section .slide-content p,
+.inner-hero-banner .hero-lead,
+.inner-hero-banner .hero-insignia-lead,
+.inner-hero-banner p,
+.detail-hero-subtitle {
+  font-family: var(--font-family-corp) !important;
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.01em !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* ==========================================================================
+   RESTAURACIÓN ESTRICTA DEL HEADER (BLANCO PURO OBLIGATORIO)
+   ========================================================================== */
+header,
+header nav,
+header .nav-desktop,
+header .nav-desktop a,
+header a,
+header .nav-link,
+header span,
+.site-header,
+.site-header nav,
+.site-header .navbar-nav,
+.site-header a,
+.site-header .nav-link,
+.site-header span,
+.header-transparent,
+.header-transparent nav,
+.header-transparent .nav-desktop,
+.header-transparent .nav-desktop a,
+.header-transparent .nav-link,
+.header-transparent span,
+.nav-link {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Hover del menú para mantener elegancia */
+.site-header .nav-link:hover,
+.header-transparent .nav-link:hover,
+.nav-link:hover {
+  color: var(--color-accent, #F6D000) !important;
+}
+
+/* El botón Cotizar conserva su texto oscuro dentro de la pastilla amarilla */
+.site-header .btn-cotizar,
+.site-header a.btn-cotizar,
+.header-transparent .btn-quote-header,
+.header-transparent a.btn-quote-header,
+.btn-quote-header {
+  color: #07162C !important;
+  text-shadow: none !important;
+  background-color: var(--color-accent, #F6D000) !important;
+}
+
+/* Items del menú desplegable */
+.dropdown-menu a {
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+.dropdown-menu a:hover {
+  color: var(--color-accent, #F6D000) !important;
+}
+
+/* Blindar Footer */
+footer,
+.site-footer,
+.footer-panoramic,
+.footer-col {
+  color: #94A3B8;
+}
+footer a,
+.site-footer a,
+.footer-panoramic a,
+.footer-col a {
+  color: #CBD5E1;
+}
+
+/* ==========================================================================
+   TEXTO NEGRO EXCLUSIVAMENTE PARA SECCIONES DE CONTENIDO CLARO
+   ========================================================================== */
+/* Solo párrafos dentro de secciones blancas o grises */
+.site-section.bg-white p:not(.pillar-card-accent *):not(.card-dark *):not(.card-blue *):not([class*="dark"] *):not([class*="accent"] *),
+.site-section.bg-light-gray p:not(.pillar-card-accent *):not(.card-dark *):not(.card-blue *):not([class*="dark"] *):not([class*="accent"] *),
+.section-with-divider.bg-light-gray p:not(.pillar-card-accent *):not(.card-dark *):not(.card-blue *):not([class*="dark"] *):not([class*="accent"] *),
+.section-with-divider.bg-white p:not(.pillar-card-accent *):not(.card-dark *):not(.card-blue *):not([class*="dark"] *):not([class*="accent"] *),
+.site-section:not(.bg-dark-blue):not(.kpi-premium-strip):not(.cta-section):not(.cta-banner):not(.bg-corporate-blue):not([class*="cta"]):not(.section-careers):not([class*="hero"]):not(.inner-hero-banner):not(.hero-slider-section) p:not(.pillar-card-accent *):not(.card-dark *):not(.card-blue *):not([class*="dark"] *):not([class*="accent"] *),
+.site-container:not(header *):not(footer *):not(.cta-section *):not(.cta-banner *):not(.bg-dark-blue *):not(.bg-corporate-blue *):not([class*="cta"] *):not(.section-careers *):not([class*="hero"] *):not(.inner-hero-banner *):not(.hero-slider-section *):not(.pillar-card-accent *):not(.card-dark *):not(.card-blue *):not([class*="dark"] *):not([class*="accent"] *) p,
+.container:not(header *):not(footer *):not(.cta-section *):not(.cta-banner *):not(.bg-dark-blue *):not(.bg-corporate-blue *):not([class*="cta"] *):not(.section-careers *):not([class*="hero"] *):not(.inner-hero-banner *):not(.hero-slider-section *):not(.pillar-card-accent *):not(.card-dark *):not(.card-blue *):not([class*="dark"] *):not([class*="accent"] *) p,
+.section-lead,
+.section-desc,
+.unidades-subtitle,
+.about-desc,
+.emblematic-subtitle,
+.muni-subtitle,
+.why-choose-desc,
+.transformation-lead-paragraph,
+.faq-answer p,
+.text-muted-custom {
+  color: #000000 !important;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   BLINDAJE DE TEXTOS EN HERO BANNERS (CABECERAS PRINCIPALES)
+   ========================================================================== */
+
+/* Todo párrafo, subtítulo o lead dentro de cualquier Hero Banner debe ser blanco */
+.hero,
+.hero-section,
+.hero-banner,
+.inner-hero,
+.inner-hero-banner,
+.page-hero,
+.hero-slider-section,
+[class*="hero-banner"],
+[class*="inner-hero"],
+[class*="hero"] {
+  color: #FFFFFF !important;
+}
+
+.hero p,
+.hero-section p,
+.hero-banner p,
+.inner-hero p,
+.inner-hero-banner p,
+.page-hero p,
+.hero-slider-section p,
+.slide-text-content p,
+.slide-content p,
+.hero-lead,
+.hero-insignia-lead,
+.banner-subtext,
+.detail-hero-subtitle,
+.inner-hero-subtitle,
+.kpi-premium-item p,
+[class*="hero"] p,
+[class*="hero"] .lead,
+[class*="hero"] .hero-lead {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem) !important;
+  line-height: 1.4 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* ==========================================================================
+   FORZAR TEXTOS BLANCOS EN TARJETAS CON FOTOGRAFÍA DE FONDO
+   ========================================================================== */
+
+/* Selector para tarjetas de proyectos, bento cards y showcase con imagen de fondo completa */
+.portfolio-card,
+.showcase-card,
+.bento-card,
+.card-with-bg,
+.accordion-panel,
+.gallery-accordion-item,
+.solution-showcase-card,
+[class*="showcase-item"],
+[class*="showcase-card"] {
+  color: #FFFFFF !important;
+}
+
+/* Títulos dentro de las tarjetas con imagen de fondo (ej. "Parques y Plazas", etc.) */
+.portfolio-card h1, .portfolio-card h2, .portfolio-card h3, .portfolio-card h4,
+.showcase-card h1, .showcase-card h2, .showcase-card h3, .showcase-card h4,
+.bento-card h1, .bento-card h2, .bento-card h3, .bento-card h4,
+.card-with-bg h1, .card-with-bg h2, .card-with-bg h3, .card-with-bg h4,
+.accordion-panel h1, .accordion-panel h2, .accordion-panel h3, .accordion-panel h4,
+.gallery-accordion-item h1, .gallery-accordion-item h2, .gallery-accordion-item h3, .gallery-accordion-item h4,
+.panel-title,
+.accordion-panel .panel-title,
+[class*="showcase-item"] h2,
+[class*="showcase-item"] h3,
+[class*="showcase-item"] h4,
+[class*="showcase-card"] h2,
+[class*="showcase-card"] h3,
+[class*="showcase-card"] h4 {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+  margin-top: 4px;
+}
+
+/* Spans dentro de los títulos de tarjetas con foto de fondo */
+.portfolio-card h2 span,
+.portfolio-card h3 span,
+.showcase-card h2 span,
+.showcase-card h3 span,
+.bento-card h2 span,
+.bento-card h3 span,
+.accordion-panel h3 span,
+.panel-title span {
+  color: #FFFFFF !important;
+}
+
+/* Textos secundarios o párrafos dentro de las tarjetas con foto de fondo */
+.portfolio-card p,
+.showcase-card p,
+.bento-card p,
+.card-with-bg p,
+.accordion-panel p,
+.gallery-accordion-item p,
+[class*="showcase-item"] p,
+[class*="showcase-card"] p {
+  color: #F1F5F9 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* La etiqueta pequeña superior (ej. "CÍVICO", categorías o badges en tarjetas de foto) */
+.showcase-card .card-category,
+.accordion-panel .panel-category,
+.panel-category {
+  color: var(--color-accent, #F6D000) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   TÍTULOS EN TARJETAS DE FONDO BLANCO / CLARO (AZUL CORPORATIVO)
+   ========================================================================== */
+
+/* Tarjetas de proyectos con fondo blanco/claro */
+.card,
+.project-card,
+.project-card-white,
+.service-card,
+.grid-card,
+.product-showcase-card,
+.bg-white .card,
+.site-section.bg-light-gray .card,
+[class*="card"]:not([style*="background-image"]):not(.slide-card):not(.swiper-slide):not(.accordion-panel):not(.gallery-accordion-item):not(.solution-showcase-card):not(.pillar-card-accent):not(.card-dark):not(.card-blue):not(.card-navy):not(.bg-dark-card):not([class*="dark"]):not([class*="accent"]) {
+  background-color: #FFFFFF;
+}
+
+/* Títulos dentro de tarjetas blancas: AZUL CORPORATIVO y SIN SOMBRAS */
+.card h3,
+.card h4,
+.project-card h3,
+.project-card h4,
+.product-card-body h3,
+.product-card-body h4,
+.product-title,
+.product-info-box h3,
+.product-info-box h4,
+.project-card-white h3,
+.service-card h3,
+.grid-card h3,
+.bg-white [class*="card"] h3,
+.site-section.bg-light-gray [class*="card"] h3,
+[class*="card"]:not([style*="background-image"]):not(.slide-card):not(.swiper-slide):not(.accordion-panel):not(.gallery-accordion-item):not(.solution-showcase-card):not(.pillar-card-accent):not(.card-dark):not(.card-blue):not(.card-navy):not(.bg-dark-card):not([class*="dark"]):not([class*="accent"]) h3,
+[class*="card"]:not([style*="background-image"]):not(.slide-card):not(.swiper-slide):not(.accordion-panel):not(.gallery-accordion-item):not(.solution-showcase-card):not(.pillar-card-accent):not(.card-dark):not(.card-blue):not(.card-navy):not(.bg-dark-card):not([class*="dark"]):not([class*="accent"]) h4 {
+  color: #003690 !important; /* Azul corporativo */
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  text-shadow: none !important; /* Eliminamos la sombra borrosa */
+  line-height: 1.25 !important;
+  margin-bottom: 8px;
+}
+
+.card h3 span,
+.project-card h3 span,
+.product-card-body h3 span,
+.product-title span,
+.product-info-box h3 span,
+[class*="card"]:not([style*="background-image"]):not(.slide-card):not(.swiper-slide):not(.accordion-panel):not(.gallery-accordion-item):not(.solution-showcase-card):not(.pillar-card-accent):not(.card-dark):not(.card-blue):not(.card-navy):not(.bg-dark-card):not([class*="dark"]):not([class*="accent"]) h3 span {
+  color: #003690 !important;
+  text-shadow: none !important;
+}
+
+/* Párrafo descriptivo dentro de tarjetas blancas: Negro nítido */
+[class*="card"]:not([style*="background-image"]):not(.slide-card):not(.swiper-slide):not(.accordion-panel):not(.gallery-accordion-item):not(.solution-showcase-card):not(.pillar-card-accent):not(.card-dark):not(.card-blue):not(.card-navy):not(.bg-dark-card):not([class*="dark"]):not([class*="accent"]) p,
+.project-card p,
+.product-card-body p,
+.product-short-desc,
+.product-info-box p {
+  color: #111827 !important;
+  font-weight: 500;
+  text-shadow: none !important;
+}
+
+/* ==========================================================================
+   TARJETAS CON FONDO AZUL OSCURO / NAVY (TEXTO BLANCO OBLIGATORIO)
+   ========================================================================== */
+
+/* Selectores para tarjetas con fondo azul/oscuro */
+.card-dark,
+.card-blue,
+.card-navy,
+.bg-dark-card,
+.pillar-card-dark,
+.pillar-card-accent,
+[class*="card"][class*="dark"],
+[class*="card"][class*="blue"],
+[class*="card"][class*="accent"],
+[class*="card"][style*="background: rgb(7"],
+[class*="card"][style*="background-color: #0"] {
+  color: #FFFFFF !important;
+}
+
+/* Título dentro de tarjetas oscuras (ej. "Infraestructura Propia") */
+.card-dark h3,
+.card-dark h4,
+.card-blue h3,
+.card-blue h4,
+.pillar-card-dark h3,
+.pillar-card-dark h4,
+.pillar-card-accent h3,
+.pillar-card-accent h4,
+[class*="card"][class*="dark"] h3,
+[class*="card"][class*="dark"] h4,
+[class*="card"][class*="blue"] h3,
+[class*="card"][class*="blue"] h4,
+[class*="card"][class*="accent"] h3,
+[class*="card"][class*="accent"] h4 {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
+.card-dark h3 span,
+.card-blue h3 span,
+.pillar-card-dark h3 span,
+.pillar-card-accent h3 span,
+[class*="card"][class*="dark"] h3 span,
+[class*="card"][class*="blue"] h3 span,
+[class*="card"][class*="accent"] h3 span {
+  color: #FFFFFF !important;
+}
+
+/* Párrafo dentro de tarjetas oscuras */
+.card-dark p,
+.card-blue p,
+.pillar-card-dark p,
+.pillar-card-accent p,
+[class*="card"][class*="dark"] p,
+[class*="card"][class*="blue"] p,
+[class*="card"][class*="accent"] p {
+  color: #F1F5F9 !important;
+  opacity: 0.95 !important;
+  font-weight: 400 !important;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   BLINDAJE DE TEXTO BLANCO EN BLOQUE CTA / COTIZACIÓN
+   ========================================================================== */
+
+/* Contenedor del banner de cotización / llamada a la acción */
+.cta-section,
+.cta-banner,
+.section-cta,
+[class*="cta"],
+.bg-corporate-blue,
+.bg-dark-blue {
+  background-color: #003690 !important; /* O su azul base correspondiente */
+}
+
+/* Título dentro de la sección CTA: Blanco y en negrita */
+.cta-section h2,
+.cta-section h3,
+.cta-banner h2,
+.cta-banner h3,
+.section-cta h2,
+.section-cta h3,
+[class*="cta"] h2,
+[class*="cta"] h3,
+.bg-corporate-blue h2,
+.bg-corporate-blue h3,
+.bg-dark-blue h2,
+.bg-dark-blue h3,
+.section-careers h2,
+.section-careers h3 {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 4px rgba(0, 15, 40, 0.4);
+}
+
+.cta-section h2 span,
+.cta-section h3 span,
+.cta-banner h2 span,
+.cta-banner h3 span,
+.section-cta h2 span,
+.section-cta h3 span,
+[class*="cta"] h2 span,
+[class*="cta"] h3 span,
+.bg-corporate-blue h2 span,
+.bg-corporate-blue h3 span,
+.bg-dark-blue h2 span,
+.bg-dark-blue h3 span {
+  color: #FFFFFF !important;
+}
+
+/* Párrafo y textos explicativos dentro de la sección CTA: Blanco nítido */
+.cta-section p,
+.cta-banner p,
+.section-cta p,
+[class*="cta"] p,
+.cta-section .lead,
+.cta-banner .lead,
+.bg-corporate-blue p,
+.bg-dark-blue p,
+.section-careers p {
+  color: #F8FAFC !important;
+  opacity: 0.95 !important;
+  font-weight: 500 !important;
+  line-height: 1.6;
+}
+
+/* Si hay enlaces o botones secundarios en el banner */
+.cta-section a:not(.btn):not([class*="btn"]),
+.cta-banner a:not(.btn):not([class*="btn"]) {
+  color: #FFFFFF !important;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   BADGE COMPACTO (SOLO TÍTULO)
+   ========================================================================== */
+.tech-spec-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px !important; /* Altura compacta y equilibrada */
+  background: rgba(7, 22, 44, 0.88) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 3px solid #2563EB;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0, 10, 25, 0.35);
+  max-width: fit-content;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.solution-showcase-card .tech-spec-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: auto;
+  max-width: calc(100% - 28px);
+  z-index: 4;
+}
+
+.tech-spec-badge:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.tech-badge-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0 !important; /* Sin margen inferior al no tener subtítulo */
+}
+
+.tech-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563EB;
+  font-size: 0.95rem;
+}
+
+.tech-badge-title {
+  color: #FFFFFF !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Eliminar definitivamente cualquier estilo residual de subtítulo */
+.tech-badge-sub {
+  display: none !important;
 }
 
 .container {
@@ -46,7 +684,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(180deg, rgba(7, 22, 44, 0.88) 0%, rgba(7, 22, 44, 0) 100%);
+  background: transparent !important;
   padding: 0 !important;
   min-height: 80px !important;
   transition: var(--transition);
@@ -62,34 +700,122 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
-/* Selector optimizado para agrandar el logo */
-.logo-main {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 4px 0;
+/* ==========================================================================
+   TOP SCRIM: DEGRADADO SUPERIOR DE PROTECCIÓN PARA EL MENÚ
+   ========================================================================== */
+
+/* Opción A: Aplicado directamente al header flotante / transparente */
+.site-header,
+.main-header {
+  background: linear-gradient(
+    180deg, 
+    rgba(0, 0, 0, 0.7) 0%, 
+    rgba(0, 0, 0, 0.4) 50%, 
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+  padding-bottom: 25px;
+  transition: background 0.3s ease;
 }
 
+/* Opción B (Recomendada si el header es fixed/absolute sobre el Hero banner):
+   Pseudoelemento en el banner superior para garantizar cobertura completa */
+.inner-hero-banner::before,
+.hero-section::before,
+.hero-slider-section::before,
+.slide::before,
+.hero-insignia::before,
+.alumbrado-hero-section::before,
+.detail-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px; /* Cubre únicamente la zona del header y los enlaces */
+  background: linear-gradient(
+    180deg, 
+    rgba(0, 10, 25, 0.75) 0%, 
+    rgba(0, 10, 25, 0.35) 60%, 
+    transparent 100%
+  );
+  pointer-events: none; /* Permite hacer clic en los elementos detrás si hiciera falta */
+  z-index: 2;
+}
+
+/* Asegurar que el logo y los enlaces queden por encima de la sombra */
+.site-header .nav-link,
+.site-header .navbar-nav,
+.header-transparent .nav-link,
+.header-transparent .nav-desktop,
+.header-transparent .btn-quote-header,
+.header-logo-container,
+.site-logo,
+.logo-main,
+.btn-cotizar,
+.btn-quote-header {
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Refuerzo nítido en el texto */
+}
+
+/* ==========================================================================
+   LOGO DESTACADO SIN AFECTAR LA ESTRUCTURA DEL HEADER
+   ========================================================================== */
+
+/* Contenedor del logo en el header */
+.header-logo-container,
+.site-logo,
+.navbar-brand,
+.logo-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px; /* Altura de anclaje fija para no deformar el header */
+  overflow: visible !important; /* Permite que la imagen crezca sin empujar el menú */
+  z-index: 15;
+}
+
+/* Imagen del logo */
+.header-logo-container img,
+.site-logo img,
+.navbar-brand img,
 .logo-main img {
-  width: 260px !important;            /* Controla el tamaño por ancho real */
-  max-width: 280px !important;
-  height: auto !important;
-  max-height: 95px !important;        /* Permite que el lienzo se expanda */
-  margin-top: -18px !important;       /* Compensa para que no empuje el header */
-  margin-bottom: -18px !important;
-  object-fit: contain !important;
-  filter: brightness(0) invert(1) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.65)) !important;
+  height: 68px !important;       /* Aumento de tamaño visible */
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain;
+  transform-origin: left center; /* Crece desde la izquierda hacia afuera */
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45)) !important; /* Mayor contraste sobre fondos claros/oscuros */
   transition: transform 0.25s ease;
   display: block;
 }
 
-.logo-main img:hover {
-  transform: scale(1.04);
+/* Efecto sutil al pasar el mouse (hover opcional) */
+.header-logo-container:hover img,
+.site-logo:hover img,
+.logo-main:hover img {
+  transform: scale(1.03);
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+  .header-logo-container,
+  .site-logo,
+  .navbar-brand,
+  .logo-main {
+    height: 40px;
+  }
+  .header-logo-container img,
+  .site-logo img,
+  .navbar-brand img,
+  .logo-main img {
+    height: 48px !important;
+  }
 }
 
 .nav-desktop {
   display: flex;
-  gap: 2rem;
+  gap: 1.15rem;
   list-style: none;
   align-items: center;
 }
@@ -108,6 +834,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 0.4rem;
   transition: var(--transition);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
 }
 
 .nav-link:hover {
@@ -119,7 +846,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgba(7, 22, 44, 0.96);
+  background: rgba(14, 14, 14, 0.96);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top: 3px solid var(--color-accent);
@@ -127,7 +854,7 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 250px;
   list-style: none;
   padding: 0.8rem 0;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
@@ -180,27 +907,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Hero Slider: Editorial, Ken Burns & Gradiente Atenuado
+   Hero Slider
    ========================================================================== */
-.hero-slider-section {
+.hero-slider {
   position: relative;
-  min-height: 92vh;
-  width: 100%;
+  height: 90vh;
+  min-height: 600px;
+  background-color: #0A0A0A;
   overflow: hidden;
-  background-color: #07162C;
-  display: flex;
-  align-items: center;
+}
+
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .slide {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 
 .slide.active {
@@ -209,31 +942,32 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
 }
 
-/* Fondo con efecto Ken Burns */
 .slide-bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
   transform: scale(1);
-  transition: transform 7s ease-out;
 }
 
 .slide.active .slide-bg {
   transform: scale(1.12);
 }
 
-/* Capa de degradado lateral atenuada (preserva fotos sin perder lectura) */
+/* Capa de degradado lateral luminosa y limpia (estilo referencia) */
 .slide-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(7, 22, 44, 0.84) 0%,
-    rgba(7, 22, 44, 0.52) 42%,
-    rgba(7, 22, 44, 0.16) 70%,
-    rgba(7, 22, 44, 0.03) 90%,
-    rgba(7, 22, 44, 0) 100%
+    rgba(0, 0, 0, 0.46) 0%,
+    rgba(0, 0, 0, 0.22) 28%,
+    rgba(0, 0, 0, 0.04) 52%,
+    rgba(0, 0, 0, 0) 70%
   );
   z-index: 1;
 }
@@ -262,12 +996,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slide-content p {
-  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
-  color: #F1F5F9;
-  line-height: 1.6;
+  font-family: var(--font-family-corp);
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  color: #FFFFFF;
+  line-height: 1.35;
   margin-bottom: 1.8rem;
-  font-weight: 400;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .btn-slider-action {
@@ -309,7 +1045,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: rgba(7, 22, 44, 0.55);
+  background: rgba(14, 14, 14, 0.65);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.22);
   font-size: 1.05rem;
@@ -350,7 +1086,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 40px;
     height: 40px;
     font-size: 0.95rem;
-    background: rgba(7, 22, 44, 0.75);
+    background: rgba(14, 14, 14, 0.80);
   }
   .slider-arrow:hover {
     transform: scale(1.08);
@@ -407,7 +1143,7 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  background-color: #07162C;
+  background-color: #0A0A0A;
 }
 
 .inner-hero-banner .slide-overlay {
@@ -415,11 +1151,10 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(7, 22, 44, 0.84) 0%,
-    rgba(7, 22, 44, 0.52) 42%,
-    rgba(7, 22, 44, 0.16) 70%,
-    rgba(7, 22, 44, 0.03) 90%,
-    rgba(7, 22, 44, 0) 100%
+    rgba(0, 0, 0, 0.46) 0%,
+    rgba(0, 0, 0, 0.22) 28%,
+    rgba(0, 0, 0, 0.04) 52%,
+    rgba(0, 0, 0, 0) 70%
   );
   z-index: 1;
 }
@@ -455,11 +1190,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .inner-editorial-box p {
-  font-size: clamp(0.92rem, 1.05vw, 1.02rem);
-  color: #E2E8F0;
-  line-height: 1.55;
-  max-width: 520px;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  font-family: var(--font-family-corp);
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  color: #FFFFFF;
+  line-height: 1.35;
+  max-width: 650px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 /* Cuerpo de Contenido Interior */
@@ -537,3 +1275,31 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2.5rem;
   }
 }
+
+/* ==========================================================================
+   FORZAR PÁRRAFO BLANCO EN TARJETAS CON FONDO AZUL
+   ========================================================================== */
+.card[style*="background"] p,
+.card[style*="background-color"] p,
+.card-dark p,
+.card-blue p,
+.pillar-card-dark p,
+.pillar-card-accent p,
+.pillar-card-accent.card-dark p,
+.site-section .pillar-card-accent p,
+.site-section .card-dark p,
+.site-section.bg-light-gray .pillar-card-accent p,
+.site-section.bg-light-gray .card-dark p,
+.site-container .pillar-card-accent p,
+.site-container .card-dark p,
+[class*="card"][class*="dark"] p,
+[class*="card"][class*="blue"] p,
+[class*="card"][class*="accent"] p,
+[class*="bento"][class*="dark"] p,
+[class*="bento"][class*="accent"] p {
+  color: #FFFFFF !important;
+  opacity: 0.95 !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+}
+

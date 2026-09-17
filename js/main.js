@@ -1395,6 +1395,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ==========================================================================
+     INICIALIZACIÓN SWIPER MODO SCHRÉDER ARCHITECTURAL (.mySchrederSwiper)
+     ========================================================================== */
+  if (typeof Swiper !== 'undefined' && document.querySelector('.mySchrederSwiper')) {
+    const currentCounter = document.getElementById('schreder-current-slide');
+    const progressFill = document.getElementById('schreder-progress-fill');
+    const totalSlides = 4;
+
+    const updateSliderMetrics = (realIndex) => {
+      const activeNumber = (realIndex + 1);
+      if (currentCounter) {
+        currentCounter.textContent = activeNumber < 10 ? `0${activeNumber}` : activeNumber;
+      }
+      if (progressFill) {
+        const percentage = (activeNumber / totalSlides) * 100;
+        progressFill.style.width = `${percentage}%`;
+      }
+    };
+
+    const swiper = new Swiper('.mySchrederSwiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      loop: true,
+      speed: 650,
+      centeredSlides: false,
+      navigation: {
+        nextEl: '.swiper-next-btn',
+        prevEl: '.swiper-prev-btn',
+      },
+      grabCursor: true,
+      keyboard: {
+        enabled: true,
+      },
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      on: {
+        init: function () {
+          this.update();
+          updateSliderMetrics(this.realIndex || 0);
+        },
+        slideChange: function () {
+          updateSliderMetrics(this.realIndex || 0);
+        }
+      }
+    });
+  }
+
 });
 
 

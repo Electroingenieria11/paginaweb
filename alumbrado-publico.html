@@ -9,13 +9,14 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
 
   <!-- Header Universal -->
   <header class="header-transparent">
     <div class="header-inner">
-      <a href="index.html" class="logo-main">
+      <a href="index.html" class="logo-main header-logo-container">
         <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S.">
       </a>
       <nav>
@@ -103,16 +104,18 @@
     </div>
   </aside>
 
-  <!-- Banner Editorial -->
-  <section class="inner-hero-banner hero-insignia alumbrado-hero-section" style="background-image: url('assets/alumbrado/Gemini_Generated_Image_c6goduc6goduc6go.jpg');">
-    <div class="slide-overlay"></div>
-    <div class="container inner-hero-content hero-insignia-content alumbrado-hero-content">
-      <div class="inner-editorial-box banner-text-block">
-        <h1 class="hero-insignia-title banner-heading">Concesión & Operación de Alumbrado Público</h1>
-        <p class="hero-insignia-lead banner-subtext">Modernización masiva a tecnología LED y cobertura operativa en múltiples municipios y concesiones viales de Colombia bajo estricta normativa RETILAP.</p>
-      </div>
+  <!-- 1. HERO BANNER: ALUMBRADO PÚBLICO -->
+  <section class="inner-hero-banner alumbrado-hero-section" style="background-image: url('assets/alumbrado/4.jpg'); height: 460px;">
+    <div class="hero-overlay"></div>
+    <div class="site-container hero-inner-content">
+      <span class="hero-badge-minimal">ALCANCE NACIONAL</span>
+      <h1 class="hero-heading hero-title">Alumbrado Público</h1>
+      <p class="hero-lead">
+        Iluminamos el futuro de toda una población con experiencia comprobada.
+      </p>
     </div>
   </section>
+
 
   <!-- Módulo Insignia: Transformación Lumínica e Infraestructura Urbana -->
   <section class="transformation-showcase-section" id="transformacion">
@@ -122,7 +125,7 @@
         <!-- Columna Izquierda: Editorial y Cuadrícula de Capacidades -->
         <div class="transformation-editorial">
           <h2 class="transformation-main-title">
-            Modernización Integral, Telegestión y <span class="text-accent-amber">Eficiencia Energética</span>
+            Modernización Integral, Telegestión y Eficiencia Energética
           </h2>
 
           <p class="transformation-lead-paragraph">
@@ -221,14 +224,15 @@
     </div>
   </section>
 
-  <!-- Módulo Insignia: Nuestros Alumbrados Públicos & Ciudades Principales -->
-  <section class="emblematic-lighting-section" id="nuestros-alumbrados">
+  <!-- Módulo Insignia: Historias de Éxito & Concesiones de Alumbrado Público -->
+  <section class="emblematic-lighting-section section-with-divider" id="nuestros-alumbrados">
     <div class="container">
       
-      <!-- Encabezado Estilizado -->
+      <!-- Encabezado Estilizado Unificado -->
       <div class="emblematic-header">
+        <span class="section-subtitle-tag">TRAYECTORIA OPERATIVA</span>
         <h2 class="emblematic-title">
-          Nuestros <span class="text-accent-amber">Alumbrados Públicos</span>
+          Historias de Éxito en Alumbrado Público
         </h2>
         <p class="emblematic-subtitle">
           Proyectamos y sostenemos la infraestructura lumínica en los centros urbanos y corredores viales más estratégicos de Colombia, brindando seguridad ciudadana, confiabilidad técnica y estética nocturna.
@@ -246,59 +250,88 @@
           <a href="#sede-la-jagua" class="city-pill" title="Ver sede y contacto en La Jagua de Ibirico"><i class="fa-solid fa-location-dot"></i> La Jagua de Ibirico (Cesar)</a>
           <a href="#sede-planeta-rica" class="city-pill" title="Ver sede y contacto en Planeta Rica"><i class="fa-solid fa-location-dot"></i> Planeta Rica (Córdoba)</a>
         </div>
-      </div>
 
-      <!-- Mosaico de Alumbrados Impresionantes -->
-      <div class="emblematic-showcase-grid">
+        <!-- Barra de Navegación y Progreso Premium -->
+        <div class="emblematic-controls-bar">
+          <div class="carousel-progress-wrapper">
+            <span class="carousel-counter-current" id="schreder-current-slide">01</span>
+            <div class="carousel-progress-track">
+              <div class="carousel-progress-fill" id="schreder-progress-fill"></div>
+            </div>
+            <span class="carousel-counter-total">04</span>
+          </div>
 
-        <!-- Tarjeta 1: Tuluá (Formato Grande Izquierda) -->
-        <article class="emblematic-card card-large city-slider-card" data-city="tulua">
-          <div class="city-slides-wrapper">
-            <div class="city-slide active" style="background-image: url('assets/alumbrado/footer.webp');"></div>
-            <div class="city-slide" style="background-image: url('assets/proyectos/9.jpg');"></div>
-            <div class="city-slide" style="background-image: url('assets/proyectos/1.jpg');"></div>
+          <div class="carousel-nav-group">
+            <button class="premium-nav-btn swiper-prev-btn" aria-label="Proyecto anterior">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="premium-nav-btn swiper-next-btn" aria-label="Siguiente proyecto">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
-          <div class="emblematic-card-overlay"></div>
-          <button class="city-nav-btn prev" type="button" aria-label="Anterior">&#10094;</button>
-          <button class="city-nav-btn next" type="button" aria-label="Siguiente">&#10095;</button>
-          <div class="emblematic-minimal-bar">
-            <h3><i class="fa-solid fa-location-dot text-accent-amber"></i> Tuluá, Valle del Cauca</h3>
-            <span class="minimal-pill">RETILAP M1/M2</span>
-          </div>
-        </article>
-
-        <!-- Tarjeta 2: Palmira (Superior Derecha) -->
-        <article class="emblematic-card city-slider-card" data-city="palmira">
-          <div class="city-slides-wrapper">
-            <div class="city-slide active" style="background-image: url('assets/proyectos/9.jpg');"></div>
-            <div class="city-slide" style="background-image: url('assets/alumbrado/footer.webp');"></div>
-          </div>
-          <div class="emblematic-card-overlay"></div>
-          <button class="city-nav-btn prev" type="button" aria-label="Anterior">&#10094;</button>
-          <button class="city-nav-btn next" type="button" aria-label="Siguiente">&#10095;</button>
-          <div class="emblematic-minimal-bar">
-            <h3><i class="fa-solid fa-location-dot text-accent-amber"></i> Palmira, Valle del Cauca</h3>
-            <span class="minimal-pill">Smart City</span>
-          </div>
-        </article>
-
-        <!-- Tarjeta 3: Calima El Darién (Inferior Derecha) -->
-        <article class="emblematic-card city-slider-card" data-city="calima">
-          <div class="city-slides-wrapper">
-            <div class="city-slide active" style="background-image: url('assets/proyectos/1.jpg');"></div>
-            <div class="city-slide" style="background-image: url('assets/suministros/pasillo2.jpg');"></div>
-          </div>
-          <div class="emblematic-card-overlay"></div>
-          <button class="city-nav-btn prev" type="button" aria-label="Anterior">&#10094;</button>
-          <button class="city-nav-btn next" type="button" aria-label="Siguiente">&#10095;</button>
-          <div class="emblematic-minimal-bar">
-            <h3><i class="fa-solid fa-location-dot text-accent-amber"></i> Calima El Darién, Valle del Cauca</h3>
-            <span class="minimal-pill">Arquitectónico</span>
-          </div>
-        </article>
+        </div>
 
       </div>
+    </div>
 
+    <!-- Contenedor del Carrusel Premium Architectural -->
+    <div class="schreder-stage-wrapper">
+      <div class="swiper mySchrederSwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Proyecto 1: Tuluá -->
+          <article class="swiper-slide premium-project-slide" style="background-image: url('assets/alumbrado/footer.webp');">
+            <div class="slide-glass-panel">
+              <div class="slide-meta-row">
+                <span class="slide-location"><i class="fa-solid fa-location-dot"></i> Tuluá — Valle del Cauca</span>
+                <a href="#sede-tulua" class="slide-arrow-btn" aria-label="Ver sede en Tuluá"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+              <h3 class="slide-title">Actualización a Iluminación LED Inteligente</h3>
+            </div>
+          </article>
+
+          <!-- Proyecto 2: Palmira -->
+          <article class="swiper-slide premium-project-slide" style="background-image: url('assets/proyectos/9.jpg');">
+            <div class="slide-glass-panel">
+              <div class="slide-meta-row">
+                <span class="slide-location"><i class="fa-solid fa-location-dot"></i> Palmira — Valle del Cauca</span>
+                <a href="#sede-palmira" class="slide-arrow-btn" aria-label="Ver sede en Palmira"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+              <h3 class="slide-title">Remodelación del Ámbito Público y Avenidas</h3>
+            </div>
+          </article>
+
+          <!-- Proyecto 3: Calima El Darién -->
+          <article class="swiper-slide premium-project-slide" style="background-image: url('assets/proyectos/1.jpg');">
+            <div class="slide-glass-panel">
+              <div class="slide-meta-row">
+                <span class="slide-location"><i class="fa-solid fa-location-dot"></i> Calima El Darién</span>
+                <a href="#sede-calima" class="slide-arrow-btn" aria-label="Ver sede en Calima"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+              <h3 class="slide-title">Iluminación Arquitectónica y Parques</h3>
+            </div>
+          </article>
+
+          <!-- Proyecto 4: Córdoba y Cesar -->
+          <article class="swiper-slide premium-project-slide" style="background-image: url('assets/suministros/pasillo2.jpg');">
+            <div class="slide-glass-panel">
+              <div class="slide-meta-row">
+                <span class="slide-location"><i class="fa-solid fa-location-dot"></i> Córdoba y Cesar</span>
+                <a href="#sede-la-jagua" class="slide-arrow-btn" aria-label="Ver sedes Córdoba y Cesar"><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+              <h3 class="slide-title">Expansión Masiva en Redes de Distribución</h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Fancy Divider SVG hacia la siguiente sección -->
+    <div class="fancy-divider">
+      <svg preserveAspectRatio="none" viewBox="0 0 100 100" width="100%" height="100%">
+        <path class="fill-light-gray" d="M0 0 C 50 100 50 100 100 0 Z"></path>
+      </svg>
     </div>
   </section>
 
@@ -331,7 +364,7 @@
     <div class="container">
       <div class="unidades-header">
         <h2 class="unidades-title">
-          Transformación Tecnológica: <span class="text-accent-amber">Antes vs. Después</span>
+          Transformación Tecnológica: Antes vs. Después
         </h2>
         <p class="unidades-subtitle">
           Desplaza la barra interactiva para comparar el parque lumínico convencional de sodio frente a la tecnología LED de alta reproducción cromática.
@@ -368,7 +401,7 @@
         <!-- Contenido Editorial -->
         <div class="christmas-content">
           <h2 class="christmas-title">
-            Alumbrado Navideño y <span class="text-accent-amber">Proyectos Monumentales</span>
+            Alumbrado Navideño y Proyectos Monumentales
           </h2>
           <p class="christmas-description">
             Transformamos los espacios públicos, parques principales y corredores cívicos en escenarios turísticos mágicos. Desarrollamos espectáculos lumínicos sostenibles con tecnología LED interactiva, combinando arte monumental, tradición y seguridad técnica.
@@ -435,7 +468,7 @@
     <div class="container">
       <div class="unidades-header">
         <h2 class="unidades-title">
-          Preguntas Frecuentes y <span class="text-accent-amber">Soporte Técnico</span>
+          Preguntas Frecuentes y Soporte Técnico
         </h2>
         <p class="unidades-subtitle">
           Información clave para comunidades, administraciones municipales y usuarios del servicio.
@@ -491,7 +524,7 @@
     <div class="container">
       <div class="unidades-header">
         <h2 class="unidades-title">
-          Sedes Operativas y <span class="text-accent-amber">Atención de Alumbrado</span>
+          Sedes Operativas y Atención de Alumbrado
         </h2>
         <p class="unidades-subtitle">
           Canales directos de atención ciudadana, reporte de daños y gestión técnica en cada uno de nuestros municipios en concesión.
@@ -869,6 +902,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
