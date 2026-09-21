@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta-Tags de Seguridad y Blindaje -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com data:; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Distribución mayorista e institucional de insumos, materiales y equipos eléctricos certificados bajo norma RETIE y RETILAP para concesiones de alumbrado público y proyectos de ingeniería eléctrica en Colombia.">
   <title>Suministros Eléctricos | Electroingeniería S.A.S.</title>
   <link rel="icon" type="image/png" href="assets/logos/Simbolo ei marca registrada-01.png">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/audit-fix.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -118,8 +123,9 @@
           <a href="#soluciones" class="btn-primary-action" style="text-decoration: none;">
             <i class="fa-solid fa-boxes-stacked"></i> Ver Soluciones Integrales
           </a>
-          <a href="contacto.html" class="btn-secondary-action" style="text-decoration: none; border-color: rgba(255, 255, 255, 0.4); color: #FFFFFF;">
-            <i class="fa-solid fa-envelope"></i> Cotizar con Asesor
+          <a href="contacto.html" class="btn-cotizar-asesor">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Cotizar con Asesor</span>
           </a>
         </div>
       </div>
@@ -193,7 +199,7 @@
 
       <div class="solutions-showcase-grid" style="margin-top: 40px;">
         <!-- Solución 1: Alumbrado Público -->
-        <article class="solution-showcase-card">
+        <article class="solution-showcase-card" style="background-image: url('assets/suministros/led.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
           <div class="solution-bg-slide" style="background-image: url('assets/suministros/led.jpg');"></div>
           <div class="solution-card-overlay"></div>
           <div class="tech-spec-badge">
@@ -207,7 +213,7 @@
         </article>
         
         <!-- Solución 2: Media y Baja Tensión -->
-        <article class="solution-showcase-card">
+        <article class="solution-showcase-card" style="background-image: url('assets/suministros/trafo.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
           <div class="solution-bg-slide" style="background-image: url('assets/suministros/trafo.jpg');"></div>
           <div class="solution-card-overlay"></div>
           <div class="tech-spec-badge">
@@ -221,7 +227,7 @@
         </article>
 
         <!-- Solución 3: Proyectos de Redes e Infraestructura -->
-        <article class="solution-showcase-card">
+        <article class="solution-showcase-card" style="background-image: url('assets/suministros/conductores.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
           <div class="solution-bg-slide" style="background-image: url('assets/suministros/conductores.jpg');"></div>
           <div class="solution-card-overlay"></div>
           <div class="tech-spec-badge">
@@ -235,7 +241,7 @@
         </article>
 
         <!-- Solución 4: Subestaciones y Equipamiento de Maniobra -->
-        <article class="solution-showcase-card">
+        <article class="solution-showcase-card" style="background-image: url('assets/suministros/aparamenta.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
           <div class="solution-bg-slide" style="background-image: url('assets/suministros/aparamenta.jpg');"></div>
           <div class="solution-card-overlay"></div>
           <div class="tech-spec-badge">
@@ -389,7 +395,6 @@
                 <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
-            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
           </div>
         </div>
       </div>
@@ -403,6 +408,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL LIGHTBOX FULLSCREEN (SOLO MÓVIL) -->
+  <div id="mobile-image-modal" class="mobile-lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+    <div class="lightbox-content-wrap">
+      <img id="lightbox-target-img" src="" alt="Ampliación de proyecto">
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

@@ -55,25 +55,89 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* 2. Slider Principal Cinematográfico */
+  /* 2. Slider Principal Cinematográfico (Ken Burns sincronizado) */
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
   const prevBtn = document.querySelector('.slider-arrow.prev');
   const nextBtn = document.querySelector('.slider-arrow.next');
   let currentSlide = 0;
-  let slideTimer;
+  let slideTimer = null;
+  let currentAnimationEndHandler = null;
+  const ZOOM_DURATION_MS = 6000;
+
+  function clearActiveTimer() {
+    if (slideTimer) {
+      clearTimeout(slideTimer);
+      slideTimer = null;
+    }
+    if (currentAnimationEndHandler) {
+      const activeSlide = slides[currentSlide];
+      const activeBg = activeSlide ? activeSlide.querySelector('.slide-bg') : null;
+      if (activeBg) {
+        activeBg.removeEventListener('animationend', currentAnimationEndHandler);
+      }
+      currentAnimationEndHandler = null;
+    }
+  }
 
   function showSlide(index) {
+    if (slides.length === 0) return;
+    clearActiveTimer();
+
+    const previousIndex = currentSlide;
+    currentSlide = index;
+
     slides.forEach((slide, i) => {
       const isActive = (i === index);
-      slide.classList.toggle('active', isActive);
-      if (dots[i]) dots[i].classList.toggle('active', isActive);
+      const wasActive = (i === previousIndex && previousIndex !== index);
+
+      if (wasActive) {
+        slide.classList.add('slide-exiting');
+        slide.classList.remove('active');
+        setTimeout(() => {
+          slide.classList.remove('slide-exiting');
+        }, 1000);
+      } else if (!isActive) {
+        slide.classList.remove('active', 'slide-exiting');
+      }
+
       if (isActive) {
+        slide.classList.remove('slide-exiting');
+        slide.classList.add('active');
+
+        // Reinicio limpio y forzado de la animación keyframe
+        const bg = slide.querySelector('.slide-bg');
+        if (bg) {
+          bg.style.animation = 'none';
+          void bg.offsetWidth;
+          bg.style.animation = '';
+        }
+
         const reveals = slide.querySelectorAll('.reveal-left');
         reveals.forEach(el => el.classList.add('is-revealed'));
       }
+
+      if (dots[i]) dots[i].classList.toggle('active', isActive);
     });
-    currentSlide = index;
+
+    // Avanzar inmediatamente apenas concluya el zoom
+    const activeSlide = slides[index];
+    const activeBg = activeSlide ? activeSlide.querySelector('.slide-bg') : null;
+
+    if (activeBg) {
+      currentAnimationEndHandler = (e) => {
+        if (e.animationName === 'heroKenBurns') {
+          clearActiveTimer();
+          nextSlide();
+        }
+      };
+      activeBg.addEventListener('animationend', currentAnimationEndHandler, { once: true });
+    }
+
+    // Temporizador de respaldo garantizado a los 6000ms exactos
+    slideTimer = setTimeout(() => {
+      nextSlide();
+    }, ZOOM_DURATION_MS);
   }
 
   function nextSlide() {
@@ -87,24 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (nextBtn && prevBtn) {
-    nextBtn.addEventListener('click', () => { nextSlide(); resetSlideTimer(); });
-    prevBtn.addEventListener('click', () => { prevSlide(); resetSlideTimer(); });
+    nextBtn.addEventListener('click', () => { nextSlide(); });
+    prevBtn.addEventListener('click', () => { prevSlide(); });
   }
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { showSlide(i); resetSlideTimer(); });
+    dot.addEventListener('click', () => {
+      if (i !== currentSlide) {
+        showSlide(i);
+      }
+    });
   });
-
-  function startSlideTimer() {
-    if (slides.length > 0) {
-      slideTimer = setInterval(nextSlide, 7000);
-    }
-  }
-
-  function resetSlideTimer() {
-    clearInterval(slideTimer);
-    startSlideTimer();
-  }
 
   /* Soporte Touch Swipe en Hero Slider */
   const sliderSection = document.querySelector('.hero-slider-section');
@@ -123,12 +180,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           prevSlide();
         }
-        resetSlideTimer();
       }
     }, { passive: true });
   }
 
-  startSlideTimer();
+  if (slides.length > 0) {
+    showSlide(0);
+  }
 
   /* 3. Carrusel 3D Cover Flow Estable */
   const cards = document.querySelectorAll('.coverflow-card');
@@ -1364,11 +1422,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const baHandle = document.getElementById('baHandle');
 
   if (baRangeInput && baAfterLayer && baHandle) {
-    baRangeInput.addEventListener('input', (e) => {
-      const val = e.target.value;
-      baAfterLayer.style.width = `${val}%`;
+    const updateBaSlider = (val) => {
+      baAfterLayer.style.setProperty('--ba-pos', `${val}%`);
+      baAfterLayer.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+      baAfterLayer.style.webkitClipPath = `inset(0 ${100 - val}% 0 0)`;
       baHandle.style.left = `${val}%`;
+    };
+
+    baRangeInput.addEventListener('input', (e) => {
+      updateBaSlider(e.target.value);
     });
+
+    updateBaSlider(baRangeInput.value || 50);
   }
 
 
@@ -1396,54 +1461,293 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     INICIALIZACIÓN SWIPER MODO SCHRÉDER ARCHITECTURAL (.mySchrederSwiper)
+     ESTABILIZACIÓN CAROUSEL PROPORCIONAL (.projects-carousel-container)
      ========================================================================== */
-  if (typeof Swiper !== 'undefined' && document.querySelector('.mySchrederSwiper')) {
-    const currentCounter = document.getElementById('schreder-current-slide');
-    const progressFill = document.getElementById('schreder-progress-fill');
-    const totalSlides = 4;
+  if (typeof Swiper !== 'undefined' && document.querySelector('.projects-carousel-container, .mySchrederSwiper')) {
+    function updateProgressCounter(swiperInstance) {
+      const totalRealSlides = swiperInstance.slides.length - (swiperInstance.loopedSlides ? swiperInstance.loopedSlides * 2 : 0);
+      const realIndex = (swiperInstance.realIndex + 1);
+      const currentEl = document.querySelector('.carousel-num-current, #schreder-current-slide');
+      const totalEl = document.querySelector('.carousel-num-total');
+      const progressBar = document.querySelector('.carousel-progress-line-fill, #schreder-progress-fill');
 
-    const updateSliderMetrics = (realIndex) => {
-      const activeNumber = (realIndex + 1);
-      if (currentCounter) {
-        currentCounter.textContent = activeNumber < 10 ? `0${activeNumber}` : activeNumber;
+      if (currentEl) currentEl.textContent = String(realIndex).padStart(2, '0');
+      if (totalEl) totalEl.textContent = String(totalRealSlides > 0 ? totalRealSlides : 4).padStart(2, '0');
+      if (progressBar) {
+        const percentage = (realIndex / (totalRealSlides > 0 ? totalRealSlides : 4)) * 100;
+        progressBar.style.width = `${percentage}%`;
       }
-      if (progressFill) {
-        const percentage = (activeNumber / totalSlides) * 100;
-        progressFill.style.width = `${percentage}%`;
-      }
-    };
+    }
 
-    const swiper = new Swiper('.mySchrederSwiper', {
+    const projectSwiper = new Swiper('.projects-carousel-container, .mySchrederSwiper', {
       slidesPerView: 'auto',
       spaceBetween: 24,
-      loop: true,
-      speed: 650,
       centeredSlides: false,
-      navigation: {
-        nextEl: '.swiper-next-btn',
-        prevEl: '.swiper-prev-btn',
-      },
       grabCursor: true,
-      keyboard: {
-        enabled: true,
-      },
-      observer: true,
-      observeParents: true,
+      speed: 750, // Transición cinemática fluida, ni rápida ni lenta
+      easing: 'cubic-bezier(0.25, 1, 0.5, 1)', // Easing suave industrial
+      loop: true,
+      loopedSlides: 6, // Evita que se quede en blanco o salte bruscamente
       watchSlidesProgress: true,
+      resistance: true,
+      resistanceRatio: 0.85,
+      
+      // Navegación con flechas
+      navigation: {
+        nextEl: '.swiper-button-next-custom, .swiper-next-btn',
+        prevEl: '.swiper-button-prev-custom, .swiper-prev-btn',
+      },
+
+      // Actualización de la barra de progreso (01 — 04)
       on: {
         init: function () {
-          this.update();
-          updateSliderMetrics(this.realIndex || 0);
+          updateProgressCounter(this);
         },
         slideChange: function () {
-          updateSliderMetrics(this.realIndex || 0);
+          updateProgressCounter(this);
         }
       }
     });
   }
 
+  /* ==========================================================================
+     MODAL LIGHTBOX DE IMÁGENES (EXCLUSIVO MÓVIL ≤ 768px)
+     ========================================================================== */
+  (function initMobileLightbox() {
+    let modal = document.getElementById('mobile-image-modal');
+    let modalImg = document.getElementById('lightbox-target-img');
+    let closeBtn = document.getElementById('lightbox-close');
+
+    // Inyección dinámica de respaldo si el contenedor no existe en el HTML
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'mobile-image-modal';
+      modal.className = 'mobile-lightbox';
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = `
+        <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+        <div class="lightbox-content-wrap">
+          <img id="lightbox-target-img" src="" alt="Ampliación de proyecto">
+        </div>
+      `;
+      document.body.appendChild(modal);
+      modalImg = document.getElementById('lightbox-target-img');
+      closeBtn = document.getElementById('lightbox-close');
+    }
+
+    if (!modal || !modalImg || !closeBtn) return;
+
+    function isMobileView() {
+      return window.innerWidth <= 768;
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    // Delegación de eventos para capturar taps en imágenes y tarjetas fotográficas
+    document.addEventListener('click', (e) => {
+      if (!isMobileView()) return;
+
+      // No interceptar clics en enlaces, botones o elementos interactivos
+      if (e.target.closest('a, button, input, select, textarea, .btn, [class*="btn"], .lightbox-close-btn, .swiper-button-prev, .swiper-button-next, .carousel-nav-arrows, .nav-toggle, .filter-btn')) {
+        return;
+      }
+
+      let imgSrc = '';
+      let imgAlt = 'Ampliación de proyecto';
+
+      // 1. Detectar si el clic fue en un elemento <img>
+      const targetImage = e.target.closest('.swiper-slide img, .project-card img, .portfolio-card img, .gallery-item img, [data-zoomable], .product-card img, .product-image-box img, .bento-card img, .corporate-stories-section img, .detail-gallery-section img, .fleet-stat-card img, .editorial-img-box img');
+      
+      if (targetImage && targetImage.src && !targetImage.closest('.header-inner, .site-footer, .logo-main, .footer-logo, .nav-desktop, .nav-mobile, .mobile-lightbox')) {
+        imgSrc = targetImage.src;
+        imgAlt = targetImage.alt || 'Ampliación de proyecto';
+      } else {
+        // 2. Detectar si el clic fue en un elemento con fondo fotográfico (ej. slides, accordion, tarjetas)
+        const bgElement = e.target.closest('.swiper-slide, .accordion-panel, .solution-showcase-card, .solution-bg-slide, .product-image-box, .split-image, .slide-bg, .portfolio-card, [style*="background-image"]');
+        if (bgElement && !bgElement.closest('.header-inner, .site-footer, .logo-main, .mobile-lightbox')) {
+          const style = bgElement.style.backgroundImage || window.getComputedStyle(bgElement).backgroundImage;
+          const match = style && style.match(/url\(['"]?(.*?)['"]?\)/);
+          if (match && match[1] && !match[1].includes('data:image/svg') && !match[1].includes('gradient')) {
+            imgSrc = match[1];
+            const titleEl = bgElement.querySelector('h1, h2, h3, h4, .tech-badge-title, .panel-title');
+            if (titleEl) {
+              imgAlt = titleEl.textContent.trim();
+            }
+          }
+        }
+      }
+
+      if (imgSrc) {
+        e.preventDefault();
+        modalImg.src = imgSrc;
+        modalImg.alt = imgAlt || 'Ampliación de proyecto';
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Bloquear scroll del fondo
+      }
+    });
+
+    // Cerrar al pulsar el botón ✕
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    // Cerrar al tocar el fondo oscuro (backdrop)
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.classList.contains('lightbox-content-wrap')) {
+        closeModal();
+      }
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+
+    // Cerrar al deslizar (swipe vertical)
+    let touchStartY = 0;
+    modal.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      if (Math.abs(touchEndY - touchStartY) > 55) {
+        closeModal();
+      }
+    }, { passive: true });
+  })();
+
+  /* ==========================================================================
+     Módulo de Seguridad: Validación Estricta de Archivos de CV (.PDF <= 5 MB)
+     ========================================================================== */
+  (function initCvFileSecurity() {
+    const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB estricto
+    const ALLOWED_EXTENSION = '.pdf';
+    const ALLOWED_MIME = 'application/pdf';
+
+    function showFeedback(feedbackEl, msg, isError) {
+      if (!feedbackEl) return;
+      feedbackEl.textContent = msg;
+      feedbackEl.style.display = 'block';
+      if (isError) {
+        feedbackEl.style.color = '#EF4444';
+        feedbackEl.style.backgroundColor = 'rgba(239, 68, 68, 0.12)';
+        feedbackEl.style.border = '1px solid rgba(239, 68, 68, 0.35)';
+        feedbackEl.style.padding = '8px 14px';
+        feedbackEl.style.borderRadius = '6px';
+      } else {
+        feedbackEl.style.color = '#10B981';
+        feedbackEl.style.backgroundColor = 'rgba(16, 185, 129, 0.12)';
+        feedbackEl.style.border = '1px solid rgba(16, 185, 129, 0.35)';
+        feedbackEl.style.padding = '8px 14px';
+        feedbackEl.style.borderRadius = '6px';
+      }
+    }
+
+    function clearFeedback(feedbackEl) {
+      if (!feedbackEl) return;
+      feedbackEl.textContent = '';
+      feedbackEl.style.display = 'none';
+    }
+
+    function validateFile(fileInput) {
+      const form = fileInput.closest('form');
+      const feedbackEl = form ? form.querySelector('.cv-feedback-msg, #cvFeedback') : document.getElementById('cvFeedback');
+      const labelText = form ? form.querySelector('#cvLabelText') : document.getElementById('cvLabelText');
+      const submitBtn = form ? form.querySelector('#cvSubmitBtn, button[type="submit"]') : document.getElementById('cvSubmitBtn');
+
+      const files = fileInput.files;
+      if (!files || files.length === 0) {
+        if (labelText) labelText.textContent = 'Adjuntar Hoja de Vida';
+        if (submitBtn) submitBtn.style.display = 'none';
+        clearFeedback(feedbackEl);
+        return false;
+      }
+
+      const file = files[0];
+      const fileName = file.name.toLowerCase();
+      const fileSize = file.size;
+
+      // 1. Verificación estricta de formato PDF
+      const isPdfExtension = fileName.endsWith(ALLOWED_EXTENSION);
+      const isPdfMime = file.type === '' || file.type === ALLOWED_MIME;
+
+      if (!isPdfExtension || (!isPdfMime && file.type !== 'application/x-pdf')) {
+        fileInput.value = ''; // Rechazar archivo inmediatamente
+        if (labelText) labelText.textContent = 'Adjuntar Hoja de Vida';
+        if (submitBtn) submitBtn.style.display = 'none';
+        showFeedback(feedbackEl, 'Formato no permitido. Solo se aceptan documentos en formato PDF (.pdf).', true);
+        return false;
+      }
+
+      // 2. Verificación estricta de límite de peso (5 MB)
+      if (fileSize > MAX_FILE_SIZE_BYTES) {
+        const sizeMb = (fileSize / (1024 * 1024)).toFixed(2);
+        fileInput.value = ''; // Rechazar archivo inmediatamente
+        if (labelText) labelText.textContent = 'Adjuntar Hoja de Vida';
+        if (submitBtn) submitBtn.style.display = 'none';
+        showFeedback(feedbackEl, `El archivo supera el límite máximo permitido de 5 MB (Peso actual: ${sizeMb} MB).`, true);
+        return false;
+      }
+
+      // 3. Archivo válido
+      const sizeMb = (fileSize / (1024 * 1024)).toFixed(2);
+      if (labelText) labelText.textContent = `PDF Seleccionado: ${file.name}`;
+      if (submitBtn) submitBtn.style.display = 'inline-flex';
+      showFeedback(feedbackEl, `✓ Archivo válido: ${file.name} (${sizeMb} MB). Listo para enviar.`, false);
+      return true;
+    }
+
+    // Manejador en inputs de tipo file (directo y delegado)
+    document.addEventListener('change', (e) => {
+      const target = e.target;
+      if (target && target.matches('input[type="file"], #cvFileInput, .cv-file-input')) {
+        validateFile(target);
+      }
+    });
+
+    // Manejador en envío de formulario
+    document.addEventListener('submit', (e) => {
+      const form = e.target;
+      if (form && (form.id === 'careersCvForm' || form.querySelector('input[type="file"], #cvFileInput'))) {
+        const fileInput = form.querySelector('input[type="file"], #cvFileInput');
+        if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+          e.preventDefault();
+          const feedbackEl = form.querySelector('.cv-feedback-msg, #cvFeedback') || document.getElementById('cvFeedback');
+          showFeedback(feedbackEl, 'Por favor adjunte su hoja de vida en formato PDF antes de continuar.', true);
+          return;
+        }
+
+        const isValid = validateFile(fileInput);
+        if (!isValid) {
+          e.preventDefault();
+          return;
+        }
+
+        // Si es válido, preparar enlace mailto seguro
+        e.preventDefault();
+        const file = fileInput.files[0];
+        const subject = encodeURIComponent(`Postulación Laboral - Hoja de Vida (${file.name})`);
+        const body = encodeURIComponent(`Estimado equipo de Talento Humano Electroingeniería S.A.S.,\n\nAdjunto mi hoja de vida (${file.name}) para las convocatorias laborales vigentes.\n\nAtentamente,`);
+        window.location.href = `mailto:talento@electroingenieria.com?subject=${subject}&body=${body}`;
+        
+        const feedbackEl = form.querySelector('.cv-feedback-msg, #cvFeedback') || document.getElementById('cvFeedback');
+        showFeedback(feedbackEl, '✓ Postulación iniciada. Por favor adjunte el archivo PDF en su cliente de correo saliente.', false);
+      }
+    });
+  })();
+
 });
+
 
 
 

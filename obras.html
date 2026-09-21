@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta-Tags de Seguridad y Blindaje -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com data:; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Diseño, montaje y mantenimiento de subestaciones, líneas de media/baja tensión y obras de infraestructura eléctrica masiva en Colombia bajo norma RETIE.">
   <title>Obras e Infraestructura | Electroingeniería S.A.S.</title>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/audit-fix.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -122,13 +127,24 @@
         <p class="section-desc-center">Arrastra el deslizador central para visualizar la modernización de redes eléctricas convencionales a infraestructura subterránea blindada y certificada RETIE.</p>
       </div>
 
-      <div class="before-after-wrapper">
+      <div class="before-after-wrapper before-after-container">
         <div class="before-after-card" id="beforeAfterSlider">
-          <div class="ba-image-layer ba-layer-before"></div>
-          <div class="ba-image-layer ba-layer-after" id="baAfterLayer"></div>
-          <span class="ba-tag before-tag"><i class="fa-solid fa-triangle-exclamation" style="color: #F87171;"></i> Antes: Red Aérea en Riesgo</span>
-          <span class="ba-tag after-tag"><i class="fa-solid fa-circle-check" style="color: #4ADE80;"></i> Después: Obra Certificada RETIE</span>
-          <div class="ba-slider-handle" id="baHandle">
+          <!-- 1. CAPA BASE / DERECHA: DESPUÉS -->
+          <div class="ba-image-layer ba-layer-after after-image-wrapper"></div>
+
+          <!-- 2. CAPA SUPERIOR / IZQUIERDA (RECORTADA): ANTES -->
+          <div class="ba-image-layer ba-layer-before before-image-wrapper" id="baAfterLayer"></div>
+
+          <!-- Etiquetas / Badges -->
+          <span class="ba-tag before-tag badge-before comparison-badge">
+            <i class="fa-solid fa-triangle-exclamation" style="color: #F87171;"></i> ANTES: RED AÉREA EN RIESGO
+          </span>
+          <span class="ba-tag after-tag badge-after comparison-badge">
+            <i class="fa-solid fa-circle-check" style="color: #4ADE80;"></i> DESPUÉS: OBRA CERTIFICADA RETIE
+          </span>
+
+          <!-- 3. CONTROLADOR CENTRAL (SLIDER HANDLE) -->
+          <div class="ba-slider-handle comparison-slider-handle" id="baHandle">
             <i class="fa-solid fa-arrows-left-right"></i>
           </div>
           <input type="range" min="0" max="100" value="50" class="ba-range-input" id="baRangeInput" aria-label="Deslizador comparador antes y después">
@@ -181,10 +197,10 @@
             <span class="product-meta-sub">Subestaciones de Potencia</span>
             <h3 class="product-title">Subestación Principal Parque Industrial</h3>
             <p class="product-short-desc">Montaje electromecánico de celdas blindadas en media tensión, banco de transformadores 10 MVA y sistema de puesta a tierra equipotencial.</p>
-            <div class="product-specs-chips">
-              <span class="spec-chip"><i class="fa-solid fa-bolt"></i> 10 MVA</span>
-              <span class="spec-chip"><i class="fa-solid fa-location-dot"></i> Valle del Cauca</span>
-              <span class="spec-chip"><i class="fa-solid fa-certificate"></i> Ensayos CREG</span>
+            <div class="product-specs-chips project-meta-strip">
+              <span class="spec-chip meta-item"><i class="fa-solid fa-bolt"></i> 10 MVA</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-location-dot"></i> Valle del Cauca</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-certificate"></i> Ensayos CREG</span>
             </div>
           </div>
         </article>
@@ -202,10 +218,10 @@
             <span class="product-meta-sub">Distribución Urbana</span>
             <h3 class="product-title">Canalización & Red Subterránea 13.2 kV</h3>
             <p class="product-short-desc">Transición de redes aéreas a subterráneas en corredores metropolitanos, cámaras de inspección normalizadas y conductores XLPE apantallados.</p>
-            <div class="product-specs-chips">
-              <span class="spec-chip"><i class="fa-solid fa-road"></i> 14 km Red</span>
-              <span class="spec-chip"><i class="fa-solid fa-shield"></i> Cero Fallas</span>
-              <span class="spec-chip"><i class="fa-solid fa-city"></i> Sector Comercial</span>
+            <div class="product-specs-chips project-meta-strip">
+              <span class="spec-chip meta-item"><i class="fa-solid fa-road"></i> 14 km Red</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-shield"></i> Cero Fallas</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-city"></i> Sector Comercial</span>
             </div>
           </div>
         </article>
@@ -223,10 +239,10 @@
             <span class="product-meta-sub">Montajes Especiales</span>
             <h3 class="product-title">Electrificación de Complejo Agroindustrial</h3>
             <p class="product-short-desc">Alimentación de motores de alta potencia, tableros de distribución automática, banco de condensadores para corrección de factor de potencia.</p>
-            <div class="product-specs-chips">
-              <span class="spec-chip"><i class="fa-solid fa-gears"></i> CCM Inteligente</span>
-              <span class="spec-chip"><i class="fa-solid fa-chart-line"></i> FP 0.98</span>
-              <span class="spec-chip"><i class="fa-solid fa-bolt"></i> 480V / 220V</span>
+            <div class="product-specs-chips project-meta-strip">
+              <span class="spec-chip meta-item"><i class="fa-solid fa-gears"></i> CCM Inteligente</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-chart-line"></i> FP 0.98</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-bolt"></i> 480V / 220V</span>
             </div>
           </div>
         </article>
@@ -244,10 +260,10 @@
             <span class="product-meta-sub">Infraestructura Vial</span>
             <h3 class="product-title">Modernización Alumbrado Vial y Glorietas</h3>
             <p class="product-short-desc">Instalación de postería reforzada, luminarias LED de 180W y sistema de telegestión remota en accesos municipales de alto flujo vehicular.</p>
-            <div class="product-specs-chips">
-              <span class="spec-chip"><i class="fa-solid fa-lightbulb"></i> 1,200 Puntos LED</span>
-              <span class="spec-chip"><i class="fa-solid fa-route"></i> 22 km Vía</span>
-              <span class="spec-chip"><i class="fa-solid fa-tower-broadcast"></i> Telemedición</span>
+            <div class="product-specs-chips project-meta-strip">
+              <span class="spec-chip meta-item"><i class="fa-solid fa-lightbulb"></i> 1,200 Puntos LED</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-route"></i> 22 km Vía</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-tower-broadcast"></i> Telemedición</span>
             </div>
           </div>
         </article>
@@ -265,10 +281,10 @@
             <span class="product-meta-sub">Subestaciones</span>
             <h3 class="product-title">Repotenciación & Reubicación de Celdas MT</h3>
             <p class="product-short-desc">Actualización de sistemas de protección con relés numéricos, reconectadores automáticos y sincronismo con la red del operador regional.</p>
-            <div class="product-specs-chips">
-              <span class="spec-chip"><i class="fa-solid fa-microchip"></i> Relés Digitales</span>
-              <span class="spec-chip"><i class="fa-solid fa-shield-halved"></i> CERO Accidentes</span>
-              <span class="spec-chip"><i class="fa-solid fa-clock"></i> 72h Montaje</span>
+            <div class="product-specs-chips project-meta-strip">
+              <span class="spec-chip meta-item"><i class="fa-solid fa-microchip"></i> Relés Digitales</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-shield-halved"></i> CERO Accidentes</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-clock"></i> 72h Montaje</span>
             </div>
           </div>
         </article>
@@ -286,10 +302,10 @@
             <span class="product-meta-sub">Distribución Ecológica</span>
             <h3 class="product-title">Tendido de Red Semiaislada Ecológica MT</h3>
             <p class="product-short-desc">Construcción de líneas con cable semiaislado en zonas arborizadas para mitigar disparos por contacto de fauna o ramas, protegiendo el ecosistema.</p>
-            <div class="product-specs-chips">
-              <span class="spec-chip"><i class="fa-solid fa-leaf"></i> Red Ecológica</span>
-              <span class="spec-chip"><i class="fa-solid fa-bolt"></i> 13.2 kV</span>
-              <span class="spec-chip"><i class="fa-solid fa-tree"></i> Protección Fauna</span>
+            <div class="product-specs-chips project-meta-strip">
+              <span class="spec-chip meta-item"><i class="fa-solid fa-leaf"></i> Red Ecológica</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-bolt"></i> 13.2 kV</span>
+              <span class="spec-chip meta-item"><i class="fa-solid fa-tree"></i> Protección Fauna</span>
             </div>
           </div>
         </article>
@@ -354,7 +370,6 @@
                 <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
-            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
           </div>
         </div>
       </div>
@@ -368,6 +383,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL LIGHTBOX FULLSCREEN (SOLO MÓVIL) -->
+  <div id="mobile-image-modal" class="mobile-lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+    <div class="lightbox-content-wrap">
+      <img id="lightbox-target-img" src="" alt="Ampliación de proyecto">
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

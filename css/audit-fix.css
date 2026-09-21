@@ -1,0 +1,81 @@
+/* ==========================================================================
+   AUDITORÍA FINAL: BLINDAJE DE JERARQUÍA Y CONTRASTE (audit-fix.css)
+   ========================================================================== */
+
+/* 1. Menú y Header */
+header nav a:not(.btn-quote-header):not(.btn-cotizar):not([class*="btn"]),
+.site-header .nav-link {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75) !important;
+}
+
+.btn-quote-header,
+header nav a.btn-quote-header,
+.btn-cotizar {
+  color: #07162C !important;
+  background-color: #F6D000 !important;
+  text-shadow: none !important;
+}
+
+/* 2. Hero y Banners */
+.hero p,
+.hero-banner p,
+.inner-hero p,
+.inner-hero-banner p,
+.hero-lead {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* 3. Contenedores y Tarjetas Oscuras */
+.card-dark p,
+.card-blue p,
+.advisory-card p,
+.project-contact-card p,
+div:has(> .btn-yellow) p,
+div:has(> a[href*="cotizar"]) p {
+  color: #F8FAFC !important;
+  opacity: 0.95 !important;
+}
+
+.card-dark h2, .card-dark h3,
+.advisory-card h2, .advisory-card h3,
+div:has(> .btn-yellow) h2,
+div:has(> .btn-yellow) h3 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 4. Tarjetas Blancas / Claras */
+.site-section.bg-white .card h3,
+.site-section.bg-light-gray .card h3,
+.bg-white .card h3,
+.bg-light-gray .card h3 {
+  color: #003690 !important;
+  text-shadow: none !important;
+}
+
+.site-section.bg-white .card p,
+.site-section.bg-light-gray .card p,
+.bg-white .card p,
+.bg-light-gray .card p {
+  color: #111827 !important;
+}
+
+/* 5. Supresión de Watermark */
+.site-domain-tag,
+.hero-domain-link,
+.watermark-url {
+  display: none !important;
+}
+
+/* 6. Sincronización Cinemática de Zoom en Hero Slider */
+.slide.active .slide-bg {
+  animation: heroKenBurns 6s linear forwards !important;
+}
+
+.slide.slide-exiting .slide-bg {
+  transform: scale(1.12) !important;
+}
+
+

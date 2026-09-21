@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta-Tags de Seguridad y Blindaje -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com data:; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Diseño, consultoría, interventoría y montaje de redes eléctricas de media y baja tensión, subestaciones y obras con certificación RETIE en Colombia.">
   <meta http-equiv="refresh" content="0; url=obras.html">
   <script>window.location.replace("obras.html");</script>
@@ -10,6 +14,7 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/audit-fix.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -189,7 +194,6 @@
                 <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
-            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
           </div>
         </div>
       </div>
@@ -203,6 +207,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL LIGHTBOX FULLSCREEN (SOLO MÓVIL) -->
+  <div id="mobile-image-modal" class="mobile-lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+    <div class="lightbox-content-wrap">
+      <img id="lightbox-target-img" src="" alt="Ampliación de proyecto">
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

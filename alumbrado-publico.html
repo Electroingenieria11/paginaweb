@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta-Tags de Seguridad y Blindaje -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com data:; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Operación, modernización LED e infraestructura integral de alumbrado público y proyectos monumentales en Colombia bajo normativa RETILAP.">
   <title>Alumbrado Público | Electroingeniería S.A.S.</title>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/audit-fix.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
@@ -252,20 +257,20 @@
         </div>
 
         <!-- Barra de Navegación y Progreso Premium -->
-        <div class="emblematic-controls-bar">
-          <div class="carousel-progress-wrapper">
-            <span class="carousel-counter-current" id="schreder-current-slide">01</span>
+        <div class="emblematic-controls-bar carousel-top-bar">
+          <div class="carousel-progress-wrapper carousel-counter-group">
+            <span class="carousel-counter-current carousel-num-current" id="schreder-current-slide">01</span>
             <div class="carousel-progress-track">
-              <div class="carousel-progress-fill" id="schreder-progress-fill"></div>
+              <div class="carousel-progress-fill carousel-progress-line-fill" id="schreder-progress-fill"></div>
             </div>
-            <span class="carousel-counter-total">04</span>
+            <span class="carousel-counter-total carousel-num-total">04</span>
           </div>
 
-          <div class="carousel-nav-group">
-            <button class="premium-nav-btn swiper-prev-btn" aria-label="Proyecto anterior">
+          <div class="carousel-nav-group carousel-nav-arrows">
+            <button class="premium-nav-btn swiper-prev-btn swiper-button-prev-custom" aria-label="Proyecto anterior">
               <i class="fa-solid fa-arrow-left"></i>
             </button>
-            <button class="premium-nav-btn swiper-next-btn" aria-label="Siguiente proyecto">
+            <button class="premium-nav-btn swiper-next-btn swiper-button-next-custom" aria-label="Siguiente proyecto">
               <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
@@ -276,7 +281,7 @@
 
     <!-- Contenedor del Carrusel Premium Architectural -->
     <div class="schreder-stage-wrapper">
-      <div class="swiper mySchrederSwiper">
+      <div class="swiper mySchrederSwiper projects-carousel-container">
         <div class="swiper-wrapper">
 
           <!-- Proyecto 1: Tuluá -->
@@ -887,7 +892,6 @@
                 <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
-            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
           </div>
         </div>
       </div>
@@ -901,6 +905,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL LIGHTBOX FULLSCREEN (SOLO MÓVIL) -->
+  <div id="mobile-image-modal" class="mobile-lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+    <div class="lightbox-content-wrap">
+      <img id="lightbox-target-img" src="" alt="Ampliación de proyecto">
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>

@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta-Tags de Seguridad y Blindaje -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com data:; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Ficha técnica, especificaciones normativas RETILAP y galería de proyectos de alumbrado público y soluciones lumínicas - Electroingeniería S.A.S.">
   <title id="page-meta-title">Detalle de Proyecto | Alumbrado Público - Electroingeniería S.A.S.</title>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/audit-fix.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -175,12 +180,14 @@
         </article>
 
         <!-- Columna Derecha: Tarjeta de Asesoría Técnica y Cotización -->
-        <aside class="detail-cta-card-sidebar">
+        <aside class="detail-cta-card-sidebar advisory-card project-contact-card">
           <span class="sidebar-badge-top">
             <i class="fa-solid fa-award"></i> SERVICIO INTEGRAL
           </span>
-          <h3>¿Planea un Proyecto Similar?</h3>
-          <p>
+          <h3 style="color: #FFFFFF !important; font-weight: 800 !important; text-shadow: 0 2px 6px rgba(0,0,0,0.5) !important;">
+            ¿Planea un Proyecto Similar?
+          </h3>
+          <p style="color: #FFFFFF !important; opacity: 0.95 !important; font-weight: 400 !important; line-height: 1.6 !important; text-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;">
             Nuestro departamento de ingeniería desarrolla memorias de cálculo fotométrico en DIALux, censos en terreno y modelos de viabilidad técnico-financiera para entidades públicas y privadas.
           </p>
           
@@ -191,7 +198,7 @@
             <li><i class="fa-solid fa-circle-check"></i> Esquemas de concesión o compra directa</li>
           </ul>
 
-          <a href="#contacto" class="btn-sidebar-quote">
+          <a href="#contacto" class="btn-sidebar-quote btn-yellow">
             <i class="fa-solid fa-envelope"></i> Solicitar Asesoría Técnica
           </a>
         </aside>
@@ -283,7 +290,6 @@
                 <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>
-            <a href="https://ei.com.co" target="_blank" rel="noopener noreferrer" class="footer-web-url">www.ei.com.co</a>
           </div>
         </div>
       </div>
@@ -297,6 +303,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL LIGHTBOX FULLSCREEN (SOLO MÓVIL) -->
+  <div id="mobile-image-modal" class="mobile-lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Cerrar imagen">&times;</button>
+    <div class="lightbox-content-wrap">
+      <img id="lightbox-target-img" src="" alt="Ampliación de proyecto">
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
