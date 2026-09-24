@@ -7361,7 +7361,7 @@ section[class*="hero"] {
 /* 1. Capa Base (Fondo completo a la derecha): DESPUÉS */
 .ba-layer-after,
 .after-image-wrapper {
-  background-image: url('../assets/proyectos/obra.jpg');
+  background-image: url('../assets/proyectos/1.jpg');
   width: 100%;
   height: 100%;
   background-size: cover;

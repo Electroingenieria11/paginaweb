@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Carreteras y Autopistas',
       category: 'Infraestructura Vial',
       subtitle: 'Ingeniería de iluminación para corredores de alta velocidad, reducción de accidentabilidad y estricto cumplimiento de uniformidad RETILAP M1 a M3.',
-      heroImg: 'assets/alumbrado/footer.webp',
+      heroImg: 'assets/proyectos/8.jpg',
       badges: [
         { icon: 'fa-certificate', text: 'Clase RETILAP M1/M2' },
         { icon: 'fa-lightbulb', text: 'Óptica Asimétrica Tipo II/III' },
@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Monitoreo de corriente, tensión y factor de potencia en tiempo real por cada punto de luz.'
       ],
       gallery: [
-        { img: 'assets/alumbrado/footer.webp', caption: 'Corredor vial con uniformidad clase M1' },
+        { img: 'assets/proyectos/8.jpg', caption: 'Corredor vial con uniformidad clase M1' },
         { img: 'assets/proyectos/9.jpg', caption: 'Intercambiador vial y glorietas perimetrales' },
         { img: 'assets/alumbrado/Gemini_Generated_Image_c6goduc6goduc6go.jpg', caption: 'Vista panorámica de vía troncal modernizada' },
         { img: 'assets/proyectos/4.jpg', caption: 'Acceso a viaductos y pasos elevados' }
@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gallery: [
         { img: 'assets/proyectos/9.jpg', caption: 'Avenida metropolitana con iluminación uniforme' },
         { img: 'assets/alumbrado/Gemini_Generated_Image_c6goduc6goduc6go.jpg', caption: 'Corredor con tecnología LED 5000K' },
-        { img: 'assets/alumbrado/footer.webp', caption: 'Bulevar principal con doble calzada' },
+        { img: 'assets/proyectos/8.jpg', caption: 'Bulevar principal con doble calzada' },
         { img: 'assets/proyectos/1.jpg', caption: 'Conexión cívica entre avenidas y paseos peatonales' }
       ]
     },
@@ -636,14 +636,14 @@ document.addEventListener('DOMContentLoaded', () => {
         { img: 'assets/proyectos/2.jpg', caption: 'Cancha polideportiva con proyección LED de alta uniformidad' },
         { img: 'assets/proyectos/8.jpg', caption: 'Complejo deportivo con torres de 18 metros' },
         { img: 'assets/proyectos/4.jpg', caption: 'Iluminación de pista y áreas circundantes' },
-        { img: 'assets/proyectos/3.jpg', caption: 'Escenario cubierto con ópticas directas' }
+        { img: 'assets/proyectos/9.jpg', caption: 'Escenario cubierto con ópticas directas' }
       ]
     },
     'tuneles-deprimidos': {
       title: 'Túneles y Pasos Deprimidos',
       category: 'Infraestructura Crítica',
       subtitle: 'Sistemas de iluminación de transición y zona interior para evitar el efecto "agujero negro" y garantizar la máxima seguridad en accesos vehiculares subterráneos.',
-      heroImg: 'assets/proyectos/3.jpg',
+      heroImg: 'assets/proyectos/9.jpg',
       badges: [
         { icon: 'fa-road', text: 'CIE 88 / RETILAP Túneles' },
         { icon: 'fa-sun', text: 'Control Adaptativo Lth' },
@@ -670,8 +670,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'Mantenimiento rápido mediante conectores macho-hembra IP68 plug & play.'
       ],
       gallery: [
-        { img: 'assets/proyectos/3.jpg', caption: 'Deprimido vehicular con distribución continua counter-beam' },
-        { img: 'assets/alumbrado/footer.webp', caption: 'Aproximación y rampa de acceso iluminada' },
+        { img: 'assets/proyectos/9.jpg', caption: 'Deprimido vehicular con distribución continua counter-beam' },
+        { img: 'assets/proyectos/8.jpg', caption: 'Aproximación y rampa de acceso iluminada' },
         { img: 'assets/proyectos/9.jpg', caption: 'Paso a desnivel urbano con iluminación cenital' },
         { img: 'assets/proyectos/4.jpg', caption: 'Bocas de túnel con transición óptica regulada' }
       ]
@@ -746,8 +746,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gallery: [
         { img: 'assets/proyectos/4.jpg', caption: 'Plataforma de maniobras y terminal de pasajeros' },
         { img: 'assets/proyectos/8.jpg', caption: 'Zona de parqueo y abordaje de aeronaves' },
-        { img: 'assets/proyectos/3.jpg', caption: 'Accesos y vialidades perimetrales del aeropuerto' },
-        { img: 'assets/alumbrado/footer.webp', caption: 'Corredor vial de acceso rápido a la terminal' }
+        { img: 'assets/proyectos/9.jpg', caption: 'Accesos y vialidades perimetrales del aeropuerto' },
+        { img: 'assets/proyectos/8.jpg', caption: 'Corredor vial de acceso rápido a la terminal' }
       ]
     },
     'zonas-peatonales': {
@@ -820,7 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gallery: [
         { img: 'assets/proyectos/6.jpg', caption: 'Corredor intermunicipal con luminarias LED de alta visibilidad' },
         { img: 'assets/proyectos/5.jpg', caption: 'Tramo rural iluminado con redes de baja tensión' },
-        { img: 'assets/alumbrado/footer.webp', caption: 'Vía de acceso regional con infraestructura modernizada' },
+        { img: 'assets/proyectos/8.jpg', caption: 'Vía de acceso regional con infraestructura modernizada' },
         { img: 'assets/proyectos/8.jpg', caption: 'Intersección vial con iluminación eficiente' }
       ]
     },
@@ -858,7 +858,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { img: 'assets/proyectos/7.jpg', caption: 'Fachada de templo histórico con iluminación rasante' },
         { img: 'assets/alumbrado-navideno/1.jpg', caption: 'Intervención lumínica escénica en plaza central' },
         { img: 'assets/proyectos/1.jpg', caption: 'Realce volumétrico de fuentes y elementos cívicos' },
-        { img: 'assets/proyectos/3.jpg', caption: 'Puente emblemático con iluminación de acento' }
+        { img: 'assets/proyectos/9.jpg', caption: 'Puente emblemático con iluminación de acento' }
       ]
     },
     'parqueaderos-comerciales': {
@@ -894,7 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gallery: [
         { img: 'assets/proyectos/8.jpg', caption: 'Parqueadero comercial con distribución cuadrada de luz' },
         { img: 'assets/proyectos/9.jpg', caption: 'Vía de circunvalación y accesos a centro comercial' },
-        { img: 'assets/alumbrado/footer.webp', caption: 'Bahías de desaceleración y casetas de control' },
+        { img: 'assets/proyectos/8.jpg', caption: 'Bahías de desaceleración y casetas de control' },
         { img: 'assets/proyectos/2.jpg', caption: 'Plaza de estacionamiento perimetral' }
       ]
     },
@@ -932,7 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { img: 'assets/alumbrado/Gemini_Generated_Image_c6goduc6goduc6go.jpg', caption: 'Cuadrilla técnica en maniobra de canastilla en vía principal' },
         { img: 'assets/suministros/pasillo2.jpg', caption: 'Centro de acopio de materiales y repuestos de reposición' },
         { img: 'assets/proyectos/9.jpg', caption: 'Inspección nocturna de fotometría en terreno' },
-        { img: 'assets/alumbrado/footer.webp', caption: 'Mantenimiento preventivo en autopista nacional' }
+        { img: 'assets/proyectos/8.jpg', caption: 'Mantenimiento preventivo en autopista nacional' }
       ]
     },
     'alumbrado-navideno': {

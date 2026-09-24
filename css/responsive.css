@@ -1,0 +1,430 @@
+/* ==========================================================================
+   RESET GLOBAL RESPONSIVO & PREVENCIÓN DE OVERFLOW
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important; /* Elimina scroll horizontal indeseado */
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-text-size-adjust: 100% !important;
+}
+
+img, picture, video, canvas, svg {
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   1. PANTALLAS GIGANTES / ULTRAWIDE / 4K (min-width: 1800px)
+   ========================================================================== */
+@media (min-width: 1800px) {
+  header .container,
+  header .header-inner,
+  .footer-top-grid,
+  .footer-bottom-flex,
+  .container-xl,
+  .container,
+  .site-container,
+  .projects-grid {
+    max-width: 1720px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero,
+  .hero-banner,
+  .page-hero,
+  .carousel-item,
+  .hero-slider-section,
+  .hero-insignia,
+  .slide,
+  .detail-hero-section {
+    min-height: 85vh !important;
+    max-height: 950px !important;
+  }
+
+  .hero-content,
+  .carousel-caption,
+  .slide-content,
+  .hero-text-wrap,
+  .hero-insignia-content,
+  .project-detail-content {
+    max-width: 720px !important;
+    left: 8% !important;
+  }
+}
+
+/* ==========================================================================
+   2. ESCRITORIO ESTÁNDAR / LAPTOPS (1025px a 1799px)
+   ========================================================================== */
+@media (min-width: 1025px) and (max-width: 1799px) {
+  .hero,
+  .hero-banner,
+  .page-hero,
+  .carousel-item,
+  .hero-slider-section,
+  .hero-insignia,
+  .slide,
+  .detail-hero-section {
+    min-height: 80vh !important;
+  }
+
+  .hero-content,
+  .carousel-caption,
+  .slide-content,
+  .hero-text-wrap,
+  .hero-insignia-content,
+  .project-detail-content {
+    max-width: 580px !important;
+    left: 6% !important;
+  }
+
+  .projects-grid,
+  .catalog-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 22px !important;
+  }
+}
+
+/* ==========================================================================
+   3. TABLETS EN HORIZONTAL Y LAPTOPS PEQUEÑAS (769px a 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* Header */
+  header .navbar-container,
+  header .container,
+  header .header-inner {
+    padding: 14px 4% !important;
+  }
+
+  /* Hero Banner */
+  .hero,
+  .hero-banner,
+  .page-hero,
+  .carousel-item,
+  .hero-slider-section,
+  .hero-home,
+  .hero-insignia,
+  .slide,
+  .detail-hero-section {
+    min-height: 70vh !important;
+    height: auto !important;
+    padding-top: 100px !important;
+  }
+
+  .hero-content,
+  .carousel-caption,
+  .slide-content,
+  .hero-text-wrap,
+  .hero-insignia-content,
+  .project-detail-content {
+    max-width: 90% !important;
+    left: 5% !important;
+    top: 45% !important;
+    transform: translateY(-45%) !important;
+  }
+
+  /* Grids a 2 columnas */
+  .projects-grid,
+  .solutions-grid,
+  .cards-container,
+  .catalog-grid,
+  .products-bento-grid,
+  .solutions-showcase-grid,
+  .fleet-stats-grid,
+  .advisors-grid,
+  .specs-grid-cards,
+  .detail-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  /* Footer en 2x2 */
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+    padding: 40px 5% 30px 5% !important;
+  }
+
+  .footer-bottom-flex {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+}
+
+/* ==========================================================================
+   4. TABLETS EN VERTICAL Y TELÉFONOS GRANDES (481px a 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Navbar Móvil */
+  header nav,
+  .navbar-nav,
+  .nav-desktop {
+    display: none !important; /* Activable mediante botón de hamburguesa / drawer */
+  }
+
+  header .mobile-menu-toggle,
+  .nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Banner Hero */
+  .hero,
+  .hero-banner,
+  .page-hero,
+  .carousel-item,
+  .hero-slider-section,
+  .hero-home,
+  .hero-insignia,
+  .slide,
+  .detail-hero-section {
+    min-height: 65vh !important;
+    height: auto !important;
+    padding: 90px 5% 40px 5% !important;
+  }
+
+  .hero-content,
+  .carousel-caption,
+  .slide-content,
+  .hero-text-wrap,
+  .hero-insignia-content,
+  .project-detail-content {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    max-width: 100% !important;
+    margin-top: 20px !important;
+  }
+
+  .hero h1,
+  .hero-banner h1,
+  .carousel-caption h1,
+  .slide-content h1,
+  .hero-title,
+  .hero-insignia-title,
+  .detail-hero-title,
+  main > section:first-of-type h1,
+  section[class*="hero"] h1 {
+    font-size: 2.1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero p,
+  .hero-banner p,
+  .carousel-caption p,
+  .slide-content p,
+  .hero-lead,
+  .hero-insignia-lead,
+  .detail-hero-subtitle,
+  main > section:first-of-type p,
+  section[class*="hero"] p {
+    font-size: 0.98rem !important;
+  }
+
+  /* Grids a 1 columna o 2 columnas compactas */
+  .projects-grid,
+  .catalog-grid,
+  .fleet-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .solutions-grid,
+  .products-bento-grid,
+  .solutions-showcase-grid,
+  .pillars-bento-grid,
+  .advisors-grid,
+  .specs-grid-cards,
+  .detail-editorial-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .project-card .image-container,
+  .project-card .project-img-box,
+  .product-image-box {
+    height: 200px !important;
+    min-height: 200px !important;
+  }
+
+  /* Slider de Casos de Éxito / Historias */
+  .story-card-image,
+  .case-card-image,
+  .story-card,
+  .case-card,
+  .premium-project-slide,
+  .mySchrederSwiper .swiper-slide {
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+
+  /* Footer en 1 columna apilada */
+  .footer-top-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .footer-col {
+    align-items: flex-start !important;
+  }
+}
+
+/* ==========================================================================
+   5. SMARTPHONES PEQUEÑOS Y ESTÁNDAR (320px a 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Tipografía fluida y contenida */
+  .hero h1,
+  .hero-banner h1,
+  .carousel-caption h1,
+  .slide-content h1,
+  .hero-title,
+  .hero-insignia-title,
+  .detail-hero-title,
+  main > section:first-of-type h1,
+  section[class*="hero"] h1 {
+    font-size: 1.75rem !important;
+    letter-spacing: -0.2px !important;
+  }
+
+  .hero p,
+  .hero-banner p,
+  .carousel-caption p,
+  .slide-content p,
+  .hero-lead,
+  .hero-insignia-lead,
+  .detail-hero-subtitle,
+  main > section:first-of-type p,
+  section[class*="hero"] p {
+    font-size: 0.9rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Botones full-width o táctiles */
+  .hero-content .btn,
+  .carousel-caption .btn,
+  .btn-cotizar-hero,
+  .btn-slider-action,
+  .hero-insignia-actions,
+  .btn-quote-header,
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+  }
+
+  /* Proyectos a 1 sola columna fluida */
+  .projects-grid,
+  .solutions-grid,
+  .catalog-grid,
+  .products-bento-grid,
+  .solutions-showcase-grid,
+  .fleet-stats-grid,
+  .pillars-bento-grid,
+  .advisors-grid,
+  .specs-grid-cards,
+  .detail-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .project-card .image-container,
+  .project-card .project-img-box,
+  .product-image-box {
+    height: 220px !important;
+  }
+
+  /* Ajuste de controles de Slider */
+  .carousel-indicators,
+  .swiper-pagination,
+  .slider-dots {
+    bottom: 12px !important;
+    gap: 6px !important;
+  }
+
+  .carousel-indicators button,
+  .slider-dots span,
+  .slider-dots .dot,
+  .slider-dots div,
+  .swiper-pagination-bullet {
+    width: 24px !important;
+    height: 3px !important;
+  }
+
+  .carousel-indicators .active,
+  .slider-dots span.active,
+  .slider-dots .dot.active,
+  .slider-dots div.active,
+  .swiper-pagination-bullet-active {
+    width: 34px !important;
+  }
+
+  /* Footer y créditos */
+  .footer-bottom-flex {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .corporate-units-strip {
+    font-size: 0.78rem !important;
+    padding: 8px 12px !important;
+  }
+
+  /* Ocultar flechas laterales en pantallas táctiles pequeñas para no solapar texto */
+  .slider-arrow {
+    display: none !important;
+  }
+
+  /* Comparador Antes y Después en móvil */
+  .before-after-card {
+    height: 250px !important;
+  }
+
+  .ba-tag {
+    font-size: 0.68rem !important;
+    padding: 4px 8px !important;
+  }
+}
+
+/* ==========================================================================
+   6. BLINDAJE DE COMPONENTES INTERACTIVOS Y CONTENCIÓN GENERAL
+   ========================================================================== */
+.municipalities-ticker-section,
+.ticker-wrapper {
+  overflow: hidden !important;
+  max-width: 100vw !important;
+}
+
+@media (max-width: 768px) {
+  .before-after-card {
+    height: 320px !important;
+  }
+
+  .slider-arrow {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 13px !important;
+  }
+
+  .slider-arrow.prev { left: 8px !important; }
+  .slider-arrow.next { right: 8px !important; }
+
+  /* Asegurar que modales y cajones no desborden */
+  .mobile-nav-drawer {
+    max-width: 85vw !important;
+  }
+}
+

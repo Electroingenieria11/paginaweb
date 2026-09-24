@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <!-- Meta-Tags de Seguridad y Blindaje -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com data:; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/audit-fix.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -112,7 +113,7 @@
   <!-- HERO BANNER SUMINISTROS -->
   <section class="hero-slider-section hero-home hero-insignia">
     <div class="slide active">
-      <div class="slide-bg" style="background-image: url('assets/suministros/bg.jpg');"></div>
+      <div class="slide-bg" style="background-image: url('assets/suministros/pasillo2.jpg');"></div>
       <div class="slide-overlay"></div>
       <div class="slide-content-wrapper">
         <div class="container">
@@ -152,7 +153,7 @@
         
         <!-- Categoría 1: Cables -->
         <article class="product-showcase-card">
-          <div class="product-image-box" style="background-image: url('assets/suministros/cable-cobre.jpg');"></div>
+          <div class="product-image-box" style="background-image: url('assets/suministros/conductores.jpg');"></div>
           <div class="product-info-box">
             <h3>Cables de Cobre y Aluminio</h3>
             <p>Conductores de alta especificación para redes aéreas y subterráneas de media y baja tensión. Máxima conductividad y seguridad.</p>
@@ -204,8 +205,8 @@
 
       <div class="solutions-showcase-grid" style="margin-top: 40px;">
         <!-- Solución 1: Alumbrado Público -->
-        <article class="solution-showcase-card" style="background-image: url('assets/suministros/led.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-          <div class="solution-bg-slide" style="background-image: url('assets/suministros/led.jpg');"></div>
+        <article class="solution-showcase-card" style="background-image: url('assets/suministros/luminaria-led.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+          <div class="solution-bg-slide" style="background-image: url('assets/suministros/luminaria-led.jpg');"></div>
           <div class="solution-card-overlay"></div>
           <div class="tech-spec-badge">
             <div class="tech-badge-header">
@@ -218,8 +219,8 @@
         </article>
         
         <!-- Solución 2: Media y Baja Tensión -->
-        <article class="solution-showcase-card" style="background-image: url('assets/suministros/trafo.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-          <div class="solution-bg-slide" style="background-image: url('assets/suministros/trafo.jpg');"></div>
+        <article class="solution-showcase-card" style="background-image: url('assets/proyectos/1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+          <div class="solution-bg-slide" style="background-image: url('assets/proyectos/1.jpg');"></div>
           <div class="solution-card-overlay"></div>
           <div class="tech-spec-badge">
             <div class="tech-badge-header">
@@ -246,8 +247,8 @@
         </article>
 
         <!-- Solución 4: Subestaciones y Equipamiento de Maniobra -->
-        <article class="solution-showcase-card" style="background-image: url('assets/suministros/aparamenta.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-          <div class="solution-bg-slide" style="background-image: url('assets/suministros/aparamenta.jpg');"></div>
+        <article class="solution-showcase-card" style="background-image: url('assets/proyectos/8.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+          <div class="solution-bg-slide" style="background-image: url('assets/proyectos/8.jpg');"></div>
           <div class="solution-card-overlay"></div>
           <div class="tech-spec-badge">
             <div class="tech-badge-header">
@@ -360,8 +361,16 @@
   <div class="footer-top-grid">
     <!-- Columna 1: Marca y Reseña -->
     <div class="footer-col col-brand">
-      <img src="assets/logos/Logos Electroingenieria-01.png" alt="Electroingeniería S.A.S." class="footer-logo">
-      <p>Más de 31 años transformando el desarrollo eléctrico e iluminación de Colombia con calidad y respaldo técnico bajo normativas RETIE y RETILAP.</p>
+      <a href="index.html" aria-label="Inicio Electroingenieria">
+        <img src="assets/logos/Simbolo ei marca registrada-01.png" alt="Isotipo EI - Electroingenieria S.A.S." class="footer-logo-ei">
+      </a>
+      <p class="footer-slogan">Trabajando con buena energia</p>
+      <div class="footer-social-icons">
+        <a href="https://co.linkedin.com/company/electroingenier%C3%ADa-s-a-s-" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/electroingenieria/reels/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/electroingenieriaa/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
 
     <!-- Columna 2: Empresa -->
@@ -392,12 +401,6 @@
       <p><strong>Líneas:</strong> <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fa-brands fa-whatsapp text-accent-amber" style="margin-right: 4px;"></i>+57 311 719 4015</a> / PBX: (602) 224 2626</p>
       <p><strong>Correo:</strong> contacto@electroingenieria.com</p>
       
-      <div class="footer-social-icons">
-        <a href="https://co.linkedin.com/company/electroingenier%C3%ADa-s-a-s-" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/electroingenieria/reels/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/electroingenieriaa/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://wa.me/573117194015?text=Hola%20Electroingenier%C3%ADa,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-      </div>
     </div>
   </div>
 
