@@ -1006,7 +1006,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const badgesContainer = document.getElementById('project-badges');
     if (badgesContainer && project.badges) {
       badgesContainer.innerHTML = project.badges.map(b => `
-        <span class="detail-badge-item"><i class="fa-solid ${b.icon}"></i> ${b.text}</span>
+        <span class="detail-badge-item project-spec-item"><i class="fa-solid ${b.icon}"></i> ${b.text}</span>
       `).join('');
     }
 
@@ -1511,18 +1511,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     MODAL LIGHTBOX DE IMÁGENES (EXCLUSIVO MÓVIL ≤ 768px)
+     4. EFECTO ZOOM UNIVERSAL Y MODAL LIGHTBOX (js/main.js)
      ========================================================================== */
-  (function initMobileLightbox() {
-    let modal = document.getElementById('mobile-image-modal');
-    let modalImg = document.getElementById('lightbox-target-img');
-    let closeBtn = document.getElementById('lightbox-close');
+  (function initUniversalLightbox() {
+    let modal = document.getElementById('mobile-image-modal') || document.querySelector('.lightbox-modal');
+    let modalImg = document.getElementById('lightbox-target-img') || document.querySelector('.lightbox-modal img');
+    let closeBtn = document.getElementById('lightbox-close') || modal?.querySelector('.lightbox-close-btn');
 
     // Inyección dinámica de respaldo si el contenedor no existe en el HTML
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'mobile-image-modal';
-      modal.className = 'mobile-lightbox';
+      modal.className = 'mobile-lightbox lightbox-modal';
       modal.setAttribute('aria-hidden', 'true');
       modal.innerHTML = `
         <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Cerrar imagen">&times;</button>
@@ -1535,11 +1535,7 @@ document.addEventListener('DOMContentLoaded', () => {
       closeBtn = document.getElementById('lightbox-close');
     }
 
-    if (!modal || !modalImg || !closeBtn) return;
-
-    function isMobileView() {
-      return window.innerWidth <= 768;
-    }
+    if (!modal || !modalImg) return;
 
     function closeModal() {
       modal.classList.remove('is-open');
@@ -1548,27 +1544,25 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     }
 
-    // Delegación de eventos para capturar taps en imágenes y tarjetas fotográficas
+    // Delegación universal de eventos para abrir ampliación interactiva
     document.addEventListener('click', (e) => {
-      if (!isMobileView()) return;
-
-      // No interceptar clics en enlaces, botones o elementos interactivos
+      // No interceptar clics en enlaces, botones o elementos interactivos de control
       if (e.target.closest('a, button, input, select, textarea, .btn, [class*="btn"], .lightbox-close-btn, .swiper-button-prev, .swiper-button-next, .carousel-nav-arrows, .nav-toggle, .filter-btn')) {
         return;
       }
 
       let imgSrc = '';
-      let imgAlt = 'Ampliación de proyecto';
+      let imgAlt = 'Ampliación de fotografía';
 
-      // 1. Detectar si el clic fue en un elemento <img>
-      const targetImage = e.target.closest('.swiper-slide img, .project-card img, .portfolio-card img, .gallery-item img, [data-zoomable], .product-card img, .product-image-box img, .bento-card img, .corporate-stories-section img, .detail-gallery-section img, .fleet-stat-card img, .editorial-img-box img');
+      // 1. Detectar clic en imágenes dentro de tarjetas, cuadrillas, obras o contenedores zoom
+      const targetImg = e.target.closest('.card-img img, .card-image-wrap img, .project-card img, .gallery-item img, .about-image-container img, .module-card-img img, .fleet-image-frame img, .story-media-box img, .coverflow-img-wrapper img, .detail-gallery-grid img, .why-media-img');
       
-      if (targetImage && targetImage.src && !targetImage.closest('.header-inner, .site-footer, .logo-main, .footer-logo, .nav-desktop, .nav-mobile, .mobile-lightbox')) {
-        imgSrc = targetImage.src;
-        imgAlt = targetImage.alt || 'Ampliación de proyecto';
+      if (targetImg && targetImg.src && !targetImg.closest('.header-inner, .site-footer, .logo-main, .footer-logo, .nav-desktop, .nav-mobile, .mobile-lightbox')) {
+        imgSrc = targetImg.src;
+        imgAlt = targetImg.alt || 'Ampliación de fotografía';
       } else {
-        // 2. Detectar si el clic fue en un elemento con fondo fotográfico (ej. slides, accordion, tarjetas)
-        const bgElement = e.target.closest('.swiper-slide, .accordion-panel, .solution-showcase-card, .solution-bg-slide, .product-image-box, .split-image, .slide-bg, .portfolio-card, [style*="background-image"]');
+        // 2. Detectar si el clic fue en un elemento fotográfico con background-image
+        const bgElement = e.target.closest('.swiper-slide, .accordion-panel, .solution-showcase-card, .solution-bg-slide, .product-image-box, .split-image, .portfolio-card');
         if (bgElement && !bgElement.closest('.header-inner, .site-footer, .logo-main, .mobile-lightbox')) {
           const style = bgElement.style.backgroundImage || window.getComputedStyle(bgElement).backgroundImage;
           const match = style && style.match(/url\(['"]?(.*?)['"]?\)/);
@@ -1585,18 +1579,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (imgSrc) {
         e.preventDefault();
         modalImg.src = imgSrc;
-        modalImg.alt = imgAlt || 'Ampliación de proyecto';
+        modalImg.alt = imgAlt;
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden'; // Bloquear scroll del fondo
+        document.body.style.overflow = 'hidden';
       }
     });
 
     // Cerrar al pulsar el botón ✕
-    closeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeModal();
-    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeModal();
+      });
+    }
 
     // Cerrar al tocar el fondo oscuro (backdrop)
     modal.addEventListener('click', (e) => {
@@ -1612,7 +1608,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Cerrar al deslizar (swipe vertical)
+    // Cerrar al deslizar en móviles
     let touchStartY = 0;
     modal.addEventListener('touchstart', (e) => {
       touchStartY = e.touches[0].clientY;

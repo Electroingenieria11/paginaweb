@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-primary: var(--font-corporate, 'Neris', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
 }
 
 * {
@@ -16,11 +16,11 @@
 }
 
 body {
-  font-family: var(--font-primary);
+  font-family: var(--font-corporate, 'Neris', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg-light); /* #f8fafc unificado */
-  color: var(--color-text-main);
+  color: #1E293B;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -36,9 +36,10 @@ h1, h2, h3, h4, h5, h6,
 .module-heading,
 .unidades-title,
 .about-title {
-  font-family: var(--font-primary);
+  font-family: var(--font-brand, 'Century Gothic', 'Neris', sans-serif);
+  font-weight: 700;
   color: #003690 !important; /* Azul corporativo institucional */
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
@@ -204,13 +205,13 @@ header,
 header nav,
 header .nav-desktop,
 header .nav-desktop a,
-header a,
+header a:not(.btn-quote-header):not(.btn-cotizar):not([class*="btn"]),
 header .nav-link,
 header span,
 .site-header,
 .site-header nav,
 .site-header .navbar-nav,
-.site-header a,
+.site-header a:not(.btn-quote-header):not(.btn-cotizar):not([class*="btn"]),
 .site-header .nav-link,
 .site-header span,
 .header-transparent,
@@ -220,27 +221,56 @@ header span,
 .header-transparent .nav-link,
 .header-transparent span,
 .nav-link {
-  color: #FFFFFF !important;
+  font-family: 'Neris', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 0.95rem !important;
   font-weight: 600 !important;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75) !important;
+  letter-spacing: 0.2px !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Hover del menú para mantener elegancia */
 .site-header .nav-link:hover,
 .header-transparent .nav-link:hover,
+header nav a:hover,
 .nav-link:hover {
   color: var(--color-accent, #F6D000) !important;
 }
 
 /* El botón Cotizar conserva su texto oscuro dentro de la pastilla amarilla */
+header a[href*="cotizar"],
 .site-header .btn-cotizar,
 .site-header a.btn-cotizar,
 .header-transparent .btn-quote-header,
 .header-transparent a.btn-quote-header,
-.btn-quote-header {
+.btn-quote-header,
+.btn-cotizar,
+.btn-header-cotizar,
+.navbar .btn-primary,
+.nav-btn-cotizar {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
   color: #07162C !important;
   text-shadow: none !important;
   background-color: var(--color-accent, #F6D000) !important;
+  padding: 10px 22px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+header a[href*="cotizar"]:hover,
+.btn-header-cotizar:hover,
+.header-transparent a.btn-quote-header:hover,
+.btn-quote-header:hover,
+.btn-cotizar:hover,
+.site-header .btn-cotizar:hover {
+  background-color: #e5c200 !important;
+  color: #07162C !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Items del menú desplegable */
@@ -755,8 +785,9 @@ footer a,
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 1000;
+  width: 100% !important;
+  max-width: 100% !important;
+  z-index: 1000 !important;
   background: transparent !important;
   padding: 0 !important;
   min-height: 80px !important;
@@ -764,13 +795,15 @@ footer a,
 }
 
 .header-inner {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 12px 2rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 16px 4.5% !important;
   min-height: 80px !important;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
 }
 
 /* ==========================================================================
@@ -832,57 +865,105 @@ footer a,
 }
 
 /* ==========================================================================
-   LOGO DESTACADO SIN AFECTAR LA ESTRUCTURA DEL HEADER
+   LOGO OFICIAL EN BLANCO Y ESCALA DESTACADA
    ========================================================================== */
-
-/* Contenedor del logo en el header */
-.header-logo-container,
 .site-logo,
 .navbar-brand,
-.logo-main {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 50px; /* Altura de anclaje fija para no deformar el header */
-  overflow: visible !important; /* Permite que la imagen crezca sin empujar el menú */
-  z-index: 15;
+.brand-logo-container,
+.header-logo-container,
+.logo-main,
+header a[href*="index"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: auto !important;
+  min-height: 76px !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  transition: min-height 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Imagen del logo */
-.header-logo-container img,
+/* El logo pasa a blanco puro y aumenta de tamaño */
 .site-logo img,
 .navbar-brand img,
-.logo-main img {
-  height: 68px !important;       /* Aumento de tamaño visible */
+.brand-logo-container img,
+.header-logo-container img,
+.logo-main img,
+header a[href*="index"] img {
+  height: 76px !important; /* Más grande, destacado y legible */
+  max-height: 76px !important;
   width: auto !important;
-  max-width: none !important;
-  object-fit: contain;
-  transform-origin: left center; /* Crece desde la izquierda hacia afuera */
-  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45)) !important; /* Mayor contraste sobre fondos claros/oscuros */
-  transition: transform 0.25s ease;
-  display: block;
+  max-width: 320px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  /* Fuerza el blanco puro si la imagen base tiene color */
+  filter: brightness(0) invert(1) !important;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s ease !important;
 }
 
-/* Efecto sutil al pasar el mouse (hover opcional) */
-.header-logo-container:hover img,
 .site-logo:hover img,
-.logo-main:hover img {
-  transform: scale(1.03);
+.navbar-brand:hover img,
+.header-logo-container:hover img,
+.logo-main:hover img,
+header a[href*="index"]:hover img {
+  transform: scale(1.03) !important;
 }
 
-/* Ajuste para dispositivos móviles */
+/* Reducción dinámica al hacer scroll */
+.header-transparent.scrolled .header-inner,
+header.scrolled .header-inner,
+.header-transparent.scrolled .navbar,
+header.scrolled .navbar,
+.header-transparent.scrolled .navbar-container,
+header.scrolled .navbar-container {
+  padding: 8px 4.5% !important;
+  min-height: 58px !important;
+}
+
+.header-transparent.scrolled .site-logo,
+.header-transparent.scrolled .navbar-brand,
+.header-transparent.scrolled .brand-logo-container,
+.header-transparent.scrolled .header-logo-container,
+.header-transparent.scrolled .logo-main,
+header.scrolled a[href*="index"] {
+  min-height: 46px !important;
+}
+
+.header-transparent.scrolled .site-logo img,
+.header-transparent.scrolled .navbar-brand img,
+.header-transparent.scrolled .brand-logo-container img,
+.header-transparent.scrolled .header-logo-container img,
+.header-transparent.scrolled .logo-main img,
+header.scrolled a[href*="index"] img {
+  height: 46px !important;
+  max-height: 46px !important;
+  max-width: 195px !important;
+}
+
 @media (max-width: 768px) {
-  .header-logo-container,
-  .site-logo,
-  .navbar-brand,
-  .logo-main {
-    height: 40px;
-  }
-  .header-logo-container img,
   .site-logo img,
   .navbar-brand img,
-  .logo-main img {
-    height: 48px !important;
+  .header-logo-container img,
+  .logo-main img,
+  header a[href*="index"] img {
+    height: 56px !important;
+    max-height: 56px !important;
+    max-width: 220px !important;
+  }
+
+  .header-transparent.scrolled .header-inner,
+  header.scrolled .header-inner {
+    padding: 6px 4% !important;
+    min-height: 50px !important;
+  }
+
+  .header-transparent.scrolled .site-logo img,
+  .header-transparent.scrolled .navbar-brand img,
+  .header-transparent.scrolled .header-logo-container img,
+  .header-transparent.scrolled .logo-main img,
+  header.scrolled a[href*="index"] img {
+    height: 40px !important;
+    max-height: 40px !important;
+    max-width: 160px !important;
   }
 }
 
@@ -1191,27 +1272,238 @@ footer a,
   }
 }
 
-.slider-dots {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: flex;
-  gap: 0.7rem;
+/* ==========================================================================
+   BANNERS Y CARRUSEL DE PANTALLA COMPLETA (FULL HEIGHT VIEWPORT)
+   ========================================================================== */
+
+/* 1. Contenedores del Slider y Banners Principales */
+.hero,
+.hero-banner,
+.page-hero,
+.carousel,
+.carousel-inner,
+.carousel-item,
+.hero .swiper,
+.hero .swiper-wrapper,
+.hero .swiper-slide,
+.hero-slider-section,
+.hero-slider-container,
+.hero-home,
+.hero-insignia,
+.project-detail-hero,
+.detail-hero-section,
+main > section:first-of-type,
+section[class*="hero"] {
+  width: 100% !important;
+  min-height: 92vh !important; /* Llena casi el 100% de la pantalla */
+  height: 92vh !important;
+  position: relative !important;
+  box-sizing: border-box !important;
 }
 
-.dot {
-  width: 16px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.35);
-  cursor: pointer;
-  transition: var(--transition);
+/* 2. Capa de Imagen de Fondo (Escala amplia sin deformarse) */
+.slide,
+.slide-bg,
+.carousel-item img,
+.swiper-slide img,
+.hero-slide-bg,
+.hero::after,
+.hero-banner::after,
+.page-hero::after,
+.project-detail-hero::after,
+.detail-hero-section::after,
+main > section:first-of-type::after {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 92vh !important;
+  object-fit: cover !important; /* Cubre todo el espacio sin aplastarse */
+  object-position: center center !important;
+  background-size: cover !important;
+  background-position: center center !important;
 }
 
-.dot.active {
-  width: 38px;
-  background: var(--color-accent);
+/* 3. Posicionamiento del bloque textual: tercio superior-medio izquierdo */
+.carousel-caption,
+.hero-content,
+.hero-text-wrap,
+.swiper-slide .slide-content,
+.slide-content-wrapper,
+.slide-content,
+.hero-insignia-content,
+.project-detail-content,
+main > section:first-of-type > div:not(.slide):not(.detail-hero-overlay):not([class*="overlay"]):not(.slider-dots):not([class*="dots"]):not([class*="indicator"]):not([class*="pagination"]):not(.slider-arrow) {
+  position: absolute !important;
+  top: 30% !important; /* Sube el contenido para despejar la base */
+  left: 6% !important;  /* Alineado a la izquierda */
+  bottom: auto !important;
+  right: auto !important;
+  transform: none !important; /* Elimina desfases de traslación */
+  width: auto !important;
+  max-width: 540px !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 10 !important;
+}
+
+.slide-content-wrapper .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. Título H1 */
+.carousel-caption h1,
+.hero-content h1,
+.hero-text-wrap h1,
+.hero-title,
+.hero-insignia-title,
+.slide-content h1,
+main > section:first-of-type h1 {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: clamp(2.3rem, 3.4vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+  margin: 0 0 12px 0 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 3. Párrafo descriptivo */
+.carousel-caption p,
+.hero-content p,
+.hero-text-wrap p,
+.hero-lead,
+.hero-insignia-lead,
+.slide-content p,
+main > section:first-of-type p {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem) !important;
+  line-height: 1.5 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 20px 0 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* 4. Botón de acción: visible al 100% */
+.carousel-caption .btn,
+.hero-content .btn,
+.hero-text-wrap a,
+.btn-slider-action,
+.hero-insignia-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 22px !important;
+  background-color: #F6D000 !important;
+  color: #07162C !important;
+  font-family: 'Neris', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  align-self: flex-start !important;
+  margin: 0 !important;
+}
+
+/* 4. Flechas Laterales de Navegación */
+.carousel-control-prev,
+.carousel-control-next,
+.swiper-button-prev,
+.swiper-button-next,
+.slider-arrow {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 15 !important;
+}
+
+/* En monitores de escritorio grandes (1080p, 2K, Ultrawide) */
+@media (min-width: 1200px) {
+  .hero,
+  .hero-banner,
+  .page-hero,
+  .carousel,
+  .carousel-inner,
+  .carousel-item,
+  .hero .swiper-slide,
+  .hero-slider-section,
+  .hero-home,
+  .hero-insignia,
+  .project-detail-hero,
+  .detail-hero-section,
+  main > section:first-of-type {
+    min-height: 94vh !important;
+    height: 94vh !important;
+  }
+  .slide,
+  .slide-bg,
+  .hero::after,
+  .hero-banner::after,
+  .page-hero::after,
+  .project-detail-hero::after,
+  .detail-hero-section::after,
+  main > section:first-of-type::after {
+    min-height: 94vh !important;
+    height: 94vh !important;
+  }
+}
+
+.slider-dots,
+.carousel-indicators,
+.hero-dots,
+.swiper-pagination,
+.carousel-pagination,
+[class*="indicators"]:not(.slider-top-indicator),
+[class*="pagination"] {
+  position: absolute !important;
+  bottom: 18px !important;
+  top: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  z-index: 30 !important;
+  pointer-events: auto !important;
+}
+
+.dot,
+.carousel-indicators button,
+.carousel-indicators li,
+.slider-dots span,
+.slider-dots div,
+.slider-dots .dot,
+.swiper-pagination-bullet {
+  display: inline-block !important;
+  width: 36px !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.dot.active,
+.carousel-indicators .active,
+.carousel-indicators button.active,
+.slider-dots span.active,
+.slider-dots div.active,
+.slider-dots .dot.active,
+.swiper-pagination-bullet-active {
+  background-color: #F6D000 !important;
+  width: 52px !important;
+  opacity: 1 !important;
 }
 
 @media (max-width: 992px) {
@@ -1987,12 +2279,558 @@ div:has(> .btn-yellow) h3 {
   color: #111827 !important;
 }
 
-/* 5. Supresión de Watermark */
-.site-domain-tag,
-.hero-domain-link,
-.watermark-url {
+/* ==========================================================================
+   ACLARADO DEFINITIVO DE BANNERS (MÁXIMA LUZ NATURAL)
+   ========================================================================== */
+
+/* 1. Fotografía de fondo: Brillo y contraste naturales al 100% */
+.hero::after,
+.hero-banner::after,
+.page-hero::after,
+.project-detail-hero::after,
+.detail-hero-section::after,
+main > section:first-of-type::after,
+section[class*="hero"]::after,
+.slide-bg,
+.slide.active .slide-bg {
+  filter: brightness(1.05) contrast(1) !important; /* Brillo pleno sin atenuar */
+  opacity: 1 !important;
+}
+
+/* 2. Degradado lateral ultra-sutil (casi transparente) */
+.hero::before,
+.hero-banner::before,
+.page-hero::before,
+.project-detail-hero::before,
+.detail-hero-section::before,
+.detail-hero-overlay,
+.slide-overlay,
+main > section:first-of-type::before,
+section[class*="hero"]::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  /* Sombra ultra ligera: solo 40% en el borde extremo izquierdo y se desvanece al 0% rápido */
+  background: linear-gradient(
+    90deg,
+    rgba(7, 22, 44, 0.40) 0%,
+    rgba(7, 22, 44, 0.18) 25%,
+    rgba(7, 22, 44, 0) 50%
+  ) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* 3. Textos con contraste propio reforzado (legibles sin oscurecer la foto) */
+.hero h1,
+.hero-banner h1,
+.page-hero h1,
+.project-detail-content h1,
+.detail-hero-title,
+.hero-title,
+.hero-insignia-title,
+main > section:first-of-type h1,
+section[class*="hero"] h1 {
+  color: #FFFFFF !important;
+  /* Sombra proyectada limpia y definida para despegar las letras del fondo */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 4px 14px rgba(0, 0, 0, 0.85) !important;
+}
+
+.hero p,
+.hero-banner p,
+.page-hero p,
+.project-detail-content p,
+.detail-hero-subtitle,
+.hero-lead,
+.hero-insignia-lead,
+main > section:first-of-type p,
+section[class*="hero"] p {
+  color: #FFFFFF !important;
+  text-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 2px 8px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* ==========================================================================
+   FOOTER FLUIDO DE EXTREMO A EXTREMO PARA MONITORES ANCHOS
+   ========================================================================== */
+
+.site-footer,
+footer,
+.footer-continuous {
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: #07162C !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 1. Reset del Contenedor de Columnas */
+footer .container,
+footer .footer-container,
+.footer-top-grid,
+.footer-content {
+  width: 100% !important;
+  max-width: 1750px !important; /* Elimina la restricción estrecha */
+  margin: 0 auto !important;
+  padding: 60px 5% 45px 5% !important; /* Márgenes laterales exactos */
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important; /* Expande las 4 columnas a todo lo ancho */
+  align-items: flex-start !important;
+  gap: 40px !important;
+  box-sizing: border-box !important;
+}
+
+.footer-col {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Distribución y Anchos Proporcionales de Columnas */
+/* Columna 1: Marca y Reseña */
+.footer-top-grid > div:nth-child(1),
+.footer-col:first-child,
+.footer-brand-col,
+.footer-col.col-brand {
+  flex: 0 1 340px !important;
+  min-width: 260px !important;
+}
+
+/* Columnas 2 y 3: Enlaces de Menú */
+.footer-top-grid > div:nth-child(2),
+.footer-top-grid > div:nth-child(3),
+.footer-col:nth-child(2),
+.footer-col:nth-child(3) {
+  flex: 0 1 220px !important;
+  min-width: 180px !important;
+}
+
+/* Columna 4: Sede Principal y Contacto */
+.footer-top-grid > div:nth-child(4),
+.footer-col:last-child,
+.footer-contact-col,
+.footer-col.col-contact {
+  flex: 0 1 360px !important;
+  min-width: 280px !important;
+}
+
+/* 3. Escala Visual y Tipografías */
+.footer-logo,
+.footer-col:first-child img {
+  height: 52px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  margin-bottom: 20px !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+.footer-col p {
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+  color: #CBD5E1 !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.footer-col h4 {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 20px 0 !important;
+  border-bottom: 2px solid #F6D000 !important;
+  padding-bottom: 6px !important;
+  display: inline-block !important;
+  width: fit-content !important;
+}
+
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px !important;
+}
+
+.footer-col ul li a {
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: #94A3B8 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.footer-col ul li a:hover {
+  color: #F6D000 !important;
+}
+
+.footer-social-icons {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 14px !important;
+}
+
+.footer-social-icons a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.footer-social-icons a:hover {
+  border-color: #F6D000 !important;
+  color: #F6D000 !important;
+}
+
+/* 4. Barra Inferior de Derechos y Créditos (Ancho Completo y Centrada) */
+.footer-bottom-bar,
+.footer-bottom {
+  width: 100% !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  padding: 18px 5% !important;
+  box-sizing: border-box !important;
+}
+
+.footer-bottom-flex,
+.footer-bottom-container {
+  max-width: 1750px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.88rem !important;
+  color: #64748B !important;
+  gap: 20px !important;
+}
+
+.developer-credit strong {
+  color: #F6D000 !important;
+}
+
+.legal-links a {
+  color: #94A3B8 !important;
+  text-decoration: none !important;
+}
+
+.legal-links a:hover {
+  color: #F6D000 !important;
+}
+
+.legal-links .sep {
+  margin: 0 6px !important;
+  opacity: 0.4 !important;
+}
+
+/* 5. Franja Oficial (Removida) */
+.corporate-units-strip {
   display: none !important;
 }
+
+/* Adaptación para pantallas medianas / tablets */
+@media (max-width: 1100px) {
+  footer .container,
+  footer .footer-container,
+  .footer-top-grid,
+  .footer-content {
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+  }
+  .footer-col,
+  .footer-top-grid > div:nth-child(1),
+  .footer-top-grid > div:nth-child(2),
+  .footer-top-grid > div:nth-child(3),
+  .footer-top-grid > div:nth-child(4) {
+    flex: 1 1 42% !important;
+  }
+  .footer-bottom-flex,
+  .footer-bottom-container {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-col,
+  .footer-top-grid > div:nth-child(1),
+  .footer-top-grid > div:nth-child(2),
+  .footer-top-grid > div:nth-child(3),
+  .footer-top-grid > div:nth-child(4) {
+    flex: 1 1 100% !important;
+  }
+}
+
+/* ==========================================================================
+   RESTAURACIÓN DEFINITIVA DE POSICIÓN DE TEXTOS EN BANNERS / CARROUSEL
+   ========================================================================== */
+
+/* 1. Reset del Contenedor de la Diapositiva / Hero */
+.hero,
+.hero-banner,
+.page-hero,
+.carousel-item,
+.hero .swiper-slide,
+.hero-slider-section,
+.hero-home,
+.hero-insignia,
+main > section:first-of-type {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important; /* Centrado vertical natural dentro del 90vh */
+  align-items: flex-start !important;  /* Estricto margen izquierdo */
+  padding-left: 6% !important;
+  padding-top: 80px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+/* Diapositivas superpuestas en sliders multicapa */
+.hero-slider-section .slide,
+.hero-slider-container .slide,
+.slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 92vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  padding-left: 6% !important;
+  padding-top: 80px !important;
+  padding-bottom: 40px !important;
+  box-sizing: border-box !important;
+  bottom: auto !important;
+}
+
+/* 2. Contenedor de Texto: Eliminar cualquier anclaje hacia el suelo */
+.carousel-caption,
+.hero-content,
+.hero-text-wrap,
+.swiper-slide .slide-content,
+.slide-content-wrapper,
+.slide-content,
+.hero-insignia-content,
+.project-detail-content,
+main > section:first-of-type > div:not(.slide):not(.detail-hero-overlay):not([class*="overlay"]):not(.slider-dots):not([class*="dots"]):not([class*="indicator"]):not([class*="pagination"]):not(.slider-arrow) {
+  position: relative !important; /* Salir del absolute rígido que lo tira al fondo */
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 580px !important;
+  text-align: left !important;
+  z-index: 10 !important;
+}
+
+.slide-content-wrapper .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Forzar en caso de que mantenga position: absolute por Bootstrap */
+.carousel-inner .carousel-caption {
+  position: absolute !important;
+  top: 28% !important;       /* Ubicado en el tercio superior-medio */
+  bottom: auto !important;   /* Anula el anclaje inferior de Bootstrap */
+  left: 6% !important;
+  transform: none !important;
+}
+
+/* 3. Título Principal */
+.carousel-caption h1,
+.hero-content h1,
+.hero-text-wrap h1,
+.hero-title,
+.hero-insignia-title,
+.slide-content h1,
+main > section:first-of-type h1 {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: clamp(2.3rem, 3.4vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+  margin: 0 0 14px 0 !important;
+  display: block !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 4. Párrafo Descriptivo (Restaurar visibilidad) */
+.carousel-caption p,
+.hero-content p,
+.hero-text-wrap p,
+.hero-lead,
+.hero-insignia-lead,
+.slide-content p,
+main > section:first-of-type p {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem) !important;
+  line-height: 1.55 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 22px 0 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* 5. Botón de Acción (Restaurar visibilidad y proporción) */
+.carousel-caption .btn,
+.hero-content .btn,
+.hero-text-wrap a,
+.hero-content a,
+.btn-slider-action,
+.hero-insignia-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 24px !important;
+  background-color: #F6D000 !important;
+  color: #07162C !important;
+  font-family: 'Neris', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+ }
+
+/* ==========================================================================
+   AJUSTE DE ESCALA Y COMPACIDAD: HISTORIAS DE ÉXITO / CASOS DE ÉXITO
+   ========================================================================== */
+
+/* 1. Contenedor del Carrusel / Slider de Casos de Éxito */
+.success-stories-slider,
+.cases-slider,
+.emblematic-lighting-section .swiper,
+.emblematic-lighting-section .projects-carousel-container,
+.schreder-stage-wrapper .swiper,
+.schreder-stage-wrapper,
+section:has([class*="Guatavita"]) .swiper,
+section:has([class*="Guatavita"]) .carousel,
+.stories-slider-container {
+  max-width: 1380px !important;
+  margin: 25px auto 40px auto !important;
+  padding: 0 4% !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* 2. Diapositivas / Tarjetas del Carrusel */
+.success-stories-slider .swiper-slide,
+.cases-slider .carousel-item,
+.emblematic-lighting-section .swiper-slide,
+.emblematic-lighting-section .premium-project-slide,
+.schreder-stage-wrapper .swiper-slide,
+.projects-carousel-container .swiper-slide,
+.mySchrederSwiper .swiper-slide,
+.story-card,
+.case-card,
+.premium-project-slide {
+  height: 340px !important;
+  min-height: 340px !important;
+  max-height: 340px !important;
+  width: 44% !important;
+  max-width: 440px !important; /* Evita que una sola tarjeta se trague el ancho */
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  display: block !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Contenedor de la Imagen: Reducción de Altura Controlada */
+.story-card-image,
+.case-card-image,
+.story-card .image-wrapper,
+.emblematic-lighting-section .premium-project-slide,
+.schreder-stage-wrapper .premium-project-slide,
+section:has([class*="Guatavita"]) .swiper-slide img,
+section:has([class*="Guatavita"]) .carousel-item img {
+  width: 100% !important;
+  height: 340px !important;       /* Altura moderada y armónica */
+  min-height: 340px !important;
+  max-height: 340px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 12px !important;
+  display: block !important;
+}
+
+/* 4. Separación y Alineación de Controles Superiores */
+.stories-controls-bar,
+.emblematic-controls-bar,
+.carousel-top-bar,
+section:has([class*="Guatavita"]) .slider-navigation,
+section:has([class*="Guatavita"]) .d-flex:has(.pagination-numbers) {
+  margin-bottom: 20px !important;
+}
+
+/* Ajustes Responsive */
+@media (max-width: 992px) {
+  .story-card-image,
+  .case-card-image,
+  .emblematic-lighting-section .swiper-slide,
+  .emblematic-lighting-section .premium-project-slide,
+  .schreder-stage-wrapper .swiper-slide,
+  .projects-carousel-container .swiper-slide,
+  .mySchrederSwiper .swiper-slide,
+  .premium-project-slide,
+  section:has([class*="Guatavita"]) .swiper-slide img {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+    width: 60% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-card-image,
+  .case-card-image,
+  .emblematic-lighting-section .swiper-slide,
+  .emblematic-lighting-section .premium-project-slide,
+  .schreder-stage-wrapper .swiper-slide,
+  .projects-carousel-container .swiper-slide,
+  .mySchrederSwiper .swiper-slide,
+  .premium-project-slide,
+  section:has([class*="Guatavita"]) .swiper-slide img {
+    height: 230px !important;
+    min-height: 230px !important;
+    max-height: 230px !important;
+    width: 85% !important;
+  }
+}
+
+
 
 
 

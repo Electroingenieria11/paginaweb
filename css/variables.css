@@ -1,24 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Paleta Cromática Oficial - Manual de Identidad */
+  --color-primary-blue: #003690;     /* Pantone 286 C */
+  --color-primary-yellow: #F6D000;   /* Pantone 109 C */
+  --color-corporate-gray: #A4A8AB;   /* Pantone 429 C */
+  --color-dark-bg: #07162C;          /* Azul marino profundo de contraste */
+  --color-white: #FFFFFF;
 
-  /* Paleta Oficial - Manual de Identidad Corporativa Electroingeniería S.A.S. */
-  --color-primary: #003690;        /* Pantone 286 C */
+  /* Tipografías Oficiales */
+  --font-corporate: 'Neris', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-brand: 'Century Gothic', 'Neris', sans-serif;
+
+  /* Compatibilidad y Tokens de Soporte */
+  --font-primary: var(--font-corporate);
+  --font-family-corp: var(--font-corporate);
+  --font-family-brand: var(--font-brand);
+  --color-primary: var(--color-primary-blue);
   --color-primary-dark: #002666;   /* Variante para hover */
-  --color-accent: #F6D000;         /* Pantone 109 C */
+  --color-accent: var(--color-primary-yellow);
   --color-accent-hover: #E0BC00;   
-  --color-gray-corp: #A4A8AB;      /* Pantone 429 C */
-  --color-gray-dark: #111827;      /* Color de lectura */
+  --color-gray-corp: var(--color-corporate-gray);
+  --color-gray-dark: #1E293B;      /* Color de lectura */
   --color-gray-border: #E2E8F0;
   --color-bg-light: #F8FAFC;       /* Gris claro neutro y limpio */
   --color-bg-white: #FFFFFF;       /* Fondo blanco puro */
-  --color-text-main: #000000;
-  --color-text-muted: #111827;
-
-  /* Tipografías Oficiales */
-  --font-family-corp: var(--font-primary);
-  --font-family-brand: var(--font-primary);
+  --color-text-main: #1E293B;
+  --color-text-muted: #64748B;
 
   /* Estructura y Sombras */
   --radius-sm: 8px;
@@ -35,6 +43,18 @@
   --glass-border: rgba(255, 255, 255, 0.4);
   --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-cinematic: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Aplicación general de lectura */
+body {
+  font-family: var(--font-corporate);
+  color: #1E293B;
+}
+
+/* Encabezados y títulos corporativos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-brand);
+  font-weight: 700;
 }
 
 /* ==========================================================================

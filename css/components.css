@@ -22,58 +22,106 @@
   box-shadow: 0 10px 30px rgba(0, 15, 35, 0.4) !important;
 }
 
-/* ==========================================================================
-   LOGO DESTACADO SIN AFECTAR LA ESTRUCTURA DEL HEADER
-   ========================================================================== */
+/* Reducción dinámica del contenedor y logo al hacer scroll */
+.header-transparent.scrolled .header-inner,
+header.scrolled .header-inner,
+.header-transparent.scrolled .navbar,
+header.scrolled .navbar,
+.header-transparent.scrolled .navbar-container,
+header.scrolled .navbar-container {
+  padding: 8px 4.5% !important;
+  min-height: 58px !important;
+}
 
-/* Contenedor del logo en el header */
-.header-logo-container,
+.header-transparent.scrolled .site-logo,
+.header-transparent.scrolled .navbar-brand,
+.header-transparent.scrolled .brand-logo-container,
+.header-transparent.scrolled .header-logo-container,
+.header-transparent.scrolled .logo-main,
+header.scrolled a[href*="index"] {
+  min-height: 46px !important;
+}
+
+.header-transparent.scrolled .site-logo img,
+.header-transparent.scrolled .navbar-brand img,
+.header-transparent.scrolled .brand-logo-container img,
+.header-transparent.scrolled .header-logo-container img,
+.header-transparent.scrolled .logo-main img,
+header.scrolled a[href*="index"] img {
+  height: 46px !important;
+  max-height: 46px !important;
+  max-width: 195px !important;
+}
+
+/* ==========================================================================
+   LOGO OFICIAL EN BLANCO Y ESCALA DESTACADA
+   ========================================================================== */
 .site-logo,
 .navbar-brand,
-.logo-main {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 50px; /* Altura de anclaje fija para no deformar el header */
-  overflow: visible !important; /* Permite que la imagen crezca sin empujar el menú */
-  z-index: 15;
+.brand-logo-container,
+.header-logo-container,
+.logo-main,
+header a[href*="index"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: auto !important;
+  min-height: 76px !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  transition: min-height 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Imagen del logo */
-.header-logo-container img,
+/* El logo pasa a blanco puro y aumenta de tamaño */
 .site-logo img,
 .navbar-brand img,
-.logo-main img {
-  height: 68px !important;       /* Aumento de tamaño visible */
+.brand-logo-container img,
+.header-logo-container img,
+.logo-main img,
+header a[href*="index"] img {
+  height: 76px !important; /* Más grande, destacado y legible */
+  max-height: 76px !important;
   width: auto !important;
-  max-width: none !important;
-  object-fit: contain;
-  transform-origin: left center; /* Crece desde la izquierda hacia afuera */
-  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45)) !important; /* Mayor contraste sobre fondos claros/oscuros */
-  transition: transform 0.25s ease;
-  display: block;
+  max-width: 320px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  /* Fuerza el blanco puro si la imagen base tiene color */
+  filter: brightness(0) invert(1) !important;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s ease !important;
 }
 
-/* Efecto sutil al pasar el mouse (hover opcional) */
-.header-logo-container:hover img,
 .site-logo:hover img,
-.logo-main:hover img {
-  transform: scale(1.03);
+.navbar-brand:hover img,
+.header-logo-container:hover img,
+.logo-main:hover img,
+header a[href*="index"]:hover img {
+  transform: scale(1.03) !important;
 }
 
-/* Ajuste para dispositivos móviles */
 @media (max-width: 768px) {
-  .header-logo-container,
-  .site-logo,
-  .navbar-brand,
-  .logo-main {
-    height: 40px;
-  }
-  .header-logo-container img,
   .site-logo img,
   .navbar-brand img,
-  .logo-main img {
-    height: 48px !important;
+  .header-logo-container img,
+  .logo-main img,
+  header a[href*="index"] img {
+    height: 56px !important;
+    max-height: 56px !important;
+    max-width: 220px !important;
+  }
+
+  .header-transparent.scrolled .header-inner,
+  header.scrolled .header-inner {
+    padding: 6px 4% !important;
+    min-height: 50px !important;
+  }
+
+  .header-transparent.scrolled .site-logo img,
+  .header-transparent.scrolled .navbar-brand img,
+  .header-transparent.scrolled .header-logo-container img,
+  .header-transparent.scrolled .logo-main img,
+  header.scrolled a[href*="index"] img {
+    height: 40px !important;
+    max-height: 40px !important;
+    max-width: 160px !important;
   }
 }
 
@@ -862,63 +910,114 @@ footer a,
     margin: 0 auto;
 }
 
-.coverflow-viewport {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  height: 560px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* ==========================================================================
-   CARRUSEL 3D COVER FLOW: EFECTO SPOTLIGHT & REFLEJO
+   RESET Y ALINEACIÓN DE TARJETAS DE SOLUCIONES E INFRAESTRUCTURA
    ========================================================================== */
-.coverflow-card {
-  position: absolute;
-  width: 370px;
-  background: #FFFFFF;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 12px 35px rgba(0, 30, 80, 0.08);
-  overflow: hidden;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  transition: transform 0.65s var(--ease-cinematic),
-              opacity 0.65s ease,
-              box-shadow 0.65s ease,
-              filter 0.65s ease;
-  will-change: transform, opacity;
+
+/* Contenedor padre de las tarjetas (Grid / Flex) */
+.solutions-grid,
+.services-grid,
+.cards-container,
+.coverflow-viewport,
+.units-coverflow-section .coverflow-viewport,
+section:has(.card) .row,
+section:has(.solution-card) .row,
+[class*="solution"] .grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 30px !important;
+  align-items: stretch !important; /* Todas con la misma base y altura */
+  margin-top: 40px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  height: auto !important;
+  max-width: 1200px !important;
 }
 
-/* Tarjeta Central (Activa): Profundidad e iluminación */
-.coverflow-card.pos-center {
-  transform: translateX(0) scale(1) translateZ(60px);
-  opacity: 1;
-  z-index: 10;
-  box-shadow: 0 28px 60px rgba(0, 30, 80, 0.16),
-              0 0 40px rgba(246, 208, 0, 0.12);
-  border-color: rgba(246, 208, 0, 0.4);
-}
-
-.coverflow-card.pos-left {
-  transform: translateX(-310px) scale(0.86) rotateY(16deg) translateZ(-40px);
-  opacity: 0.68;
-  z-index: 5;
-  filter: brightness(0.92);
-}
-
+/* Todas las tarjetas al mismo nivel, sin elevaciones estáticas */
+.solutions-grid > div,
+.services-grid > div,
+.cards-container > div,
+.solution-card,
+.service-card,
+.card,
+.coverflow-card,
+.coverflow-card.pos-center,
+.coverflow-card.pos-left,
 .coverflow-card.pos-right {
-  transform: translateX(310px) scale(0.86) rotateY(-16deg) translateZ(-40px);
-  opacity: 0.68;
-  z-index: 5;
-  filter: brightness(0.92);
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin-top: 0 !important;
+  transform: none !important; /* Elimina cualquier translateY negativo fijo */
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: 1 !important;
+  background: #FFFFFF;
+  border-radius: var(--radius-md, 14px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 30, 80, 0.06);
+  overflow: hidden;
 }
-.coverflow-card:hover:not(.pos-center) {
-  opacity: 0.95;
-  filter: brightness(1);
+
+/* El texto introductorio superior debe mantener su espacio libre */
+section:has(.solution-card) h2,
+section:has(.card) h2,
+section:has(.solution-card) p,
+section:has(.card) p,
+.unidades-header,
+.unidades-title,
+.unidades-subtitle {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Hover suave opcional SOLO al interactuar, sin romper la fila */
+.solution-card:hover,
+.service-card:hover,
+.card:hover,
+.coverflow-card:hover {
+  transform: translateY(-6px) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  box-shadow: 0 18px 40px rgba(0, 30, 80, 0.12) !important;
+}
+
+/* Proporción limpia para la imagen de las tarjetas de soluciones */
+.coverflow-card .coverflow-img-wrapper,
+.solution-card .coverflow-img-wrapper,
+.coverflow-img-wrapper {
+  position: relative !important;
+  height: 220px !important;
+  min-height: 220px !important;
+  max-height: 220px !important;
+  overflow: hidden !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.coverflow-card .coverflow-body,
+.solution-card .coverflow-body {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* Responsivo para móviles y tablets */
+@media (max-width: 992px) {
+  .solutions-grid,
+  .services-grid,
+  .cards-container,
+  .coverflow-viewport,
+  .units-coverflow-section .coverflow-viewport {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
 }
 
 /* Imagen con zoom al hover y visualización nítida y limpia */
@@ -1135,89 +1234,485 @@ footer.footer,
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
-.footer-main-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
-  gap: 3.5rem;
-  padding-bottom: 4rem;
+/* ==========================================================================
+   BANNERS Y CARRUSEL DE PANTALLA COMPLETA (FULL HEIGHT VIEWPORT)
+   ========================================================================== */
+
+/* 1. Contenedores del Slider y Banners Principales */
+.hero,
+.hero-banner,
+.page-hero,
+.carousel,
+.carousel-inner,
+.carousel-item,
+.hero .swiper,
+.hero .swiper-wrapper,
+.hero .swiper-slide,
+.hero-slider-section,
+.hero-slider-container,
+.hero-home,
+.hero-insignia,
+.project-detail-hero,
+.detail-hero-section,
+main > section:first-of-type,
+section[class*="hero"] {
+  width: 100% !important;
+  min-height: 92vh !important; /* Llena casi el 100% de la pantalla */
+  height: 92vh !important;
+  position: relative !important;
+  box-sizing: border-box !important;
 }
 
-.footer-brand-info img {
-  height: 60px;
-  margin-bottom: 1.5rem;
+/* 2. Capa de Imagen de Fondo (Escala amplia sin deformarse) */
+.slide,
+.slide-bg,
+.carousel-item img,
+.swiper-slide img,
+.hero-slide-bg,
+.hero::after,
+.hero-banner::after,
+.page-hero::after,
+.project-detail-hero::after,
+.detail-hero-section::after,
+main > section:first-of-type::after {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 92vh !important;
+  object-fit: cover !important; /* Cubre todo el espacio sin aplastarse */
+  object-position: center center !important;
+  background-size: cover !important;
+  background-position: center center !important;
 }
 
-.footer-brand-info p {
-  color: #CBD5E1;
-  font-size: 0.92rem;
-  line-height: 1.7;
+/* 3. Posicionamiento del bloque textual: tercio superior-medio izquierdo */
+.carousel-caption,
+.hero-content,
+.hero-text-wrap,
+.swiper-slide .slide-content,
+.slide-content-wrapper,
+.slide-content,
+.hero-insignia-content,
+.project-detail-content,
+main > section:first-of-type > div:not(.slide):not(.detail-hero-overlay):not([class*="overlay"]):not(.slider-dots):not([class*="dots"]):not([class*="indicator"]):not([class*="pagination"]):not(.slider-arrow) {
+  position: absolute !important;
+  top: 30% !important; /* Sube el contenido para despejar la base */
+  left: 6% !important;  /* Alineado a la izquierda */
+  bottom: auto !important;
+  right: auto !important;
+  transform: none !important; /* Elimina desfases de traslación */
+  width: auto !important;
+  max-width: 540px !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 10 !important;
+}
+
+.slide-content-wrapper .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. Título H1 */
+.carousel-caption h1,
+.hero-content h1,
+.hero-text-wrap h1,
+.hero-title,
+.hero-insignia-title,
+.slide-content h1,
+main > section:first-of-type h1 {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: clamp(2.3rem, 3.4vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+  margin: 0 0 12px 0 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 3. Párrafo descriptivo */
+.carousel-caption p,
+.hero-content p,
+.hero-text-wrap p,
+.hero-lead,
+.hero-insignia-lead,
+.slide-content p,
+main > section:first-of-type p {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem) !important;
+  line-height: 1.5 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 20px 0 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* 4. Botón de acción: visible al 100% */
+.carousel-caption .btn,
+.hero-content .btn,
+.hero-text-wrap a,
+.btn-slider-action,
+.hero-insignia-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 22px !important;
+  background-color: #F6D000 !important;
+  color: #07162C !important;
+  font-family: 'Neris', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  align-self: flex-start !important;
+  margin: 0 !important;
+}
+
+/* 4. Flechas Laterales de Navegación */
+.carousel-control-prev,
+.carousel-control-next,
+.swiper-button-prev,
+.swiper-button-next,
+.slider-arrow {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 15 !important;
+}
+
+/* En monitores de escritorio grandes (1080p, 2K, Ultrawide) */
+@media (min-width: 1200px) {
+  .hero,
+  .hero-banner,
+  .page-hero,
+  .carousel,
+  .carousel-inner,
+  .carousel-item,
+  .hero .swiper-slide,
+  .hero-slider-section,
+  .hero-home,
+  .hero-insignia,
+  .project-detail-hero,
+  .detail-hero-section,
+  main > section:first-of-type {
+    min-height: 94vh !important;
+    height: 94vh !important;
+  }
+  .slide,
+  .slide-bg,
+  .hero::after,
+  .hero-banner::after,
+  .page-hero::after,
+  .project-detail-hero::after,
+  .detail-hero-section::after,
+  main > section:first-of-type::after {
+    min-height: 94vh !important;
+    height: 94vh !important;
+  }
+}
+
+/* ==========================================================================
+   ANCLAJE ESTRICTO DE INDICADORES / RAYITAS AL BORDE INFERIOR DEL HERO
+   ========================================================================== */
+
+/* 1. Asegurar contexto de posicionamiento en el contenedor principal */
+.hero,
+.hero-banner,
+.page-hero,
+.carousel,
+.slider,
+.swiper,
+.hero-slider-section,
+.hero-home,
+.hero-insignia,
+main > section:first-of-type {
+  position: relative !important;
+}
+
+/* 2. Anclaje al borde inferior absoluto */
+.carousel-indicators,
+.slider-dots,
+.hero-dots,
+.swiper-pagination,
+.carousel-pagination,
+[class*="indicators"]:not(.slider-top-indicator),
+[class*="pagination"] {
+  position: absolute !important;
+  bottom: 18px !important;
+  top: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  z-index: 30 !important; /* Siempre por encima del fondo y los textos */
+  pointer-events: auto !important;
+}
+
+/* 3. Diseño homogéneo y estilizado de las barritas */
+.carousel-indicators button,
+.carousel-indicators li,
+.slider-dots span,
+.slider-dots div,
+.slider-dots .dot,
+.swiper-pagination-bullet,
+.dot {
+  display: inline-block !important;
+  width: 36px !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 4. Barra activa en Amarillo Corporativo */
+.carousel-indicators .active,
+.carousel-indicators button.active,
+.slider-dots span.active,
+.slider-dots div.active,
+.slider-dots .dot.active,
+.swiper-pagination-bullet-active,
+.dot.active {
+  background-color: #F6D000 !important; /* Amarillo oficial de marca */
+  width: 52px !important;
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   FOOTER FLUIDO DE EXTREMO A EXTREMO PARA MONITORES ANCHOS
+   ========================================================================== */
+
+.site-footer,
+footer,
+.footer-continuous {
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: #07162C !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 1. Reset del Contenedor de Columnas */
+footer .container,
+footer .footer-container,
+.footer-top-grid,
+.footer-content {
+  width: 100% !important;
+  max-width: 1750px !important; /* Elimina la restricción estrecha */
+  margin: 0 auto !important;
+  padding: 60px 5% 45px 5% !important; /* Márgenes laterales exactos */
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important; /* Expande las 4 columnas a todo lo ancho */
+  align-items: flex-start !important;
+  gap: 40px !important;
+  box-sizing: border-box !important;
+}
+
+.footer-col {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Distribución y Anchos Proporcionales de Columnas */
+/* Columna 1: Marca y Reseña */
+.footer-top-grid > div:nth-child(1),
+.footer-col:first-child,
+.footer-brand-col,
+.footer-col.col-brand {
+  flex: 0 1 340px !important;
+  min-width: 260px !important;
+}
+
+/* Columnas 2 y 3: Enlaces de Menú */
+.footer-top-grid > div:nth-child(2),
+.footer-top-grid > div:nth-child(3),
+.footer-col:nth-child(2),
+.footer-col:nth-child(3) {
+  flex: 0 1 220px !important;
+  min-width: 180px !important;
+}
+
+/* Columna 4: Sede Principal y Contacto */
+.footer-top-grid > div:nth-child(4),
+.footer-col:last-child,
+.footer-contact-col,
+.footer-col.col-contact {
+  flex: 0 1 360px !important;
+  min-width: 280px !important;
+}
+
+/* 3. Escala Visual y Tipografías */
+.footer-logo,
+.footer-col:first-child img {
+  height: 52px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  margin-bottom: 20px !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+.footer-col p {
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+  color: #CBD5E1 !important;
+  margin: 0 0 10px 0 !important;
 }
 
 .footer-col h4 {
-  color: #FFFFFF;
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 1.3rem;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.3rem;
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 20px 0 !important;
+  border-bottom: 2px solid #F6D000 !important;
+  padding-bottom: 6px !important;
+  display: inline-block !important;
+  width: fit-content !important;
 }
 
-.footer-col h4::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background: var(--color-accent);
+.footer-col ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.footer-links-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+.footer-col ul li {
+  margin-bottom: 12px !important;
 }
 
-.footer-links-list a {
-  color: #FFFFFF;
-  text-decoration: none;
-  font-size: 0.92rem;
-  transition: var(--transition);
+.footer-col ul li a {
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: #94A3B8 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
 }
 
-.footer-links-list a:hover {
-  color: var(--color-accent);
-  padding-left: 4px;
+.footer-col ul li a:hover {
+  color: #F6D000 !important;
 }
 
-.footer-contact-details {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  color: #CBD5E1;
-  font-size: 0.92rem;
+.footer-social-icons {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 14px !important;
 }
 
-.footer-contact-details strong {
-  color: #FFFFFF;
+.footer-social-icons a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  transition: all 0.2s ease !important;
 }
 
-.footer-bottom-unified {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.8rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.86rem;
-  color: #94A3B8;
-  flex-wrap: wrap;
-  gap: 1rem;
+.footer-social-icons a:hover {
+  border-color: #F6D000 !important;
+  color: #F6D000 !important;
 }
 
-.footer-bottom-unified strong {
-  color: #F1F5F9;
+/* 4. Barra Inferior de Derechos y Créditos (Ancho Completo y Centrada) */
+.footer-bottom-bar,
+.footer-bottom {
+  width: 100% !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  padding: 18px 5% !important;
+  box-sizing: border-box !important;
+}
+
+.footer-bottom-flex,
+.footer-bottom-container {
+  max-width: 1750px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.88rem !important;
+  color: #64748B !important;
+  gap: 20px !important;
+}
+
+.developer-credit strong {
+  color: #F6D000 !important;
+}
+
+.legal-links a {
+  color: #94A3B8 !important;
+  text-decoration: none !important;
+}
+
+.legal-links a:hover {
+  color: #F6D000 !important;
+}
+
+.legal-links .sep {
+  margin: 0 6px !important;
+  opacity: 0.4 !important;
+}
+
+/* 5. Franja Oficial (Removida) */
+.corporate-units-strip {
+  display: none !important;
+}
+
+/* Adaptación para pantallas medianas / tablets */
+@media (max-width: 1100px) {
+  footer .container,
+  footer .footer-container,
+  .footer-top-grid,
+  .footer-content {
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+  }
+  .footer-col,
+  .footer-top-grid > div:nth-child(1),
+  .footer-top-grid > div:nth-child(2),
+  .footer-top-grid > div:nth-child(3),
+  .footer-top-grid > div:nth-child(4) {
+    flex: 1 1 42% !important;
+  }
+  .footer-bottom-flex,
+  .footer-bottom-container {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-col,
+  .footer-top-grid > div:nth-child(1),
+  .footer-top-grid > div:nth-child(2),
+  .footer-top-grid > div:nth-child(3),
+  .footer-top-grid > div:nth-child(4) {
+    flex: 1 1 100% !important;
+  }
 }
 
 @media (max-width: 992px) {
@@ -3892,119 +4387,209 @@ body.nav-open {
 /* ==========================================================================
    PÁGINA DETALLE DE PROYECTOS (PLANTILLA DINÁMICA)
    ========================================================================== */
-.detail-hero-section {
-  position: relative;
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-  color: #FFFFFF;
-  padding: 130px 0 70px 0;
-  transition: background-image 0.4s ease;
+/* ==========================================================================
+   PLANTILLA DETALLE DE PROYECTO (HERO & CONTENIDO)
+   ========================================================================== */
+
+/* 1. Contenedor principal de la cabecera del proyecto */
+.detail-hero-section,
+.project-detail-hero,
+main.project-detail > section:first-of-type,
+section.project-hero {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Forzar inicio a la izquierda */
+  padding: 100px 0 60px 6% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  background-color: #07162C !important;
 }
 
-.detail-hero-overlay {
-  position: absolute;
-  inset: 0;
+/* 2. Capa de Imagen de Fondo */
+.detail-hero-section::after,
+.project-detail-hero::after,
+section.project-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -10px !important;
+  background-image: inherit !important;
+  background-size: cover !important;
+  background-position: center right !important; /* Enfoca el elemento visual a la derecha */
+  background-repeat: no-repeat !important;
+  filter: brightness(1.05) contrast(1) !important;
+  opacity: 1 !important;
+  z-index: 0 !important;
+  animation: heroKenBurnsZoom 22s ease-in-out infinite alternate !important;
+  pointer-events: none !important;
+}
+
+/* 3. Degradado Lateral Izquierdo Protector */
+.detail-hero-overlay,
+.project-detail-hero::before,
+section.project-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.46) 0%,
-    rgba(0, 0, 0, 0.22) 28%,
-    rgba(0, 0, 0, 0.04) 52%,
-    rgba(0, 0, 0, 0) 70%
-  );
-  z-index: 1;
+    rgba(7, 22, 44, 0.40) 0%,
+    rgba(7, 22, 44, 0.18) 25%,
+    rgba(7, 22, 44, 0) 50%
+  ) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
 }
 
-.detail-hero-container {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
+/* 4. Bloque de Textos y Metadatos (Alineado a la Izquierda) */
+.detail-hero-container,
+.project-detail-content,
+.project-hero-content,
+section.project-hero > div:not(.detail-hero-overlay),
+.detail-hero-section > div:not(.detail-hero-overlay),
+main.project-detail > section:first-of-type > div:not(.detail-hero-overlay) {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+  text-align: left !important;
 }
 
-.btn-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #FFFFFF;
-  padding: 7px 16px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  margin-bottom: 20px;
-  transition: all 0.25s ease;
+/* Reset de .container dentro del Hero de Detalle para anular el centrado */
+.detail-hero-section .container,
+section.project-hero .container {
+  width: 100% !important;
+  max-width: 620px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.btn-back-link:hover {
-  background: var(--color-accent);
-  color: #0F172A;
-  border-color: var(--color-accent);
-  transform: translateX(-4px);
+/* Botón "Volver" */
+.btn-back-link,
+.btn-back-project,
+a[class*="back"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 20px !important;
+  text-decoration: none !important;
+  backdrop-filter: blur(6px) !important;
+  transition: all 0.25s ease !important;
 }
 
-.detail-category-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(246, 208, 0, 0.15);
-  border: 1px solid var(--color-accent);
-  color: var(--color-accent);
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+.btn-back-link:hover,
+.btn-back-project:hover {
+  background: #F6D000 !important;
+  color: #07162C !important;
+  border-color: #F6D000 !important;
+  transform: translateX(-4px) !important;
 }
 
-.detail-hero-title {
-  font-size: clamp(28px, 3.6vw, 46px);
-  font-weight: 900;
-  line-height: 1.15;
-  color: #FFFFFF;
-  margin-bottom: 16px;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+/* Badge de Categoría (Deporte & Recreación) */
+.detail-category-badge,
+.project-category-badge {
+  display: inline-block !important;
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  color: #F6D000 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  border: 1px solid #F6D000 !important;
+  padding: 4px 12px !important;
+  border-radius: 4px !important;
+  margin-bottom: 14px !important;
 }
 
-.detail-hero-subtitle {
-  font-family: var(--font-family-corp);
-  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
-  line-height: 1.35;
-  color: #FFFFFF;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.35);
-  margin-bottom: 26px;
-  max-width: 820px;
+/* Título del Proyecto */
+.detail-hero-title,
+.project-detail-content h1,
+section.project-hero h1 {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: clamp(2.4rem, 3.4vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+  margin: 0 0 14px 0 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85) !important;
 }
 
-.detail-badges-row {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+/* Párrafo Descriptivo */
+.detail-hero-subtitle,
+.project-detail-content p,
+section.project-hero p {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  margin: 0 0 24px 0 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8) !important;
 }
 
-.detail-badge-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #F8FAFC;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+/* Badges / Fichas Técnicas (Clase I, II, Flicker, CRI) */
+.detail-badges-row,
+.project-specs-list,
+.project-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 18px !important;
 }
 
-.detail-badge-item i {
-  color: var(--color-accent);
+.detail-badge-item,
+.project-spec-item,
+.project-tags span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(7, 22, 44, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  font-family: 'Neris', sans-serif !important;
+  font-size: 0.82rem !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.detail-badge-item i,
+.project-spec-item i {
+  color: #F6D000 !important;
+}
+
+@media (max-width: 768px) {
+  .detail-hero-section,
+  .project-detail-hero,
+  section.project-hero {
+    padding: 100px 5% 50px 5% !important;
+    min-height: auto !important;
+  }
+
+  .detail-hero-overlay,
+  .project-detail-hero::before,
+  section.project-hero::before {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 22, 44, 0.94) 0%,
+      rgba(7, 22, 44, 0.85) 60%,
+      rgba(7, 22, 44, 0.70) 100%
+    ) !important;
+  }
 }
 
 /* Ficha Técnica: Grilla de Especificaciones */
@@ -4979,15 +5564,22 @@ body.nav-open {
 .alumbrado-hero-section,
 .inner-hero-banner,
 .hero-nosotros,
-.hero-contacto {
-  height: 580px !important;
-  min-height: 520px !important;
-  max-height: 640px !important;
-  padding: 0 !important;
-  display: flex;
-  align-items: center;
+.hero-contacto,
+.hero,
+.hero-banner,
+.page-hero,
+main > section:first-of-type,
+section[class*="hero"] {
   position: relative !important;
+  width: 100% !important;
+  min-height: 75vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 80px 0 60px 7% !important;
+  box-sizing: border-box !important;
   overflow: hidden !important;
+  background-color: #07162C !important;
 }
 
 /* ==========================================================================
@@ -7870,12 +8462,12 @@ aside:has(> .btn-sidebar-quote) p,
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* Deshabilitar completamente en pantallas mayores a 768px */
-@media (min-width: 769px) {
-  .mobile-lightbox,
-  .mobile-lightbox.is-open {
-    display: none !important;
-  }
+/* Lightbox universal (móvil y escritorio) */
+.mobile-lightbox.is-open,
+.lightbox-modal.is-open {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 /* ==========================================================================
@@ -7942,12 +8534,849 @@ div:has(> .btn-yellow) h3 {
   color: #111827 !important;
 }
 
-/* 5. Supresión de Watermark */
-.site-domain-tag,
-.hero-domain-link,
-.watermark-url {
+
+/* ==========================================================================
+   ZOOM UNIVERSAL EN FOTOS DE GALERÍAS Y PROYECTOS (SECCIÓN 2.D)
+   ========================================================================== */
+.card-img,
+.card-image-wrap,
+.gallery-item,
+.about-image-container,
+.module-card-img,
+.fleet-image-frame,
+.story-media-box {
+  position: relative !important;
+  min-height: 380px !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  cursor: zoom-in !important;
+}
+
+.card-img img,
+.card-image-wrap img,
+.gallery-item img,
+.about-image-container img,
+.module-card-img img,
+.fleet-image-frame img,
+.story-media-box img,
+.coverflow-img-wrapper img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.45s ease, filter 0.3s ease !important;
+}
+
+.card-img:hover img,
+.card-image-wrap:hover img,
+.gallery-item:hover img,
+.about-image-container:hover img,
+.module-card-img:hover img,
+.fleet-image-frame:hover img,
+.story-media-box:hover img,
+.coverflow-img-wrapper:hover img {
+  transform: scale(1.08) !important;
+  filter: brightness(1.03) !important;
+}
+
+@media (max-width: 768px) {
+  .card-img,
+  .card-image-wrap,
+  .gallery-item,
+  .about-image-container,
+  .module-card-img {
+    min-height: 260px !important;
+  }
+}
+
+/* ==========================================================================
+   7. FRANJA INSTITUCIONAL DE CIERRE (PÁGINA 26 DEL MANUAL)
+   ========================================================================== */
+.corporate-units-strip {
+  width: 100%;
+  background-color: var(--color-primary-blue, #003690);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   NIVELACIÓN DE TARJETAS DE PROYECTOS / OBRAS
+   ========================================================================== */
+
+/* Contenedor Grid Parejo */
+.projects-grid,
+.portfolio-grid,
+.catalog-grid,
+#projectsGrid,
+section:has(.project-card) .grid,
+section:has(.project-card) .row {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  margin-top: 48px !important;
+  padding-top: 20px !important;
+  position: relative !important;
+  clear: both !important;
+}
+
+/* Tarjeta base: flexbox vertical uniforme */
+.project-card,
+.card-item {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  background: #FFFFFF !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06) !important;
+  position: relative !important;
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Desaparece cualquier elemento superior residual que bloqueaba/tapaba las fotos */
+.project-card .product-badges-stack,
+.project-card .card-badge-top,
+.project-card .floating-badge,
+.project-card .prod-badge {
   display: none !important;
 }
+
+/* Imagen con altura fija idéntica en las 4 tarjetas (280px) */
+.project-card .image-container,
+.project-card .card-img,
+.project-card .project-img-box,
+.card-item .card-media {
+  width: 100% !important;
+  height: 280px !important;
+  min-height: 280px !important;
+  max-height: 280px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.project-card img,
+.card-item img,
+.project-card .project-img-box img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transition: transform 0.45s ease, filter 0.3s ease !important;
+}
+
+.project-card:hover img,
+.card-item:hover img,
+.project-card:hover .project-img-box img {
+  transform: scale(1.08) !important;
+  filter: brightness(1.03) !important;
+}
+
+/* Contenido de la tarjeta empujado de forma uniforme */
+.project-card .card-content,
+.project-card .card-body,
+.project-card .product-card-body,
+.card-item .content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  padding: 20px !important;
+}
+
+/* Título con altura mínima para igualar líneas de texto */
+.project-card h3,
+.project-card .card-title,
+.project-card .product-title {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: 1.05rem !important;
+  color: #003690 !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+  min-height: 48px !important; /* Absorbe variaciones de 1 o 2 líneas */
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Descripción con espacio flexible */
+.project-card p,
+.project-card .card-description,
+.project-card .product-short-desc {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: 0.88rem !important;
+  color: #475569 !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+  flex-grow: 1 !important;
+}
+
+/* Franja inferior alineada a la base */
+.project-card .product-specs-chips,
+.project-card .project-meta-strip {
+  margin-top: auto !important;
+  padding-top: 14px !important;
+}
+
+/* Responsividad limpia */
+@media (max-width: 1200px) {
+  .projects-grid,
+  .portfolio-grid,
+  .catalog-grid,
+  #projectsGrid,
+  section:has(.project-card) .grid,
+  section:has(.project-card) .row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid,
+  .portfolio-grid,
+  .catalog-grid,
+  #projectsGrid,
+  section:has(.project-card) .grid,
+  section:has(.project-card) .row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   HOMOLOGACIÓN TIPOGRÁFICA DEL HEADER Y BANNER
+   ========================================================================== */
+
+/* 1. Enlaces del Menú de Navegación (Header) */
+header nav a,
+.navbar-nav .nav-link,
+.nav-item a,
+.menu-link,
+header .nav-link,
+.site-header .nav-link,
+.header-transparent .nav-link {
+  font-family: 'Neris', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important; /* Semi-bold limpio, sin sobrecarga */
+  letter-spacing: 0.2px !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+  transition: color 0.2s ease !important;
+}
+
+header nav a:hover,
+.navbar-nav .nav-link:hover,
+header .nav-link:hover,
+.site-header .nav-link:hover,
+.header-transparent .nav-link:hover {
+  color: #F6D000 !important; /* Amarillo corporativo oficial */
+}
+
+/* 2. Botón "Cotizar" en el Navbar */
+header a[href*="cotizar"],
+.btn-header-cotizar,
+.navbar .btn-primary,
+.nav-btn-cotizar,
+header .btn-quote-header,
+header nav a.btn-quote-header,
+.btn-quote-header,
+.btn-cotizar,
+.site-header .btn-cotizar {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  color: #07162C !important;
+  background-color: #F6D000 !important;
+  padding: 10px 22px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+  text-shadow: none !important;
+}
+
+header a[href*="cotizar"]:hover,
+.btn-header-cotizar:hover,
+header .btn-quote-header:hover,
+header nav a.btn-quote-header:hover,
+.btn-quote-header:hover,
+.btn-cotizar:hover,
+.site-header .btn-cotizar:hover {
+  background-color: #e5c200 !important;
+  color: #07162C !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 3. Títulos H1 del Banner (Hero) */
+.hero h1,
+.hero-banner h1,
+.page-hero h1,
+.hero-slider-section h1,
+.hero-title,
+.hero-insignia-title,
+main > section:first-of-type h1,
+section[class*="hero"] h1 {
+  font-family: 'Century Gothic', 'Neris', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 2.75rem !important;
+  line-height: 1.15 !important;
+  color: #FFFFFF !important;
+  letter-spacing: -0.3px !important;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 4px 14px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* 4. Textos y Párrafos del Banner (Hero) */
+.hero p,
+.hero-banner p,
+.page-hero p,
+.hero-slider-section p,
+.hero-lead,
+.hero-insignia-lead,
+.slide-content p,
+main > section:first-of-type p,
+section[class*="hero"] p {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: 1.12rem !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: #FFFFFF !important;
+  text-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 2px 8px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* ==========================================================================
+   BANNER ILUMINADO, AMPLIO Y CON CONTRASTE SUAVE
+   ========================================================================== */
+
+/* 1. Altura Real y Espaciamiento */
+.hero,
+.hero-banner,
+.page-hero,
+.hero-slider-section,
+.hero-slider-container,
+.hero-insignia,
+.alumbrado-hero-section,
+.inner-hero-banner,
+.hero-nosotros,
+.hero-contacto,
+main > section:first-of-type,
+section[class*="hero"] {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 92vh !important;
+  height: 92vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 80px 0 60px 7% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  background-color: #07162C !important;
+}
+
+/* 2. Foto de Fondo: Brillante, Nítida y con Zoom Automático Lento */
+.hero::after,
+.hero-banner::after,
+.page-hero::after,
+.project-detail-hero::after,
+.detail-hero-section::after,
+main > section:first-of-type::after,
+section[class*="hero"]:not(.hero-slider-section)::after,
+.slide-bg,
+.slide.active .slide-bg {
+  content: "" !important;
+  position: absolute !important;
+  inset: -15px !important;
+  width: calc(100% + 30px) !important;
+  height: calc(100% + 30px) !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+  filter: brightness(1.05) contrast(1) !important; /* Brillo pleno sin atenuar */
+  opacity: 1 !important;
+  z-index: 0 !important;
+  animation: heroKenBurnsZoom 22s ease-in-out infinite alternate !important;
+  pointer-events: none !important;
+}
+
+@keyframes heroKenBurnsZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+/* 3. Degradado Lateral Suave (SOLO en la zona del texto) */
+.hero::before,
+.hero-banner::before,
+.page-hero::before,
+.project-detail-hero::before,
+.detail-hero-section::before,
+.detail-hero-overlay,
+main > section:first-of-type::before,
+section[class*="hero"]:not(.hero-slider-section)::before,
+.slide-overlay {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  /* Sombra ultra ligera: solo 40% en el borde extremo izquierdo y se desvanece al 0% rápido a los 50% */
+  background: linear-gradient(
+    90deg,
+    rgba(7, 22, 44, 0.40) 0%,
+    rgba(7, 22, 44, 0.18) 25%,
+    rgba(7, 22, 44, 0) 50%
+  ) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Evitar doble oscurecimiento en sliders */
+.hero-slider-section::before,
+.hero-slider-section::after {
+  display: none !important;
+}
+
+/* 4. Bloque de Texto a la Izquierda y Botones */
+.hero-slider-section .slide,
+.hero-slider-container .slide,
+.slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 92vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 80px 0 60px 7% !important;
+  box-sizing: border-box !important;
+}
+
+.hero-slider-section .slide-content-wrapper,
+.slide-content-wrapper {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.hero-slider-section .container,
+.hero-home .container,
+.hero-insignia .container,
+.slide-content-wrapper .container,
+main > section:first-of-type .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.hero-content,
+.hero-text-wrap,
+.slide-content,
+.hero-insignia-content,
+.banner-text-block,
+main > section:first-of-type > div:not(.slide):not(.detail-hero-overlay):not([class*="overlay"]):not(.slider-dots):not([class*="dots"]):not([class*="indicator"]):not([class*="pagination"]),
+section[class*="hero"] > div:not(.slide):not(.detail-hero-overlay):not([class*="overlay"]):not(.slider-dots):not([class*="dots"]):not([class*="indicator"]):not([class*="pagination"]) {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 580px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+.hero h1,
+.hero-banner h1,
+.page-hero h1,
+.hero-content h1,
+.hero-text-wrap h1,
+.slide-content h1,
+.hero-title,
+.hero-insignia-title,
+main > section:first-of-type h1 {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: clamp(2.3rem, 3.2vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  line-height: 1.18 !important;
+  margin: 0 0 14px 0 !important;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+}
+
+.hero p,
+.hero-banner p,
+.page-hero p,
+.hero-content p,
+.hero-text-wrap p,
+.slide-content p,
+.hero-lead,
+.hero-insignia-lead,
+main > section:first-of-type p {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 24px 0 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* ==========================================================================
+   HEADER Y NAVBAR DE ANCHO COMPLETO (PANTALLAS GRANDES Y ULTRAWIDE)
+   ========================================================================== */
+
+/* 1. Header principal: anclaje superior de ancho completo */
+header,
+.site-header,
+.navbar-wrapper,
+.header-transparent {
+  width: 100% !important;
+  max-width: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1000 !important;
+  background: transparent !important;
+}
+
+/* 2. Contenedor interno del Navbar: distribución de extremo a extremo */
+header .container,
+header .navbar-container,
+.navbar,
+header nav.main-nav,
+.header-inner,
+header .header-inner {
+  width: 100% !important;
+  max-width: 100% !important; /* Elimina la restricción que centraba el logo */
+  margin: 0 !important;
+  padding: 16px 4.5% !important; /* Margen cómodo en los dos extremos */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important; /* Logo al extremo izquierdo, menú al derecho */
+  box-sizing: border-box !important;
+}
+
+/* 3. Logotipo: anclado firmemente a la izquierda y destacado */
+.site-logo,
+.navbar-brand,
+.brand-logo-container,
+.header-logo-container,
+.logo-main,
+header a[href*="index"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: auto !important;
+  min-height: 76px !important;
+  margin-right: auto !important; /* Garantiza empuje total hacia la izquierda */
+  padding: 0 !important;
+}
+
+.site-logo img,
+.navbar-brand img,
+.brand-logo-container img,
+.header-logo-container img,
+.logo-main img,
+header a[href*="index"] img {
+  height: 76px !important;
+  max-height: 76px !important;
+  width: auto !important;
+  max-width: 320px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+/* 4. Menú de navegación y botón: agrupados a la derecha */
+header .nav-menu,
+header .navbar-nav,
+header .nav-links-wrapper,
+header .nav-desktop,
+header nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+  margin-left: auto !important;
+}
+
+/* Evitar que las pantallas ultrawide (2K/4K) rompan la lectura */
+@media (min-width: 2000px) {
+  header .container,
+  header .navbar-container,
+  .navbar,
+  .header-inner,
+  header .header-inner {
+    padding: 20px 6% !important;
+  }
+}
+
+/* ==========================================================================
+   RESTAURACIÓN DEFINITIVA DE POSICIÓN DE TEXTOS EN BANNERS / CARROUSEL
+   ========================================================================== */
+
+/* 1. Reset del Contenedor de la Diapositiva / Hero */
+.hero,
+.hero-banner,
+.page-hero,
+.carousel-item,
+.hero .swiper-slide,
+.hero-slider-section,
+.hero-home,
+.hero-insignia,
+main > section:first-of-type {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important; /* Centrado vertical natural dentro del 90vh */
+  align-items: flex-start !important;  /* Estricto margen izquierdo */
+  padding-left: 6% !important;
+  padding-top: 80px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+/* Diapositivas superpuestas en sliders multicapa */
+.hero-slider-section .slide,
+.hero-slider-container .slide,
+.slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 92vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  padding-left: 6% !important;
+  padding-top: 80px !important;
+  padding-bottom: 40px !important;
+  box-sizing: border-box !important;
+  bottom: auto !important;
+}
+
+/* 2. Contenedor de Texto: Eliminar cualquier anclaje hacia el suelo */
+.carousel-caption,
+.hero-content,
+.hero-text-wrap,
+.swiper-slide .slide-content,
+.slide-content-wrapper,
+.slide-content,
+.hero-insignia-content,
+.project-detail-content,
+main > section:first-of-type > div:not(.slide):not(.detail-hero-overlay):not([class*="overlay"]):not(.slider-dots):not([class*="dots"]):not([class*="indicator"]):not([class*="pagination"]):not(.slider-arrow) {
+  position: relative !important; /* Salir del absolute rígido que lo tira al fondo */
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 580px !important;
+  text-align: left !important;
+  z-index: 10 !important;
+}
+
+.slide-content-wrapper .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Forzar en caso de que mantenga position: absolute por Bootstrap */
+.carousel-inner .carousel-caption {
+  position: absolute !important;
+  top: 28% !important;       /* Ubicado en el tercio superior-medio */
+  bottom: auto !important;   /* Anula el anclaje inferior de Bootstrap */
+  left: 6% !important;
+  transform: none !important;
+}
+
+/* 3. Título Principal */
+.carousel-caption h1,
+.hero-content h1,
+.hero-text-wrap h1,
+.hero-title,
+.hero-insignia-title,
+.slide-content h1,
+main > section:first-of-type h1 {
+  font-family: 'Century Gothic', sans-serif !important;
+  font-size: clamp(2.3rem, 3.4vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+  margin: 0 0 14px 0 !important;
+  display: block !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 4. Párrafo Descriptivo (Restaurar visibilidad) */
+.carousel-caption p,
+.hero-content p,
+.hero-text-wrap p,
+.hero-lead,
+.hero-insignia-lead,
+.slide-content p,
+main > section:first-of-type p {
+  font-family: 'Neris', 'Century Gothic', sans-serif !important;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem) !important;
+  line-height: 1.55 !important;
+  color: #FFFFFF !important;
+  margin: 0 0 22px 0 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* 5. Botón de Acción (Restaurar visibilidad y proporción) */
+.carousel-caption .btn,
+.hero-content .btn,
+.hero-text-wrap a,
+.hero-content a,
+.btn-slider-action,
+.hero-insignia-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 24px !important;
+  background-color: #F6D000 !important;
+  color: #07162C !important;
+  font-family: 'Neris', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   AJUSTE DE ESCALA Y COMPACIDAD: HISTORIAS DE ÉXITO / CASOS DE ÉXITO
+   ========================================================================== */
+
+/* 1. Contenedor del Carrusel / Slider de Casos de Éxito */
+.success-stories-slider,
+.cases-slider,
+.emblematic-lighting-section .swiper,
+.emblematic-lighting-section .projects-carousel-container,
+.schreder-stage-wrapper .swiper,
+.schreder-stage-wrapper,
+section:has([class*="Guatavita"]) .swiper,
+section:has([class*="Guatavita"]) .carousel,
+.stories-slider-container {
+  max-width: 1380px !important;
+  margin: 25px auto 40px auto !important;
+  padding: 0 4% !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* 2. Diapositivas / Tarjetas del Carrusel */
+.success-stories-slider .swiper-slide,
+.cases-slider .carousel-item,
+.emblematic-lighting-section .swiper-slide,
+.emblematic-lighting-section .premium-project-slide,
+.schreder-stage-wrapper .swiper-slide,
+.projects-carousel-container .swiper-slide,
+.mySchrederSwiper .swiper-slide,
+.story-card,
+.case-card,
+.premium-project-slide {
+  height: 340px !important;
+  min-height: 340px !important;
+  max-height: 340px !important;
+  width: 44% !important;
+  max-width: 440px !important; /* Evita que una sola tarjeta se trague el ancho */
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  display: block !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Contenedor de la Imagen: Reducción de Altura Controlada */
+.story-card-image,
+.case-card-image,
+.story-card .image-wrapper,
+.emblematic-lighting-section .premium-project-slide,
+.schreder-stage-wrapper .premium-project-slide,
+section:has([class*="Guatavita"]) .swiper-slide img,
+section:has([class*="Guatavita"]) .carousel-item img {
+  width: 100% !important;
+  height: 340px !important;       /* Altura moderada y armónica */
+  min-height: 340px !important;
+  max-height: 340px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 12px !important;
+  display: block !important;
+}
+
+/* 4. Separación y Alineación de Controles Superiores */
+.stories-controls-bar,
+.emblematic-controls-bar,
+.carousel-top-bar,
+section:has([class*="Guatavita"]) .slider-navigation,
+section:has([class*="Guatavita"]) .d-flex:has(.pagination-numbers) {
+  margin-bottom: 20px !important;
+}
+
+/* Ajustes Responsive */
+@media (max-width: 992px) {
+  .story-card-image,
+  .case-card-image,
+  .emblematic-lighting-section .swiper-slide,
+  .emblematic-lighting-section .premium-project-slide,
+  .schreder-stage-wrapper .swiper-slide,
+  .projects-carousel-container .swiper-slide,
+  .mySchrederSwiper .swiper-slide,
+  .premium-project-slide,
+  section:has([class*="Guatavita"]) .swiper-slide img {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+    width: 60% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-card-image,
+  .case-card-image,
+  .emblematic-lighting-section .swiper-slide,
+  .emblematic-lighting-section .premium-project-slide,
+  .schreder-stage-wrapper .swiper-slide,
+  .projects-carousel-container .swiper-slide,
+  .mySchrederSwiper .swiper-slide,
+  .premium-project-slide,
+  section:has([class*="Guatavita"]) .swiper-slide img {
+    height: 230px !important;
+    min-height: 230px !important;
+    max-height: 230px !important;
+    width: 85% !important;
+  }
+}
+
+
+
+
 
 
 
